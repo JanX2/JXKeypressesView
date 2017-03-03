@@ -11,6 +11,7 @@
 		3D4C7B2F1E698C9B0013CF8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C7B2E1E698C9B0013CF8C /* main.m */; };
 		3D4C7B311E698C9B0013CF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C7B301E698C9B0013CF8C /* Assets.xcassets */; };
 		3D4C7B341E698C9B0013CF8C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C7B321E698C9B0013CF8C /* MainMenu.xib */; };
+		3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,8 @@
 		3D4C7B301E698C9B0013CF8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D4C7B331E698C9B0013CF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3D4C7B351E698C9B0013CF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D4C7B3B1E698CE00013CF8C /* JXKeypressesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXKeypressesView.h; sourceTree = "<group>"; };
+		3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JXKeypressesView.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,8 @@
 				3D4C7B2A1E698C9B0013CF8C /* AppDelegate.h */,
 				3D4C7B2B1E698C9B0013CF8C /* AppDelegate.m */,
 				3D4C7B301E698C9B0013CF8C /* Assets.xcassets */,
+				3D4C7B3B1E698CE00013CF8C /* JXKeypressesView.h */,
+				3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.mm */,
 				3D4C7B321E698C9B0013CF8C /* MainMenu.xib */,
 				3D4C7B351E698C9B0013CF8C /* Info.plist */,
 				3D4C7B2D1E698C9B0013CF8C /* Supporting Files */,
@@ -142,6 +147,7 @@
 			files = (
 				3D4C7B2F1E698C9B0013CF8C /* main.m in Sources */,
 				3D4C7B2C1E698C9B0013CF8C /* AppDelegate.m in Sources */,
+				3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
