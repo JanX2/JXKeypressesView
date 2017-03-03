@@ -8,15 +8,21 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "JXKeypressesView.h"
+
+
+@interface AppDelegate () {
+	IBOutlet JXKeypressesView *_keypressesView;
+}
 
 @property (weak) IBOutlet NSWindow *window;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application
+	[_window makeFirstResponder: _keypressesView];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
