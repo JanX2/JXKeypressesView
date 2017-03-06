@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -671,12 +672,81 @@
         <window title="Keyboard Keypresses Aggregation" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
+            <rect key="contentRect" x="335" y="390" width="265" height="204"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="JXKeypressesView">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="265" height="204"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box autoresizesSubviews="NO" title="Media Controls" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2L8-6p-COm">
+                        <rect key="frame" x="49" y="46" width="166" height="116"/>
+                        <view key="contentView" id="B2E-Rs-mha">
+                            <rect key="frame" x="1" y="1" width="164" height="100"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-lD-B1a">
+                                    <rect key="frame" x="38" y="52" width="44" height="32"/>
+                                    <buttonCell key="cell" type="push" title="I" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S9y-Fa-4si">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N41-WW-7OM">
+                                    <rect key="frame" x="78" y="52" width="50" height="32"/>
+                                    <buttonCell key="cell" type="push" title="O" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IFz-Nw-GGG">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-Lm-F0W">
+                                    <rect key="frame" x="14" y="19" width="47" height="32"/>
+                                    <buttonCell key="cell" type="push" title="J" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aF8-eu-xk0">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-Yf-41B">
+                                    <rect key="frame" x="57" y="19" width="49" height="32"/>
+                                    <buttonCell key="cell" type="push" title="K" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qEH-1H-7IE">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KN0-XA-zc3">
+                                    <rect key="frame" x="102" y="19" width="48" height="32"/>
+                                    <buttonCell key="cell" type="push" title="L" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3FW-qc-Dpy">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="KN0-XA-zc3" firstAttribute="top" secondItem="N41-WW-7OM" secondAttribute="bottom" constant="12" id="5yE-CA-IDe"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="leading" secondItem="YKk-Lm-F0W" secondAttribute="trailing" constant="8" id="77q-mk-2Eq"/>
+                                <constraint firstItem="KN0-XA-zc3" firstAttribute="leading" secondItem="1ch-Yf-41B" secondAttribute="trailing" constant="8" id="7jQ-jh-aOP"/>
+                                <constraint firstItem="N41-WW-7OM" firstAttribute="top" secondItem="B2E-Rs-mha" secondAttribute="top" constant="20" id="Cyb-CD-bMA"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="leading" secondItem="B2E-Rs-mha" secondAttribute="leading" constant="20" id="JFU-Wt-gwh"/>
+                                <constraint firstItem="TRe-lD-B1a" firstAttribute="leading" secondItem="B2E-Rs-mha" secondAttribute="leading" constant="44" id="YRd-AO-Y6H"/>
+                                <constraint firstItem="TRe-lD-B1a" firstAttribute="top" secondItem="B2E-Rs-mha" secondAttribute="top" constant="20" id="blS-yx-Xq2"/>
+                                <constraint firstItem="N41-WW-7OM" firstAttribute="leading" secondItem="TRe-lD-B1a" secondAttribute="trailing" constant="8" id="i6G-4m-Td7"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="top" secondItem="TRe-lD-B1a" secondAttribute="bottom" constant="12" id="n5N-kZ-cAw"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="top" secondItem="N41-WW-7OM" secondAttribute="bottom" constant="12" id="rX7-bX-R0w"/>
+                            </constraints>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="112" id="hr0-ou-LEE"/>
+                            <constraint firstAttribute="width" constant="160" id="zNy-Dz-3zs"/>
+                        </constraints>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2L8-6p-COm" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" constant="-4" id="1tt-ty-48S"/>
+                    <constraint firstItem="2L8-6p-COm" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="J71-YO-C2S"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="418.5" y="601"/>
         </window>
     </objects>
 </document>
