@@ -22,8 +22,8 @@
 - (void)keyDown:(NSEvent *)theEvent
 {
 	NSString *pressedKeyString = theEvent.charactersIgnoringModifiers;
-	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : 0;
-	if (pressedKey) {
+	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : '\0';
+	if (pressedKey != '\0') {
 		pressedKeys.insert(pressedKey);
 	}
 }
@@ -31,8 +31,8 @@
 - (void)keyUp:(NSEvent *)theEvent
 {
 	NSString *pressedKeyString = theEvent.charactersIgnoringModifiers;
-	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : 0;
-	if (pressedKey) {
+	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : '\0';
+	if (pressedKey != '\0') {
 		auto foundKey = pressedKeys.find(pressedKey);
 		if (foundKey != pressedKeys.end()) {
 			pressedKeys.erase(foundKey);
