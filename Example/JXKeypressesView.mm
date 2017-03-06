@@ -23,8 +23,9 @@
 {
 	NSString *pressedKeyString = theEvent.charactersIgnoringModifiers;
 	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : 0;
-	if (pressedKey)
+	if (pressedKey) {
 		pressedKeys.insert(pressedKey);
+	}
 }
 
 - (void)keyUp:(NSEvent *)theEvent
@@ -33,8 +34,9 @@
 	unichar   pressedKey = (pressedKeyString.length > 0) ? [pressedKeyString characterAtIndex:0] : 0;
 	if (pressedKey) {
 		auto foundKey = pressedKeys.find(pressedKey);
-		if (foundKey != pressedKeys.end())
+		if (foundKey != pressedKeys.end()) {
 			pressedKeys.erase(foundKey);
+		}
 	}
 }
 
