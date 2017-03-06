@@ -38,6 +38,7 @@
 	}
 }
 
+#if 0
 // We need key codes under which to save the modifiers in our "keys pressed"
 //	table. We must pick characters that are unlikely to be on any real keyboard.
 //	So we pick the Unicode glyphs that correspond to the symbols on these keys.
@@ -109,5 +110,6 @@ enum {
 		}
 	}
 }
+#endif
 
 @end
