@@ -10,4 +10,11 @@
 
 @interface JXKeypressesView : NSView
 
+@property (nonatomic, readonly, assign) BOOL jButtonDown;
+@property (nonatomic, readonly, assign) BOOL kButtonDown;
+@property (nonatomic, readonly, assign) BOOL lButtonDown;
+
+@property (nonatomic, readonly, assign) BOOL fastReverseActivated;
+@property (nonatomic, readonly, assign) BOOL fastForwardActivated;
+
 @end
