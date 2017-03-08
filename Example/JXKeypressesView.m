@@ -196,6 +196,8 @@ KeysArrayType * handledKeys() {
 	return _keysDown[kVK_ANSI_L];
 }
 
+NSString * const JXKUndefinedKeyCode = @"*undefined*";
+
 NSArray *namesForKeyCodesArray()
 {
 	static dispatch_once_t OnceToken;
@@ -256,9 +258,9 @@ NSArray *namesForKeyCodesArray()
 		  @"space",				// 0x31
 		  @"grave",				// 0x32
 		  @"delete",			// 0x33
-		  @"*undefined*",		// 0x34
+		  JXKUndefinedKeyCode,	// 0x34
 		  @"escape",			// 0x35
-		  @"*undefined*",		// 0x36
+		  JXKUndefinedKeyCode,	// 0x36
 		  @"command",			// 0x37
 		  @"shift",				// 0x38
 		  @"capsLock",			// 0x39
@@ -270,18 +272,18 @@ NSArray *namesForKeyCodesArray()
 		  @"function",			// 0x3F
 		  @"f17",				// 0x40
 		  @"keypadDecimal",		// 0x41
-		  @"*undefined*",		// 0x42
+		  JXKUndefinedKeyCode,	// 0x42
 		  @"keypadMultiply",	// 0x43
-		  @"*undefined*",		// 0x44
+		  JXKUndefinedKeyCode,	// 0x44
 		  @"keypadPlus",		// 0x45
-		  @"*undefined*",		// 0x46
+		  JXKUndefinedKeyCode,	// 0x46
 		  @"keypadClear",		// 0x47
 		  @"volumeUp",			// 0x48
 		  @"volumeDown",		// 0x49
 		  @"mute",				// 0x4A
 		  @"keypadDivide",		// 0x4B
 		  @"keypadEnter",		// 0x4C
-		  @"*undefined*",		// 0x4D
+		  JXKUndefinedKeyCode,	// 0x4D
 		  @"keypadMinus",		// 0x4E
 		  @"f18",				// 0x4F
 		  @"f19",				// 0x50
@@ -312,11 +314,11 @@ NSArray *namesForKeyCodesArray()
 		  @"f13",				// 0x69
 		  @"f16",				// 0x6A
 		  @"f14",				// 0x6B
-		  @"*undefined*",		// 0x6C
+		  JXKUndefinedKeyCode,	// 0x6C
 		  @"f10",				// 0x6D
-		  @"*undefined*",		// 0x6E
+		  JXKUndefinedKeyCode,	// 0x6E
 		  @"f12",				// 0x6F
-		  @"*undefined*",		// 0x70
+		  JXKUndefinedKeyCode,	// 0x70
 		  @"f15",				// 0x71
 		  @"help",				// 0x72
 		  @"home",				// 0x73
@@ -331,7 +333,7 @@ NSArray *namesForKeyCodesArray()
 		  @"rightArrow",		// 0x7C
 		  @"downArrow",			// 0x7D
 		  @"upArrow",			// 0x7E
-		  @"*undefined*",		// 0x7F
+		  JXKUndefinedKeyCode,	// 0x7F
 		  ];
 	});
 	
@@ -350,7 +352,7 @@ NSArray *buttonDownPropertyNamesForKeyCodesArray()
 		for (int i = 0; i < KeyCodeCount; i++) {
 			NSString *keyName = namesForKeyCodes[i];
 			
-			if (![keyName isEqualToString:@"*undefined*"]) {
+			if (![keyName isEqualToString:JXKUndefinedKeyCode]) {
 				NSString *buttonDownPropertyName =
 				[keyName stringByAppendingString:@"ButtonDown"];
 				
