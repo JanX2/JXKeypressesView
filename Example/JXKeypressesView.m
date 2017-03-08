@@ -74,7 +74,7 @@ KeysArrayType * handledKeys() {
 		
 		unsigned keyCode = theEvent.keyCode;
 		
-		handledKey = handledKeys()[keyCode];
+		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
 		if (keyCode <= KeyCodeMax) {
 			[self willChangeValueForKeyCode:keyCode];
@@ -129,7 +129,7 @@ KeysArrayType * handledKeys() {
 		
 		unsigned keyCode = theEvent.keyCode;
 		
-		handledKey = handledKeys()[keyCode];
+		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
 		if (keyCode <= KeyCodeMax) {
 			[self willChangeValueForKeyCode:keyCode];
