@@ -45,64 +45,86 @@
 //	table. We must pick characters that are unlikely to be on any real keyboard.
 //	So we pick the Unicode glyphs that correspond to the symbols on these keys.
 enum {
-	ICGShiftFunctionKey = 0x21E7, // -> NSShiftKeyMask
-	ICGAlphaShiftFunctionKey = 0x21EA, // -> NSAlphaShiftKeyMask
-	ICGAlternateFunctionKey = 0x2325, // -> NSAlternateKeyMask
-	ICGControlFunctionKey = 0x2303, // -> NSControlKeyMask
-	ICGCommandFunctionKey = 0x2318 // -> NSCommandKeyMask
+	JXKShiftFunctionKey			= 0x21E7, // -> NSShiftKeyMask
+	JXKAlphaShiftFunctionKey	= 0x21EA, // -> NSAlphaShiftKeyMask
+	JXKAlternateFunctionKey		= 0x2325, // -> NSAlternateKeyMask
+	JXKControlFunctionKey		= 0x2303, // -> NSControlKeyMask
+	JXKCommandFunctionKey		= 0x2318  // -> NSCommandKeyMask
 };
+
+#if 0
+// From
+// MacOSX10.11.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h
+/* useful Unicode code points*/
+enum {
+	kShiftUnicode                 = 0x21E7, /* Unicode UPWARDS WHITE ARROW*/
+	kControlUnicode               = 0x2303, /* Unicode UP ARROWHEAD*/
+	kOptionUnicode                = 0x2325, /* Unicode OPTION KEY*/
+	kCommandUnicode               = 0x2318, /* Unicode PLACE OF INTEREST SIGN*/
+	kPencilUnicode                = 0x270E, /* Unicode LOWER RIGHT PENCIL; actually pointed left until Mac OS X 10.3*/
+	kPencilLeftUnicode            = 0xF802, /* Unicode LOWER LEFT PENCIL; available in Mac OS X 10.3 and later*/
+	kCheckUnicode                 = 0x2713, /* Unicode CHECK MARK*/
+	kDiamondUnicode               = 0x25C6, /* Unicode BLACK DIAMOND*/
+	kBulletUnicode                = 0x2022, /* Unicode BULLET*/
+	kAppleLogoUnicode             = 0xF8FF /* Unicode APPLE LOGO*/
+};
+#endif
 
 - (void)flagsChanged:(NSEvent *)theEvent
 {
+	if (theEvent.isARepeat)  return;
+	
 	if (theEvent.modifierFlags & NSShiftKeyMask) {
-		pressedKeys.insert(ICGShiftFunctionKey);
+		pressedKeys.insert(JXKShiftFunctionKey);
 	}
 	else {
-		auto foundKey = pressedKeys.find(ICGShiftFunctionKey);
+		auto foundKey = pressedKeys.find(JXKShiftFunctionKey);
 		if (foundKey != pressedKeys.end())
 			pressedKeys.erase(foundKey);
 	}
 
 	if (theEvent.modifierFlags & NSAlphaShiftKeyMask) {
-		pressedKeys.insert(ICGAlphaShiftFunctionKey);
+		pressedKeys.insert(JXKAlphaShiftFunctionKey);
 	}
 	else {
-		auto foundKey = pressedKeys.find(ICGAlphaShiftFunctionKey);
+		auto foundKey = pressedKeys.find(JXKAlphaShiftFunctionKey);
 		if (foundKey != pressedKeys.end())
 			pressedKeys.erase(foundKey);
 	}
 
 	if (theEvent.modifierFlags & NSControlKeyMask) {
-		pressedKeys.insert(ICGControlFunctionKey);
+		pressedKeys.insert(JXKControlFunctionKey);
 	}
 	else {
-		auto foundKey = pressedKeys.find(ICGControlFunctionKey);
+		auto foundKey = pressedKeys.find(JXKControlFunctionKey);
 		if (foundKey != pressedKeys.end())
 			pressedKeys.erase(foundKey);
 	}
 
 	if (theEvent.modifierFlags & NSCommandKeyMask) {
-		pressedKeys.insert(ICGCommandFunctionKey);
+		pressedKeys.insert(JXKCommandFunctionKey);
 	}
 	else {
-		auto foundKey = pressedKeys.find(ICGCommandFunctionKey);
+		auto foundKey = pressedKeys.find(JXKCommandFunctionKey);
 		if (foundKey != pressedKeys.end())
 			pressedKeys.erase(foundKey);
 	}
 
 	if (theEvent.modifierFlags & NSAlternateKeyMask) {
-		pressedKeys.insert(ICGAlternateFunctionKey);
+		pressedKeys.insert(JXKAlternateFunctionKey);
 	}
 	else {
-		auto foundKey = pressedKeys.find(ICGAlternateFunctionKey);
+		auto foundKey = pressedKeys.find(JXKAlternateFunctionKey);
 		if (foundKey != pressedKeys.end())
 			pressedKeys.erase(foundKey);
 	}
 }
+#endif
 
+#if 0
 - (void)dispatchPressedKeys:(NSTimer *)sender
 {
-	BOOL shiftKeyDown = pressedKeys.find(ICGShiftFunctionKey) != pressedKeys.end();
+	BOOL shiftKeyDown = pressedKeys.find(JXKShiftFunctionKey) != pressedKeys.end();
 	for (unichar pressedKey : pressedKeys) {
 		switch (pressedKey) {
 		case 'w':
