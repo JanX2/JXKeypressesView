@@ -704,6 +704,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.jButtonDown" id="gZk-uE-VFc"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-Yf-41B">
                                     <rect key="frame" x="57" y="19" width="49" height="32"/>
@@ -711,6 +714,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.kButtonDown" id="thR-h5-zc2"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KN0-XA-zc3">
                                     <rect key="frame" x="102" y="19" width="48" height="32"/>
@@ -718,6 +724,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.lButtonDown" id="frd-nQ-HrM"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

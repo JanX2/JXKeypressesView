@@ -17,6 +17,8 @@
 
 @property (weak) IBOutlet NSWindow *window;
 
+@property (nonatomic, readonly) JXKeypressesView *keypressesView;
+
 @end
 
 @implementation AppDelegate
