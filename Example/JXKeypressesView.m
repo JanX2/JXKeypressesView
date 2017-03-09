@@ -76,36 +76,36 @@ KeysArrayType * handledKeys() {
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
-		if (keyCode <= KeyCodeMax) {
+		if (handledKey &&
+			(keyCode <= KeyCodeMax)) {
 			[self willChangeValueForKeyCode:keyCode];
 			_keysDown[keyCode] = KeyIsDown;
 			[self didChangeValueForKeyCode:keyCode];
-		}
-		
-		switch (keyCode) {
-			case kVK_ANSI_J:
-				break;
-				
-			//case kVK_Space:
-			case kVK_ANSI_K:
-				break;
-				
-			case kVK_ANSI_L:
-				break;
-				
+			
+			switch (keyCode) {
+				case kVK_ANSI_J:
+					break;
+					
+				//case kVK_Space:
+				case kVK_ANSI_K:
+					break;
+					
+				case kVK_ANSI_L:
+					break;
+					
 #if 0
-			case kVK_ANSI_I:
-				// Set loop in-point.
-				break;
-				
-			case kVK_ANSI_O:
-				// Set loop out-point.
-				break;
+				case kVK_ANSI_I:
+					break;
+					
+				case kVK_ANSI_O:
+					break;
 #endif
-				
-			default:
-				//handledKey = NO;
-				break;
+					
+				default:
+					//handledKey = NO;
+					break;
+			}
+			
 		}
 	}
 	else {
@@ -131,36 +131,36 @@ KeysArrayType * handledKeys() {
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
-		if (keyCode <= KeyCodeMax) {
+		if (handledKey &&
+			(keyCode <= KeyCodeMax)) {
 			[self willChangeValueForKeyCode:keyCode];
 			_keysDown[keyCode] = KeyIsUp;
 			[self didChangeValueForKeyCode:keyCode];
-		}
-		
-		switch (keyCode) {
-			case kVK_ANSI_J:
-				break;
-				
-			//case kVK_Space:
-			case kVK_ANSI_K:
-				break;
-				
-			case kVK_ANSI_L:
-				break;
-				
+			
+			switch (keyCode) {
+				case kVK_ANSI_J:
+					break;
+					
+				//case kVK_Space:
+				case kVK_ANSI_K:
+					break;
+					
+				case kVK_ANSI_L:
+					break;
+					
 #if 0
-			case kVK_ANSI_I:
-				// Set loop in-point.
-				break;
-				
-			case kVK_ANSI_O:
-				// Set loop out-point.
-				break;
+				case kVK_ANSI_I:
+					break;
+					
+				case kVK_ANSI_O:
+					break;
 #endif
-				
-			default:
-				//handledKey = NO;
-				break;
+					
+				default:
+					//handledKey = NO;
+					break;
+			}
+			
 		}
 	}
 	
