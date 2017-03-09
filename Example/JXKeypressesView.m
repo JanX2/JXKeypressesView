@@ -198,8 +198,7 @@ KeysArrayType * handledKeys() {
 
 NSString * const JXKUndefinedKeyCode = @"*undefined*";
 
-NSArray *namesForKeyCodesArray()
-{
+NSArray *namesForKeyCodesArray() {
 	static dispatch_once_t OnceToken;
 	static NSArray *array = nil;
 	
@@ -340,8 +339,7 @@ NSArray *namesForKeyCodesArray()
 	return array;
 }
 
-NSArray *buttonDownPropertyNamesForKeyCodesArray()
-{
+NSArray *buttonDownPropertyNamesForKeyCodesArray() {
 	static dispatch_once_t OnceToken;
 	static NSArray *array = nil;
 	
