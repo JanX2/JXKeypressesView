@@ -690,6 +690,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.iButtonDown" id="4QU-cq-79I"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N41-WW-7OM">
                                     <rect key="frame" x="78" y="52" width="50" height="32"/>
@@ -697,6 +700,9 @@
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.oButtonDown" id="l8p-nC-FjH"/>
+                                    </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-Lm-F0W">
                                     <rect key="frame" x="14" y="19" width="47" height="32"/>
