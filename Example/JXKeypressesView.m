@@ -182,19 +182,21 @@ KeysArrayType * handledKeys() {
 
 # pragma mark Bindings Support
 
-- (BOOL)jButtonDown
+- (id)valueForKey:(NSString *)key
 {
-	return _keysDown[kVK_ANSI_J];
-}
-
-- (BOOL)kButtonDown
-{
-	return _keysDown[kVK_ANSI_K];
-}
-
-- (BOOL)lButtonDown
-{
-	return _keysDown[kVK_ANSI_L];
+	const void *value =
+	CFDictionaryGetValue(propertyNames2KeyCodesOffsetBy1Dict(),
+						 (__bridge const void *)key);
+	
+	if (value) {
+		unsigned keyCode = (unsigned)(value - 1);
+		
+		BOOL isDown = _keysDown[keyCode];
+		return @(isDown);
+	}
+	else {
+		return [super valueForKey:key];
+	}
 }
 
 NSString * const JXKUndefinedKeyCode = @"*undefined*";
@@ -367,6 +369,39 @@ NSArray * buttonDownPropertyNamesForKeyCodesArray() {
 	});
 	
 	return array;
+}
+
+CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
+	static dispatch_once_t OnceToken;
+	static CFDictionaryRef dict = nil;
+	
+	dispatch_once(&OnceToken, ^{
+		NSArray *propertyNamesForKeyCodes = buttonDownPropertyNamesForKeyCodesArray();
+		CFMutableDictionaryRef mutableDict =
+		CFDictionaryCreateMutable(kCFAllocatorDefault,
+								  KeyCodeCount,
+								  &kCFTypeDictionaryKeyCallBacks,
+								  NULL);
+		// keys: NSString, values: raw key codes + 1
+		
+		CFIndex i = 0;
+		for (NSString *propertyName in propertyNamesForKeyCodes) {
+			CFDictionaryAddValue(mutableDict,
+								 //Dictionary doesn’t allow 0 keys for obvious reasons.
+								 (const void *)propertyName,
+								 (const void *)(i + 1) // Offset by 1.
+								 );
+			
+			i++;
+		}
+		
+		//CFShow(mutableDict);
+		dict = CFDictionaryCreateCopy(kCFAllocatorDefault, mutableDict);
+		//CFShow(dict);
+		CFRelease(mutableDict);
+	});
+	
+	return dict;
 }
 
 - (void)willChangeValueForKeyCode:(unsigned)keyCode
