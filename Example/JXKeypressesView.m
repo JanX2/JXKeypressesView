@@ -40,7 +40,7 @@ KeysArrayType * handledKeys() {
 		handledKeys[kVK_Space]		= KeyNotHandled;
 		handledKeys[kVK_ANSI_K]		= KeyIsHandled;
 		handledKeys[kVK_ANSI_L]		= KeyIsHandled;
-#if 1
+#if 0
 		handledKeys[kVK_ANSI_I]		= KeyNotHandled;
 		handledKeys[kVK_ANSI_O]		= KeyNotHandled;
 #else
