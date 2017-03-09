@@ -40,8 +40,13 @@ KeysArrayType * handledKeys() {
 		handledKeys[kVK_Space]		= KeyNotHandled;
 		handledKeys[kVK_ANSI_K]		= KeyIsHandled;
 		handledKeys[kVK_ANSI_L]		= KeyIsHandled;
+#if 1
 		handledKeys[kVK_ANSI_I]		= KeyNotHandled;
 		handledKeys[kVK_ANSI_O]		= KeyNotHandled;
+#else
+		handledKeys[kVK_ANSI_I]		= KeyIsHandled;
+		handledKeys[kVK_ANSI_O]		= KeyIsHandled;
+#endif
 		// All other keys are (implictly) not handled.
 	});
 	
@@ -93,13 +98,11 @@ KeysArrayType * handledKeys() {
 				case kVK_ANSI_L:
 					break;
 					
-#if 0
 				case kVK_ANSI_I:
 					break;
 					
 				case kVK_ANSI_O:
 					break;
-#endif
 					
 				default:
 					//handledKey = NO;
@@ -148,13 +151,11 @@ KeysArrayType * handledKeys() {
 				case kVK_ANSI_L:
 					break;
 					
-#if 0
 				case kVK_ANSI_I:
 					break;
 					
 				case kVK_ANSI_O:
 					break;
-#endif
 					
 				default:
 					//handledKey = NO;
