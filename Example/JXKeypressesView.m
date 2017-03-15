@@ -16,8 +16,10 @@
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
-const unsigned KeyCodeMax = 0x7E;
-const unsigned KeyCodeCount = KeyCodeMax + 1;
+typedef unsigned KeyCodeType;
+
+const KeyCodeType KeyCodeMax = 0x7E;
+const KeyCodeType KeyCodeCount = KeyCodeMax + 1;
 
 typedef BOOL KeysArrayType;
 
@@ -79,7 +81,7 @@ KeysArrayType * handledKeys() {
 	
 	if (flags == 0) { // We currently only want events without modifiers.
 		
-		unsigned keyCode = theEvent.keyCode;
+		KeyCodeType keyCode = theEvent.keyCode;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -136,7 +138,7 @@ KeysArrayType * handledKeys() {
 	// Otherwise, this would break symmetry.
 	if (YES) {
 		
-		unsigned keyCode = theEvent.keyCode;
+		KeyCodeType keyCode = theEvent.keyCode;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -201,7 +203,7 @@ KeysArrayType * handledKeys() {
 						 (__bridge const void *)key);
 	
 	if (value) {
-		unsigned keyCode = (unsigned)(value - 1);
+		KeyCodeType keyCode = (KeyCodeType)(value - 1);
 		
 		BOOL isDown = _keysDown[keyCode];
 		return @(isDown);
@@ -416,14 +418,14 @@ CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
 	return dict;
 }
 
-- (void)willChangeValueForKeyCode:(unsigned)keyCode
+- (void)willChangeValueForKeyCode:(KeyCodeType)keyCode
 {
 	NSArray *buttonDownPropertyNames = buttonDownPropertyNamesForKeyCodesArray();
 	NSString *key = buttonDownPropertyNames[keyCode];
 	[self willChangeValueForKey:key];
 }
 
-- (void)didChangeValueForKeyCode:(unsigned)keyCode
+- (void)didChangeValueForKeyCode:(KeyCodeType)keyCode
 {
 	NSArray *buttonDownPropertyNames = buttonDownPropertyNamesForKeyCodesArray();
 	NSString *key = buttonDownPropertyNames[keyCode];
