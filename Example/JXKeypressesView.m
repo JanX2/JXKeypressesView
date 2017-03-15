@@ -364,8 +364,8 @@ NSArray * buttonDownPropertyNamesForKeyCodesArray() {
 		NSArray *namesForKeyCodes = namesForKeyCodesArray();
 		NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:KeyCodeCount];
 		
-		for (int i = 0; i < KeyCodeCount; i++) {
-			NSString *keyName = namesForKeyCodes[i];
+		for (int keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+			NSString *keyName = namesForKeyCodes[keyCode];
 			
 			if (![keyName isEqualToString:JXKUndefinedKeyCode]) {
 				NSString *buttonDownPropertyName =
