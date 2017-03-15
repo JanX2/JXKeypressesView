@@ -187,7 +187,26 @@ KeysArrayType * handledKeys() {
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	if (flags != 0) {
+#if ENABLE_BINDINGS
+		KeysArrayType *keys = handledKeys();
+		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+			KeysArrayType handledKey = keys[keyCode];
+			if (handledKey == KeyIsHandled) {
+				[self willChangeValueForKeyCode:keyCode];
+			}
+		}
+#endif
+		
 		clearAllKeys(_keysDown);
+		
+#if ENABLE_BINDINGS
+		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+			KeysArrayType handledKey = keys[keyCode];
+			if (handledKey == KeyIsHandled) {
+				[self didChangeValueForKeyCode:keyCode];
+			}
+		}
+#endif
 	}
 }
 
