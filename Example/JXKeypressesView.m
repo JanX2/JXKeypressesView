@@ -11,6 +11,8 @@
 #import <Carbon/Carbon.h> // for kVK_* names
 
 
+#define ENABLE_BINDINGS	1
+
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
@@ -83,9 +85,13 @@ KeysArrayType * handledKeys() {
 		
 		if (handledKey &&
 			(keyCode <= KeyCodeMax)) {
+#if ENABLE_BINDINGS
 			[self willChangeValueForKeyCode:keyCode];
+#endif
 			_keysDown[keyCode] = KeyIsDown;
+#if ENABLE_BINDINGS
 			[self didChangeValueForKeyCode:keyCode];
+#endif
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
@@ -136,9 +142,13 @@ KeysArrayType * handledKeys() {
 		
 		if (handledKey &&
 			(keyCode <= KeyCodeMax)) {
+#if ENABLE_BINDINGS
 			[self willChangeValueForKeyCode:keyCode];
+#endif
 			_keysDown[keyCode] = KeyIsUp;
+#if ENABLE_BINDINGS
 			[self didChangeValueForKeyCode:keyCode];
+#endif
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
@@ -179,6 +189,8 @@ KeysArrayType * handledKeys() {
 	}
 }
 
+
+#if ENABLE_BINDINGS
 
 # pragma mark Bindings Support
 
@@ -417,5 +429,6 @@ CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
 	NSString *key = buttonDownPropertyNames[keyCode];
 	[self didChangeValueForKey:key];
 }
+#endif
 
 @end
