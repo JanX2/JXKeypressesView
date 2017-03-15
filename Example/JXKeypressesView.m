@@ -16,7 +16,7 @@
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
-const unsigned KeyCodeMax = 0x7F;
+const unsigned KeyCodeMax = 0x7E;
 const unsigned KeyCodeCount = KeyCodeMax + 1;
 
 typedef BOOL KeysArrayType;
@@ -347,7 +347,7 @@ NSArray * namesForKeyCodesArray() {
 		  @"rightArrow",		// 0x7C
 		  @"downArrow",			// 0x7D
 		  @"upArrow",			// 0x7E
-		  JXKUndefinedKeyCode,	// 0x7F
+		  //JXKUndefinedKeyCode,	// 0x7F
 		  ];
 	});
 	
