@@ -30,7 +30,7 @@ const KeysArrayType KeyIsHandled	= YES;
 const KeysArrayType KeyNotHandled	= NO;
 
 NS_INLINE void clearAllKeys(KeysArrayType* keys){
-	for (int keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+	for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 		keys[keyCode] = 0;
 	}
 }
@@ -364,7 +364,7 @@ NSArray * buttonDownPropertyNamesForKeyCodesArray() {
 		NSArray *namesForKeyCodes = namesForKeyCodesArray();
 		NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:KeyCodeCount];
 		
-		for (int keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 			NSString *keyName = namesForKeyCodes[keyCode];
 			
 			if (![keyName isEqualToString:JXKUndefinedKeyCode]) {
