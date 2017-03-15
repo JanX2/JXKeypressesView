@@ -130,13 +130,13 @@ KeysArrayType * handledKeys() {
 
 - (void)keyUp:(NSEvent *)theEvent
 {
-	//NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
+	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	BOOL handledKey = NO;
 	
-	// We also process modified keyUps, because the user might have pressed a modifier in the meantime.
+	// We clear `_keysDown[]` in `-flagsChanged:`.
 	// Otherwise, this would break symmetry.
-	if (YES) {
+	if (flags == 0) {
 		
 		KeyCodeType keyCode = theEvent.keyCode;
 		
