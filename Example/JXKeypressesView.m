@@ -28,8 +28,8 @@ const KeysArrayType KeyIsHandled	= YES;
 const KeysArrayType KeyNotHandled	= NO;
 
 NS_INLINE void clearAllKeys(KeysArrayType* keys){
-	for (int i = 0; i < KeyCodeCount; i++) {
-		keys[i] = 0;
+	for (int keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+		keys[keyCode] = 0;
 	}
 }
 
