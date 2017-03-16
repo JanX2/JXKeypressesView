@@ -16,7 +16,7 @@
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
-typedef unsigned KeyCodeType;
+typedef unsigned short KeyCodeType;
 
 const KeyCodeType KeyCodeMax = 0x7E;
 const KeyCodeType KeyCodeCount = KeyCodeMax + 1;
