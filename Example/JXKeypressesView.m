@@ -182,30 +182,35 @@ KeysArrayType * handledKeys() {
 	}
 }
 
+#if ENABLE_BINDINGS
+typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, KeyCodeType);
+
+void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL selectorForKeyCode) {
+    IMPForKeyCode methodForKeyCode = (IMPForKeyCode)[keypressesView methodForSelector:selectorForKeyCode];
+    
+    KeysArrayType *keys = handledKeys();
+    for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+        KeysArrayType handledKey = keys[keyCode];
+        if (handledKey == KeyIsHandled) {
+            methodForKeyCode(keypressesView, selectorForKeyCode, keyCode);
+        }
+    }
+}
+#endif
+
 - (void)flagsChanged:(NSEvent *)theEvent
 {
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	if (flags != 0) {
 #if ENABLE_BINDINGS
-		KeysArrayType *keys = handledKeys();
-		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-			KeysArrayType handledKey = keys[keyCode];
-			if (handledKey == KeyIsHandled) {
-				[self willChangeValueForKeyCode:keyCode];
-			}
-		}
+        messageSelectorForEveryHandledKeyCode(self, @selector(willChangeValueForKeyCode:));
 #endif
 		
 		clearAllKeys(_keysDown);
 		
 #if ENABLE_BINDINGS
-		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-			KeysArrayType handledKey = keys[keyCode];
-			if (handledKey == KeyIsHandled) {
-				[self didChangeValueForKeyCode:keyCode];
-			}
-		}
+        messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
 #endif
 	}
 }
