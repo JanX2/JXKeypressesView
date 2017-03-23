@@ -209,6 +209,8 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 		
 		clearAllKeys(_keysDown);
 		
+		// TODO: Same as J▆-K⬇︎-L▆
+		
 #if ENABLE_BINDINGS
         messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
 #endif
