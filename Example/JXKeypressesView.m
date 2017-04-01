@@ -75,11 +75,15 @@ KeysArrayType * handledKeys() {
 
 - (void)keyDown:(NSEvent *)theEvent
 {
+	BOOL isARepeat = theEvent.isARepeat;
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	BOOL handledKey = NO;
 	
-	if (flags == 0) { // We currently only want events without modifiers.
+	// We ignore repeat events, because they are
+	// already covered by the state of `_keysDown[]`.
+	if ((isARepeat == NO) &&
+		(flags == 0)) { // We currently only want events without modifiers.
 		
 		KeyCodeType keyCode = theEvent.keyCode;
 		
@@ -130,13 +134,17 @@ KeysArrayType * handledKeys() {
 
 - (void)keyUp:(NSEvent *)theEvent
 {
+	BOOL isARepeat = theEvent.isARepeat;
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	BOOL handledKey = NO;
 	
 	// We clear `_keysDown[]` in `-flagsChanged:`.
 	// Otherwise, this would break symmetry.
-	if (flags == 0) {
+	// We ignore repeat events, because they are
+	// already covered by the state of `_keysDown[]`.
+	if ((isARepeat == NO) &&
+		(flags == 0)) {
 		
 		KeyCodeType keyCode = theEvent.keyCode;
 		
