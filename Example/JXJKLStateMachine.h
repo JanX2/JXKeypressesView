@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#include "JXKeypressesDefinitions.h"
 
 typedef enum {
 	S_FastBackwards      = 0,	/* ◀︎◀︎ */
@@ -21,20 +22,6 @@ typedef enum {
 	S_Invalid            = 8,
 	S_None               = 9,
 } state_t;
-
-typedef enum {
-	E_JDown_From___ToJ__  = 0,    /* ⬇kVK_ANSI_J ▆▆▆ → ▃▆▆, */
-	E_KUp_FromJK_ToJ__    = 1,    /* ⬆kVK_ANSI_K ▃▃▆ → ▃▆▆, */
-	E_JUp_FromJK_To_K_    = 2,    /* ⬆kVK_ANSI_J ▃▃▆ → ▆▃▆, */
-	E_JDown_From_K_ToJK_  = 3,    /* ⬇kVK_ANSI_J ▆▃▆ → ▃▃▆, */
-	E_KDown_From___To_K_  = 4,    /* ⬇kVK_ANSI_K ▆▆▆ → ▆▃▆, */
-	E_LUp_From_KLTo_K_    = 5,    /* ⬆kVK_ANSI_L ▆▃▃ → ▆▃▆, */
-	E_LDown_From_K_To_KL  = 6,    /* ⬇kVK_ANSI_L ▆▃▆ → ▆▃▃, */
-	E_KUp_From_KLTo__L    = 7,    /* ⬆kVK_ANSI_K ▆▃▃ → ▆▆▃, */
-	E_LDown_From___To__L  = 8,    /* ⬇kVK_ANSI_L ▆▆▆ → ▆▆▃, */
-	E_Count               = 9,
-	E_Invalid             = 10,
-} event_t;
 
 
 @interface JXJKLStateMachine : NSObject

@@ -10,7 +10,8 @@
 
 @interface TSCDocumentDummy : NSObject
 
-@property (nonatomic, assign) float rate;
+@property (nonatomic, readonly, assign) float rate;
+
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;
 - (IBAction)playBackwardsAtNaturalRate:(id)sender;

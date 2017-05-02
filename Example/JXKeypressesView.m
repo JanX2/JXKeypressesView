@@ -9,9 +9,8 @@
 #import "JXKeypressesView.h"
 
 #import "JXJKLStateMachine.h"
+#import "JXKeypressesDefinitions.h"
 #import "TSCDocumentDummy.h"
-
-#import <Carbon/Carbon.h> // for kVK_* names
 
 
 #define ENABLE_BINDINGS	1
@@ -19,18 +18,10 @@
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
-typedef unsigned short KeyCodeType;
 
 const KeyCodeType KeyCodeMax = 0x7E;
 const KeyCodeType KeyCodeCount = KeyCodeMax + 1;
 
-typedef BOOL KeysArrayType;
-
-const KeysArrayType KeyIsDown		= YES;
-const KeysArrayType KeyIsUp			= NO;
-
-const KeysArrayType KeyIsHandled	= YES;
-const KeysArrayType KeyNotHandled	= NO;
 
 NS_INLINE void clearAllKeys(KeysArrayType* keys){
 	for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
@@ -100,8 +91,10 @@ KeysArrayType * handledKeys() {
 
 - (void)initKeypressesView
 {
+	[self willChangeValueForKey:@"dummyDocument"];
 	_dummyDocument = [TSCDocumentDummy new];
-	
+	[self didChangeValueForKey:@"dummyDocument"];
+
 	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:_dummyDocument];
 }
 
@@ -136,12 +129,13 @@ KeysArrayType * handledKeys() {
 			switch (keyCode) {
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
-				case kVK_ANSI_L:
+				case kVK_ANSI_L: {
 					// Hand off event to state machine.
-					
 					// !!
-					[_stateMachine processEvent:E_LDown_From___To__L];
+					event_t event = E_LDown_From___To__L;
+					[_stateMachine processEvent:event];
 					break;
+				}
 					
 				case kVK_Space:
 					// Pause/play normally.

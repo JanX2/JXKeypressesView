@@ -10,7 +10,27 @@
 
 #import "TSCAVPlayerRateConstants.h"
 
+
+@interface TSCDocumentDummy ()
+
+@property (nonatomic, readwrite, assign) float rate;
+
+@end
+
+
 @implementation TSCDocumentDummy
+
+- (instancetype)init
+{
+	self = [super init];
+	
+	if (self) {
+		_rate = TSCAVPlayerRatePaused;
+	}
+	
+	return self;
+}
+
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;
 {

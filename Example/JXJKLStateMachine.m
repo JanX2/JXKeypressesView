@@ -8,8 +8,6 @@
 
 #import "JXJKLStateMachine.h"
 
-#import <Carbon/Carbon.h> // for kVK_* names
-
 
 typedef void (*action_t)(id, SEL, id);
 static const action_t nil_action = NULL;
@@ -236,6 +234,8 @@ bool isValidEvent(event_t event) {
 
 - (void)processEvent:(event_t)event;
 {
+	if (event == E_Invalid)  return;
+	
 	assert(isValidState(_currentState));
 	assert(isValidEvent(event));
 	

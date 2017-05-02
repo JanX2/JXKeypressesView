@@ -672,14 +672,14 @@
         <window title="Keyboard Keypresses Aggregation" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="322" height="212"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="contentRect" x="335" y="390" width="322" height="210"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="JXKeypressesView">
-                <rect key="frame" x="0.0" y="0.0" width="322" height="212"/>
+                <rect key="frame" x="0.0" y="0.0" width="322" height="210"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <box autoresizesSubviews="NO" title="Media Controls" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2L8-6p-COm">
-                        <rect key="frame" x="79" y="50" width="166" height="116"/>
+                        <rect key="frame" x="79" y="49" width="166" height="116"/>
                         <view key="contentView" id="B2E-Rs-mha">
                             <rect key="frame" x="1" y="1" width="164" height="100"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -756,85 +756,105 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8dm-cK-pbG" userLabel="Backwards Play Button">
-                        <rect key="frame" x="15" y="88" width="65" height="32"/>
+                        <rect key="frame" x="15" y="87" width="65" height="32"/>
                         <buttonCell key="cell" type="push" title="◀︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="97w-66-2uX">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-yi-hEi" userLabel="Forwards Play Button">
-                        <rect key="frame" x="244" y="88" width="64" height="32"/>
+                        <rect key="frame" x="244" y="87" width="64" height="32"/>
                         <buttonCell key="cell" type="push" title="▶︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="89f-oI-oq0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZRH-Hj-hLJ" userLabel="Fast Backwards Play Button">
-                        <rect key="frame" x="15" y="55" width="65" height="32"/>
+                        <rect key="frame" x="15" y="54" width="65" height="32"/>
                         <buttonCell key="cell" type="push" title="◀︎◀︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fiB-29-zBH">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="75e-MX-sr7" userLabel="Fast Forwards Play Button">
-                        <rect key="frame" x="244" y="55" width="64" height="32"/>
+                        <rect key="frame" x="244" y="54" width="64" height="32"/>
                         <buttonCell key="cell" type="push" title="▶︎▶︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ExG-fT-CSO">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rVq-hr-ErS" userLabel="½ Forwards Play Button">
-                        <rect key="frame" x="244" y="121" width="64" height="32"/>
+                        <rect key="frame" x="244" y="120" width="64" height="32"/>
                         <buttonCell key="cell" type="push" title="▶︎½" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wSg-Gt-3BL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-ib-yIm" userLabel="½ Backwards Play Button">
-                        <rect key="frame" x="15" y="121" width="65" height="32"/>
+                        <rect key="frame" x="15" y="120" width="65" height="32"/>
                         <buttonCell key="cell" type="push" title="½◀︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EXq-wM-vEN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Axq-hH-7Hh" userLabel="Step Forwards Button">
-                        <rect key="frame" x="244" y="154" width="64" height="32"/>
+                        <rect key="frame" x="244" y="153" width="64" height="32"/>
                         <buttonCell key="cell" type="push" title="▶︎❙" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Dm-HJ-KHM">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YK6-nu-mCE" userLabel="Step Backwards Button">
-                        <rect key="frame" x="15" y="154" width="65" height="32"/>
+                        <rect key="frame" x="15" y="153" width="65" height="32"/>
                         <buttonCell key="cell" type="push" title="❙◀︎" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1mo-my-YBf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h3t-PO-Yl7" userLabel="Pause Button">
-                        <rect key="frame" x="129" y="14" width="65" height="32"/>
+                        <rect key="frame" x="129" y="13" width="65" height="32"/>
                         <buttonCell key="cell" type="push" title="❙❙" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSO-PK-Utp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" size="13" name="ZapfDingbatsITC"/>
                         </buttonCell>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sel-uf-hjx">
+                        <rect key="frame" x="80" y="173" width="164" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1.00x" id="cOK-cv-lc6">
+                            <numberFormatter key="formatter" formatterBehavior="custom10_4" alwaysShowsDecimalSeparator="YES" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" minimumFractionDigits="2" maximumFractionDigits="2" nilSymbol="?" positiveSuffix="x" negativeSuffix="x" id="EsR-sS-UJ3"/>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.rate" id="MTL-cx-qdi">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">?x</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="vRb-yi-hEi" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="1AD-MU-NP1"/>
                     <constraint firstItem="2L8-6p-COm" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" constant="-4" id="1tt-ty-48S"/>
+                    <constraint firstItem="2L8-6p-COm" firstAttribute="top" secondItem="Sel-uf-hjx" secondAttribute="bottom" constant="8" symbolic="YES" id="2Wk-OA-1I6"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="trailing" secondItem="YK6-nu-mCE" secondAttribute="trailing" id="3Cd-WD-xeI"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="6fg-rc-c5X"/>
                     <constraint firstItem="ZRH-Hj-hLJ" firstAttribute="top" secondItem="8dm-cK-pbG" secondAttribute="bottom" constant="12" id="6tk-Tf-xoM"/>
+                    <constraint firstItem="Sel-uf-hjx" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="8mi-tg-DEP"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="9v7-pf-Ree"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="leading" secondItem="8dm-cK-pbG" secondAttribute="leading" id="BZz-Pj-hsc"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="D6j-QG-EU6"/>
                     <constraint firstItem="75e-MX-sr7" firstAttribute="leading" secondItem="Axq-hH-7Hh" secondAttribute="leading" id="Hkx-Nt-11P"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="top" secondItem="YK6-nu-mCE" secondAttribute="bottom" constant="12" id="I16-QM-6KU"/>
                     <constraint firstItem="2L8-6p-COm" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" constant="1" id="J71-YO-C2S"/>
+                    <constraint firstItem="Sel-uf-hjx" firstAttribute="leading" secondItem="2L8-6p-COm" secondAttribute="leading" id="LRo-ni-UHI"/>
                     <constraint firstItem="vRb-yi-hEi" firstAttribute="leading" secondItem="2L8-6p-COm" secondAttribute="trailing" constant="8" id="O5s-JP-g7O"/>
                     <constraint firstItem="vRb-yi-hEi" firstAttribute="top" secondItem="rVq-hr-ErS" secondAttribute="bottom" constant="12" id="OMu-W5-QaE"/>
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="leading" secondItem="Axq-hH-7Hh" secondAttribute="leading" id="QPN-Qj-HBp"/>
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="leading" secondItem="vRb-yi-hEi" secondAttribute="leading" id="RO7-hv-oZ4"/>
+                    <constraint firstItem="2L8-6p-COm" firstAttribute="trailing" secondItem="Sel-uf-hjx" secondAttribute="trailing" id="SfG-lX-CKM"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h3t-PO-Yl7" secondAttribute="bottom" constant="20" id="TXt-X7-7fR"/>
                     <constraint firstItem="2L8-6p-COm" firstAttribute="leading" secondItem="8dm-cK-pbG" secondAttribute="trailing" constant="8" id="U62-nf-oPC"/>
                     <constraint firstItem="h3t-PO-Yl7" firstAttribute="top" secondItem="2L8-6p-COm" secondAttribute="bottom" constant="12" id="ZVp-SE-SaA"/>
@@ -856,7 +876,8 @@
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="trailing" secondItem="Axq-hH-7Hh" secondAttribute="trailing" id="yjd-Na-PjD"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="418.5" y="601"/>
+            <point key="canvasLocation" x="418" y="601"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="cTG-5z-vnd"/>
     </objects>
 </document>
