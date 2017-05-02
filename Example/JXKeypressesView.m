@@ -8,6 +8,9 @@
 
 #import "JXKeypressesView.h"
 
+#import "JXJKLStateMachine.h"
+#import "TSCDocumentDummy.h"
+
 #import <Carbon/Carbon.h> // for kVK_* names
 
 
@@ -68,8 +71,39 @@ KeysArrayType * handledKeys() {
 @end
 
 
-@implementation JXKeypressesView
+@implementation JXKeypressesView {
+	JXJKLStateMachine *_stateMachine;
+	
+	TSCDocumentDummy *_dummyDocument;
+}
 
+
+# pragma mark Object lifecycle
+
+- (instancetype)init
+{
+	self = [super init];
+	
+	if (self) {
+		[self initKeypressesView];
+	}
+	
+	return self;
+}
+
+- (void)awakeFromNib
+{
+	[super awakeFromNib];
+	
+	[self initKeypressesView];
+}
+
+- (void)initKeypressesView
+{
+	_dummyDocument = [TSCDocumentDummy new];
+	
+	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:_dummyDocument];
+}
 
 # pragma mark Event Handling
 
@@ -101,13 +135,16 @@ KeysArrayType * handledKeys() {
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
-					break;
-					
-				//case kVK_Space:
 				case kVK_ANSI_K:
+				case kVK_ANSI_L:
+					// Hand off event to state machine.
+					
+					// !!
+					[_stateMachine processEvent:E_LDown_From___To__L];
 					break;
 					
-				case kVK_ANSI_L:
+				case kVK_Space:
+					// Pause/play normally.
 					break;
 					
 				case kVK_ANSI_I:
@@ -162,19 +199,24 @@ KeysArrayType * handledKeys() {
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
-					break;
-					
-				//case kVK_Space:
 				case kVK_ANSI_K:
+				case kVK_ANSI_L:
+					// Hand off event to state machine.
+					
+					// !!
+					//[_stateMachine processEvent:E_LDown_From___To__L];
 					break;
 					
-				case kVK_ANSI_L:
+				case kVK_Space:
+					// Do nothing.
 					break;
 					
 				case kVK_ANSI_I:
+					// Do nothing.
 					break;
 					
 				case kVK_ANSI_O:
+					// Do nothing.
 					break;
 					
 				default:
@@ -218,6 +260,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 		clearAllKeys(_keysDown);
 		
 		// TODO: Same as J▆-K⬇︎-L▆
+		// Hand off event to state machine.
 		
 #if ENABLE_BINDINGS
         messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));

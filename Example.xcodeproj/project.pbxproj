@@ -12,6 +12,9 @@
 		3D4C7B311E698C9B0013CF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C7B301E698C9B0013CF8C /* Assets.xcassets */; };
 		3D4C7B341E698C9B0013CF8C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4C7B321E698C9B0013CF8C /* MainMenu.xib */; };
 		3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.m */; };
+		3D52C5401EB8D3B2003ECADB /* TSCDocumentDummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D52C53F1EB8D3B2003ECADB /* TSCDocumentDummy.m */; };
+		3D52C5421EB8D41E003ECADB /* TSCAVPlayerRateConstants.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */; };
+		3D7FC89B1EB6639C006B220A /* JXJKLStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,12 @@
 		3D4C7B351E698C9B0013CF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D4C7B3B1E698CE00013CF8C /* JXKeypressesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXKeypressesView.h; sourceTree = "<group>"; };
 		3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXKeypressesView.m; sourceTree = "<group>"; };
+		3D52C53E1EB8D3B2003ECADB /* TSCDocumentDummy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCDocumentDummy.h; sourceTree = "<group>"; };
+		3D52C53F1EB8D3B2003ECADB /* TSCDocumentDummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCDocumentDummy.m; sourceTree = "<group>"; };
+		3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TSCAVPlayerRateConstants.c; sourceTree = "<group>"; };
+		3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSCAVPlayerRateConstants.h; sourceTree = "<group>"; };
+		3D7FC8981EB66051006B220A /* JXJKLStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXJKLStateMachine.h; sourceTree = "<group>"; };
+		3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXJKLStateMachine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +68,17 @@
 				3D4C7B2A1E698C9B0013CF8C /* AppDelegate.h */,
 				3D4C7B2B1E698C9B0013CF8C /* AppDelegate.m */,
 				3D4C7B301E698C9B0013CF8C /* Assets.xcassets */,
+				3D7FC8981EB66051006B220A /* JXJKLStateMachine.h */,
+				3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */,
 				3D4C7B3B1E698CE00013CF8C /* JXKeypressesView.h */,
 				3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.m */,
 				3D4C7B321E698C9B0013CF8C /* MainMenu.xib */,
 				3D4C7B351E698C9B0013CF8C /* Info.plist */,
 				3D4C7B2D1E698C9B0013CF8C /* Supporting Files */,
+				3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */,
+				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
+				3D52C53E1EB8D3B2003ECADB /* TSCDocumentDummy.h */,
+				3D52C53F1EB8D3B2003ECADB /* TSCDocumentDummy.m */,
 			);
 			path = "Keyboard Keypresses Aggregation";
 			sourceTree = "<group>";
@@ -147,7 +162,10 @@
 			files = (
 				3D4C7B2F1E698C9B0013CF8C /* main.m in Sources */,
 				3D4C7B2C1E698C9B0013CF8C /* AppDelegate.m in Sources */,
+				3D52C5421EB8D41E003ECADB /* TSCAVPlayerRateConstants.c in Sources */,
 				3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.m in Sources */,
+				3D7FC89B1EB6639C006B220A /* JXJKLStateMachine.m in Sources */,
+				3D52C5401EB8D3B2003ECADB /* TSCDocumentDummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

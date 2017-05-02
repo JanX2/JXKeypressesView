@@ -8,9 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+
+@class TSCDocumentDummy;
+
 @interface JXKeypressesView : NSView
 
 @property (nonatomic, readonly, assign) BOOL fastReverseActivated;
 @property (nonatomic, readonly, assign) BOOL fastForwardActivated;
+
+@property (nonatomic, readonly) TSCDocumentDummy *dummyDocument;
 
 @end
