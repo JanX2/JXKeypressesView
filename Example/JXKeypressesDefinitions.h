@@ -13,6 +13,9 @@
 
 typedef unsigned short KeyCodeType;
 
+extern const KeyCodeType KeyCodeUndefined;
+
+
 typedef bool KeysArrayType;
 
 #if 1

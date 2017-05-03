@@ -8,6 +8,8 @@
 
 #include "JXKeypressesDefinitions.h"
 
+const KeyCodeType KeyCodeUndefined = 0x7F;
+
 #if 0
 
 const KeysArrayType KeyIsDown		= true;

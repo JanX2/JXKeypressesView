@@ -170,13 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D52C5461EB91281003ECADB /* JXKeypressesToEventNames.c in Sources */,
 				3D4C7B2F1E698C9B0013CF8C /* main.m in Sources */,
 				3D4C7B2C1E698C9B0013CF8C /* AppDelegate.m in Sources */,
 				3D52C5421EB8D41E003ECADB /* TSCAVPlayerRateConstants.c in Sources */,
 				3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.m in Sources */,
 				3D7FC89B1EB6639C006B220A /* JXJKLStateMachine.m in Sources */,
 				3D52C54A1EB9199F003ECADB /* JXKeypressesDefinitions.c in Sources */,
+				3D52C5461EB91281003ECADB /* JXKeypressesToEventNames.c in Sources */,
 				3D52C5401EB8D3B2003ECADB /* TSCDocumentDummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
