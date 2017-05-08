@@ -63,6 +63,30 @@ KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey) {
 	return transitionKeyCode;
 }
 
+KeyFlag keyFlagForKeyCode(KeyCodeType keyCode) {
+	KeyFlag transitionKey = KeyFlag_None;
+	
+	switch (keyCode) {
+		case kVK_ANSI_L:
+			transitionKey = KeyFlag_L;
+			break;
+			
+		case kVK_ANSI_K:
+			transitionKey = KeyFlag_K;
+			break;
+			
+		case kVK_ANSI_J:
+			transitionKey = KeyFlag_J;
+			break;
+			
+		default:
+			assert(false);
+			break;
+	}
+	
+	return transitionKey;
+}
+
 // Generate EventKeyToEventNameMap from EventComponentsToEventNameTable by iterating over it,
 // acquiring the hash/ID/key for each entry and setting its Event Name in the map.
 void generateEventKeyToEventNameMap() __attribute__ ((constructor));
