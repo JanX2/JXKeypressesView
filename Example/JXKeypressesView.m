@@ -110,6 +110,19 @@ KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 	return keyFlags;
 }
 
+void processEventUsingStateMachine(KeyCodeType keyCode,
+								   KeysArrayType *keysDown,
+								   KeysArrayType transitionType,
+								   JXJKLStateMachine *stateMachine) {
+	KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
+	KeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
+	
+	event_t event = eventNameForEventTransition(transitionType,
+												transitionKey,
+												beforeKeyFlags);
+	[stateMachine processEvent:event];
+}
+
 - (void)keyDown:(NSEvent *)theEvent
 {
 	BOOL isARepeat = theEvent.isARepeat;
@@ -133,17 +146,9 @@ KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 			switch (keyCode) {
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
-				case kVK_ANSI_L: {
-					// Hand off event to state machine.
-					KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
-					KeyFlag beforeKeyFlags = keyFlagsForKeysArray(_keysDown);
-					
-					event_t event = eventNameForEventTransition(transitionType,
-																transitionKey,
-																beforeKeyFlags);
-					[_stateMachine processEvent:event];
+				case kVK_ANSI_L:
+					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
 					break;
-				}
 					
 				case kVK_Space:
 					// Pause/play normally.
@@ -204,17 +209,9 @@ KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 			switch (keyCode) {
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
-				case kVK_ANSI_L: {
-					// Hand off event to state machine.
-					KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
-					KeyFlag beforeKeyFlags = keyFlagsForKeysArray(_keysDown);
-					
-					event_t event = eventNameForEventTransition(transitionType,
-																transitionKey,
-																beforeKeyFlags);
-					[_stateMachine processEvent:event];
+				case kVK_ANSI_L:
+					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
 					break;
-				}
 					
 				case kVK_Space:
 					// Do nothing.
