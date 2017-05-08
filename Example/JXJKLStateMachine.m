@@ -260,6 +260,8 @@ bool isValidEvent(event_t event) {
 	size_t elementIndex = ((size_t)_currentState * E_Count) + (size_t)event;
 	state_element_t stateTransition = _stateMatrix[elementIndex];
 	
+	if (stateTransition.nextState == S_None)  return; // This means “no change”.
+	
 	// Transition to the next state (set current state to the next state obtained from the matrix)…
 	assert(isValidState(stateTransition.nextState));
 	_currentState = stateTransition.nextState;
