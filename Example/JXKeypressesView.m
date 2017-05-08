@@ -113,6 +113,7 @@ KeysArrayType * handledKeys() {
 		(flags == 0)) { // We currently only want events without modifiers.
 		
 		KeyCodeType keyCode = theEvent.keyCode;
+		KeysArrayType transitionType = KeyIsDown;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -121,7 +122,7 @@ KeysArrayType * handledKeys() {
 #if ENABLE_BINDINGS
 			[self willChangeValueForKeyCode:keyCode];
 #endif
-			_keysDown[keyCode] = KeyIsDown;
+			_keysDown[keyCode] = transitionType;
 #if ENABLE_BINDINGS
 			[self didChangeValueForKeyCode:keyCode];
 #endif
@@ -178,6 +179,7 @@ KeysArrayType * handledKeys() {
 		(flags == 0)) {
 		
 		KeyCodeType keyCode = theEvent.keyCode;
+		KeysArrayType transitionType = KeyIsUp;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -186,7 +188,7 @@ KeysArrayType * handledKeys() {
 #if ENABLE_BINDINGS
 			[self willChangeValueForKeyCode:keyCode];
 #endif
-			_keysDown[keyCode] = KeyIsUp;
+			_keysDown[keyCode] = transitionType;
 #if ENABLE_BINDINGS
 			[self didChangeValueForKeyCode:keyCode];
 #endif
