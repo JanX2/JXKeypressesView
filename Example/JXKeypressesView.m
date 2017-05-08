@@ -169,6 +169,9 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 			
 		}
 	}
+	else if (isARepeat) {
+		handledKey = YES;
+	}
 	
 	if (handledKey == NO) {
 		[super keyDown:theEvent];
@@ -231,7 +234,10 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 			
 		}
 	}
-	
+	else if (isARepeat) {
+		handledKey = YES;
+	}
+		
 	if (handledKey == NO) {
 		[super keyUp:theEvent];
 	}
