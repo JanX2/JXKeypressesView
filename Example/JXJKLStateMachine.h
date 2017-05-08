@@ -30,4 +30,7 @@ typedef enum {
 
 - (void)processEvent:(event_t)event;
 
+- (void)playBackwardsAtHalfNaturalRateTimeFired;
+- (void)playForwardsAtHalfNaturalRateTimeFired;
+
 @end

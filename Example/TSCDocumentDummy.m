@@ -8,6 +8,7 @@
 
 #import "TSCDocumentDummy.h"
 
+#import "JXJKLStateMachine.h"
 #import "TSCAVPlayerRateConstants.h"
 
 
@@ -46,11 +47,21 @@
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 {
 	self.rate = TSCAVPlayerRateHalfNaturalForward;
+	
+	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
+		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
+		[stateMachine playForwardsAtHalfNaturalRateTimeFired];
+	}
 }
 
 - (IBAction)playBackwardsAtHalfNaturalRate:(id)sender;
 {
 	self.rate = TSCAVPlayerRateHalfNaturalBackward;
+	
+	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
+		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
+		[stateMachine playBackwardsAtHalfNaturalRateTimeFired];
+	}
 }
 
 
@@ -88,7 +99,7 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 	[self playForwardsOneFrame:self];
 	
 	[self performSelector:@selector(playForwardsAtHalfNaturalRate:)
-			   withObject:self
+			   withObject:sender
 			   afterDelay:halfNaturalRateDelay];
 }
 
@@ -97,7 +108,7 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 	[self playBackwardsOneFrame:self];
 	
 	[self performSelector:@selector(playBackwardsAtHalfNaturalRate:)
-			   withObject:self
+			   withObject:sender
 			   afterDelay:halfNaturalRateDelay];
 }
 
@@ -108,7 +119,7 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 	
 	[NSRunLoop cancelPreviousPerformRequestsWithTarget:self
 											  selector:@selector(playForwardsAtHalfNaturalRate:)
-												object:self];
+												object:sender];
 }
 
 - (IBAction)pausePlaybackAndCancelPlayBackwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
@@ -117,7 +128,7 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 	
 	[NSRunLoop cancelPreviousPerformRequestsWithTarget:self
 											  selector:@selector(playBackwardsAtHalfNaturalRate:)
-												object:self];
+												object:sender];
 }
 
 

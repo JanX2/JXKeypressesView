@@ -272,5 +272,14 @@ bool isValidEvent(event_t event) {
 	}
 }
 
+- (void)playBackwardsAtHalfNaturalRateTimeFired;
+{
+	_currentState = S_HalfBackwards;
+}
+
+- (void)playForwardsAtHalfNaturalRateTimeFired;
+{
+	_currentState = S_HalfForward;
+}
 
 @end
