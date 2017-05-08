@@ -119,13 +119,6 @@ KeysArrayType * handledKeys() {
 		
 		if (handledKey &&
 			(keyCode <= KeyCodeMax)) {
-#if ENABLE_BINDINGS
-			[self willChangeValueForKeyCode:keyCode];
-#endif
-			_keysDown[keyCode] = transitionType;
-#if ENABLE_BINDINGS
-			[self didChangeValueForKeyCode:keyCode];
-#endif
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
@@ -152,6 +145,14 @@ KeysArrayType * handledKeys() {
 					//handledKey = NO;
 					break;
 			}
+			
+#if ENABLE_BINDINGS
+			[self willChangeValueForKeyCode:keyCode];
+#endif
+			_keysDown[keyCode] = transitionType;
+#if ENABLE_BINDINGS
+			[self didChangeValueForKeyCode:keyCode];
+#endif
 			
 		}
 	}
@@ -185,13 +186,6 @@ KeysArrayType * handledKeys() {
 		
 		if (handledKey &&
 			(keyCode <= KeyCodeMax)) {
-#if ENABLE_BINDINGS
-			[self willChangeValueForKeyCode:keyCode];
-#endif
-			_keysDown[keyCode] = transitionType;
-#if ENABLE_BINDINGS
-			[self didChangeValueForKeyCode:keyCode];
-#endif
 			
 			switch (keyCode) {
 				case kVK_ANSI_J:
@@ -219,6 +213,14 @@ KeysArrayType * handledKeys() {
 					//handledKey = NO;
 					break;
 			}
+			
+#if ENABLE_BINDINGS
+			[self willChangeValueForKeyCode:keyCode];
+#endif
+			_keysDown[keyCode] = transitionType;
+#if ENABLE_BINDINGS
+			[self didChangeValueForKeyCode:keyCode];
+#endif
 			
 		}
 	}
