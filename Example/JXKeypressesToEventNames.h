@@ -56,7 +56,7 @@ typedef struct {
 	event_t			eventIndex;
 } EventComponents;
 
-EventComponents EventComponentsToEventNameTable[E_Count] =
+static const EventComponents EventComponentsToEventNameTable[E_Count] =
 {
   /*{Transition Type, Transition Key, Before KeyFlags,         After KeyFlags,          Event Name,           Transition KeyCode, Before V, After V, Before B, After B, Event Index, },*/
 	{KeyIsDown,       KeyFlag_J,      (KeyFlag_None),          (KeyFlag_J),             E_JDown_From___ToJ__, kVK_ANSI_J,         "▆▆▆",    "▃▆▆",   0b000,    0b100,   0,           },
