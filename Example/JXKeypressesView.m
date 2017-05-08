@@ -24,12 +24,6 @@ const KeyCodeType KeyCodeMax = 0x7E;
 const KeyCodeType KeyCodeCount = KeyCodeMax + 1;
 
 
-NS_INLINE void clearAllKeys(KeysArrayType* keys){
-	for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-		keys[keyCode] = 0;
-	}
-}
-
 KeysArrayType * handledKeys() {
 	static dispatch_once_t OnceToken;
 	static KeysArrayType handledKeys[KeyCodeCount];
@@ -268,10 +262,24 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
         messageSelectorForEveryHandledKeyCode(self, @selector(willChangeValueForKeyCode:));
 #endif
 		
-		clearAllKeys(_keysDown);
+		// Simulate every key that is marked as down being released.
+		KeysArrayType transitionType = KeyIsUp;
 		
-		// TODO: Same as J▆-K⬇︎-L▆
-		// Hand off event to state machine.
+		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+			switch (keyCode) {
+				case kVK_ANSI_J:
+				case kVK_ANSI_K:
+				case kVK_ANSI_L: {
+					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
+					break;
+				}
+					
+				default:
+					break;
+			}
+			
+			_keysDown[keyCode] = KeyIsUp;
+		}
 		
 #if ENABLE_BINDINGS
         messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
