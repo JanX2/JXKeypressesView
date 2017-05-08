@@ -91,3 +91,14 @@ void generateEventKeyToEventNameMap() {
 	}
 }
 
+event_t eventNameForEventTransition(KeysArrayType transitionType,
+									KeyFlag transitionKey,
+									KeyFlag beforeKeyFlags) {
+	
+	EventKey key = eventKeyForEventTransition(transitionType,
+											  transitionKey,
+											  beforeKeyFlags);
+	
+	const event_t eventName = EventKeyToEventNameMap[key];
+	return eventName;
+}
