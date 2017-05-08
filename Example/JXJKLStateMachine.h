@@ -20,7 +20,7 @@ typedef enum {
 	S_FastForward        = 6,	/* ▶︎▶︎ */
 	S_Count              = 7,
 	S_Invalid            = 8,
-	S_None               = 9,
+	S_NoChange           = 9,
 } state_t;
 
 

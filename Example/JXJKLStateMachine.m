@@ -94,7 +94,7 @@ state_element_t * buildStateMatrix(id target) {
 		{/* S_FastBackwards,  */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
 		{/* S_Backwards,      */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
 		{/* S_HalfBackwards,  */ {S_Pause, pauseP},   {S_Invalid, nil},     {S_Invalid, nil},    },
-		{/* S_Pause,          */ {S_Pause, pauseCTB}, {S_None, nil},        {S_Pause, pauseCTF}, },
+		{/* S_Pause,          */ {S_Pause, pauseCTB}, {S_NoChange, nil},    {S_Pause, pauseCTF}, },
 		{/* S_HalfForward,    */ {S_Invalid, nil},    {S_Invalid, nil},     {S_Pause, pauseP},   },
 		{/* S_Forward,        */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
 		{/* S_FastForward,    */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
@@ -260,7 +260,7 @@ bool isValidEvent(event_t event) {
 	size_t elementIndex = ((size_t)_currentState * E_Count) + (size_t)event;
 	state_element_t stateTransition = _stateMatrix[elementIndex];
 	
-	if (stateTransition.nextState == S_None)  return; // This means “no change”.
+	if (stateTransition.nextState == S_NoChange)  return;
 	
 	// Transition to the next state (set current state to the next state obtained from the matrix)…
 	assert(isValidState(stateTransition.nextState));
