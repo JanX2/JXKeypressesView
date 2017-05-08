@@ -175,9 +175,6 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 			
 		}
 	}
-	else {
-		clearAllKeys(_keysDown);
-	}
 	
 	if (handledKey == NO) {
 		[super keyDown:theEvent];
