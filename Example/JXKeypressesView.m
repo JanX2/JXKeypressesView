@@ -266,33 +266,38 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	if (flags != 0) {
+		[self resetKeys];
+	}
+}
+
+- (void)resetKeys
+{
 #if ENABLE_BINDINGS
-        messageSelectorForEveryHandledKeyCode(self, @selector(willChangeValueForKeyCode:));
+	messageSelectorForEveryHandledKeyCode(self, @selector(willChangeValueForKeyCode:));
 #endif
-		
-		// Simulate every key that is marked as down being released.
-		KeysArrayType transitionType = KeyIsUp;
-		
-		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-			switch (keyCode) {
-				case kVK_ANSI_J:
-				case kVK_ANSI_K:
-				case kVK_ANSI_L: {
-					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
-					break;
-				}
-					
-				default:
-					break;
+	
+	// Simulate every key that is marked as down being released.
+	KeysArrayType transitionType = KeyIsUp;
+	
+	for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+		switch (keyCode) {
+			case kVK_ANSI_J:
+			case kVK_ANSI_K:
+			case kVK_ANSI_L: {
+				processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
+				break;
 			}
-			
-			_keysDown[keyCode] = KeyIsUp;
+				
+			default:
+				break;
 		}
 		
-#if ENABLE_BINDINGS
-        messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
-#endif
+		_keysDown[keyCode] = KeyIsUp;
 	}
+	
+#if ENABLE_BINDINGS
+	messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
+#endif
 }
 
 
