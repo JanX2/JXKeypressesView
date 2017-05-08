@@ -244,8 +244,8 @@ bool isValidEvent(event_t event) {
 	state_element_t stateTransition = _stateMatrix[elementIndex];
 	
 	// Transition to the next state (set current state to the next state obtained from the matrix)…
+	assert(isValidState(stateTransition.nextState));
 	_currentState = stateTransition.nextState;
-	assert(isValidState(_currentState));
 	
 	// … and trigger the appropriate action.
 	if (stateTransition.actionToTrigger != nil_action) {
