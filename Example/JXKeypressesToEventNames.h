@@ -70,6 +70,7 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
 	{KeyIsDown,       KeyFlag_L,      (KeyFlag_None),          (KeyFlag_L),             E_LDown_From___To__L, kVK_ANSI_L,         "▆▆▆",    "▆▆▃",   0b000,    0b001,   8,           },
 };
 
+KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey);
 KeyFlag keyFlagForKeyCode(KeyCodeType keyCode);
 
 event_t eventNameForEventTransition(KeysArrayType transitionType,
