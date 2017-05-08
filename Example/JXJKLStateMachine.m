@@ -173,8 +173,8 @@ state_element_t * buildStateMatrix(id target) {
 
 			section_metadata_t metadata = stateMatrixSectionMetadata[tableForColumn];
 			state_selector_pair_t *tableSection = metadata.tableSection;
-			state_selector_pair_t *tableRow = &tableSection[row];
-			state_selector_pair_t *tableElement = &tableRow[colInTableSection];
+			state_selector_pair_t *tableRow = &(tableSection[row * metadata.columnCount]);
+			state_selector_pair_t *tableElement = &(tableRow[colInTableSection]);
 			
 			state_element_t *element = &(stateMatrix[elementIndex]);
 			
