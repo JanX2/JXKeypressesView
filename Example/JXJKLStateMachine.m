@@ -178,6 +178,8 @@ state_element_t * buildStateMatrix(id target) {
 			state_selector_pair_t *tableRow = &(tableSection[row * metadata.columnCount]);
 			state_selector_pair_t *tableElement = &(tableRow[colInTableSection]);
 			
+			//printf("%zu" "\t" "%zd" "\t" "%zd" "\t" "%zd\n", row, col, tableForColumn, colInTableSection);
+			
 			state_element_t *element = &(stateMatrix[elementIndex]);
 			
 			SEL actionSelector = tableElement->actionToTrigger;
