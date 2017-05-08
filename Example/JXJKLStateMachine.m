@@ -240,7 +240,7 @@ bool isValidEvent(event_t event) {
 	assert(isValidEvent(event));
 	
 	// Determine the state matrix element depending on the current state and the triggered event.
-	size_t elementIndex = (_currentState * E_Count) + event;
+	size_t elementIndex = ((size_t)_currentState * E_Count) + (size_t)event;
 	state_element_t stateTransition = _stateMatrix[elementIndex];
 	
 	// Transition to the next state (set current state to the next state obtained from the matrix)…
