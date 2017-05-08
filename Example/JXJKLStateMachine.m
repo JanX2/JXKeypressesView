@@ -92,11 +92,11 @@ state_element_t * buildStateMatrix(id target) {
 		/*{ Index,               3,                   4,                    5,                   },*/
 		/*{ State/Event Name,    E_JUp_FromJK_To_K_,  E_KDown_From___To_K_, E_LUp_From_KLTo_K_,  },*/
 		{/* S_FastBackwards,  */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
-		{/* S_Backwards,      */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
+		{/* S_Backwards,      */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Invalid, nil},    },
 		{/* S_HalfBackwards,  */ {S_Pause, pauseP},   {S_Invalid, nil},     {S_Invalid, nil},    },
 		{/* S_Pause,          */ {S_Pause, pauseCTB}, {S_NoChange, nil},    {S_Pause, pauseCTF}, },
 		{/* S_HalfForward,    */ {S_Invalid, nil},    {S_Invalid, nil},     {S_Pause, pauseP},   },
-		{/* S_Forward,        */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
+		{/* S_Forward,        */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Pause, pauseP},   },
 		{/* S_FastForward,    */ {S_Invalid, nil},    {S_Pause, pauseP},    {S_Invalid, nil},    },
 	};
 	
