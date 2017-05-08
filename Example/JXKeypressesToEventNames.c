@@ -11,6 +11,9 @@
 #include <assert.h>
 
 
+static event_t EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
+
+
 EventKey eventKeyForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
