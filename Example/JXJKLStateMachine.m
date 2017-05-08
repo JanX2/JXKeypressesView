@@ -158,6 +158,8 @@ state_element_t * buildStateMatrix(id target) {
 	}
 	
 	state_element_t *stateMatrix = calloc(elementCount, sizeof(state_element_t));
+
+#define DUMP_TABLE	0
 	
 	// Build state matrix.
 	{
@@ -197,6 +199,10 @@ state_element_t * buildStateMatrix(id target) {
 			
 			element->actionToTrigger = action;
 			
+#if DUMP_TABLE
+			printf("%u" "," "%s", element->nextState, [NSStringFromSelector(actionSelector) UTF8String]);
+#endif
+
 			colInTableSection += 1;
 			if (colInTableSection >= metadata.columnCount) {
 				colInTableSection = 0;
@@ -207,6 +213,15 @@ state_element_t * buildStateMatrix(id target) {
 			if (col >= columnCount) {
 				row += 1;
 				col = 0;
+				
+#if DUMP_TABLE
+				printf("\n");
+#endif
+			}
+			else {
+#if DUMP_TABLE
+				printf("\t");
+#endif
 			}
 		}
 	}
