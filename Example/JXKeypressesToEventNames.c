@@ -62,7 +62,7 @@ KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey) {
 
 // Generate EventKeyToEventNameMap from EventComponentsToEventNameTable by iterating over it,
 // acquiring the hash/ID/key for each entry and setting its Event Name in the map.
-void generateEventKeyToEventNameMap() __attribute__((constructor));
+void generateEventKeyToEventNameMap() __attribute__ ((constructor));
 void generateEventKeyToEventNameMap() {
 	for (size_t i = 0; i < E_Count; i += 1) {
 		EventComponents event = EventComponentsToEventNameTable[i];

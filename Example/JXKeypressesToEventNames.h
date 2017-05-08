@@ -22,7 +22,7 @@ typedef enum {
 
 #define KeyFlags_BIT_COUNT	3
 
-typedef struct __attribute__((__packed__)) {
+typedef struct __attribute__ ((__packed__)) {
 	bool padding:1;
 	bool transitionType:1;
 	KeyFlag transitionKey:KeyFlags_BIT_COUNT;
