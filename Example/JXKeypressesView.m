@@ -170,7 +170,8 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 		}
 	}
 	else if (isARepeat) {
-		handledKey = YES;
+		KeyCodeType keyCode = theEvent.keyCode;
+		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 	}
 	
 	if (handledKey == NO) {
@@ -235,7 +236,8 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 		}
 	}
 	else if (isARepeat) {
-		handledKey = YES;
+		KeyCodeType keyCode = theEvent.keyCode;
+		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 	}
 		
 	if (handledKey == NO) {
