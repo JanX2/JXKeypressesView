@@ -10,6 +10,7 @@
 
 #import "JXJKLStateMachine.h"
 #import "JXKeypressesDefinitions.h"
+#import "JXKeypressesToEventNames.h"
 #import "TSCDocumentDummy.h"
 
 
@@ -100,6 +101,15 @@ KeysArrayType * handledKeys() {
 
 # pragma mark Event Handling
 
+KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
+	KeyFlag keyFlags = KeyFlag_None |
+	((keysArray[kVK_ANSI_J] == KeyIsDown) ? KeyFlag_J : KeyFlag_None) |
+	((keysArray[kVK_ANSI_K] == KeyIsDown) ? KeyFlag_K : KeyFlag_None) |
+	((keysArray[kVK_ANSI_L] == KeyIsDown) ? KeyFlag_L : KeyFlag_None);
+	
+	return keyFlags;
+}
+
 - (void)keyDown:(NSEvent *)theEvent
 {
 	BOOL isARepeat = theEvent.isARepeat;
@@ -125,8 +135,12 @@ KeysArrayType * handledKeys() {
 				case kVK_ANSI_K:
 				case kVK_ANSI_L: {
 					// Hand off event to state machine.
-					// !!
-					event_t event = E_LDown_From___To__L;
+					KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
+					KeyFlag beforeKeyFlags = keyFlagsForKeysArray(_keysDown);
+					
+					event_t event = eventNameForEventTransition(transitionType,
+																transitionKey,
+																beforeKeyFlags);
 					[_stateMachine processEvent:event];
 					break;
 				}
@@ -190,12 +204,17 @@ KeysArrayType * handledKeys() {
 			switch (keyCode) {
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
-				case kVK_ANSI_L:
+				case kVK_ANSI_L: {
 					// Hand off event to state machine.
+					KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
+					KeyFlag beforeKeyFlags = keyFlagsForKeysArray(_keysDown);
 					
-					// !!
-					//[_stateMachine processEvent:E_LDown_From___To__L];
+					event_t event = eventNameForEventTransition(transitionType,
+																transitionKey,
+																beforeKeyFlags);
+					[_stateMachine processEvent:event];
 					break;
+				}
 					
 				case kVK_Space:
 					// Do nothing.
