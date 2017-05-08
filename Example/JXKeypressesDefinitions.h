@@ -16,9 +16,20 @@ typedef unsigned short KeyCodeType;
 extern const KeyCodeType KeyCodeUndefined;
 
 
-typedef bool KeysArrayType;
-
 #if 1
+
+typedef enum  __attribute__ ((__packed__)) {
+	KeyIsDown		= true,
+	KeyIsUp			= false,
+	KeyIsHandled	= true,
+	KeyNotHandled	= false,
+} KeysArrayType;
+
+_Static_assert(sizeof(KeysArrayType) == 1, "");
+
+#elif 0
+
+typedef bool KeysArrayType;
 
 #define KeyIsDown	true
 #define KeyIsUp		false
@@ -26,7 +37,9 @@ typedef bool KeysArrayType;
 #define KeyIsHandled	true
 #define KeyNotHandled	false
 
-#elif
+#elif 0
+
+typedef bool KeysArrayType;
 
 extern const KeysArrayType KeyIsDown;
 extern const KeysArrayType KeyIsUp;

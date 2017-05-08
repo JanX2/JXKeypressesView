@@ -42,8 +42,6 @@ typedef union {
 	EventKey key;
 } EventID;
 
-static event_t EventKeyToEventNameMap[EventID_COUNT] = {E_Invalid};
-
 typedef struct {
 	KeysArrayType	transitionType;
 	KeyFlag			transitionKey;
