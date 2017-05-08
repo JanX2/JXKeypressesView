@@ -69,7 +69,3 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
 	{KeyIsUp,         KeyFlag_K,      (KeyFlag_K | KeyFlag_L), (KeyFlag_L),             E_KUp_From_KLTo__L,   kVK_ANSI_K,         "▆▃▃",    "▆▆▃",   0b011,    0b001,   7,           },
 	{KeyIsDown,       KeyFlag_L,      (KeyFlag_None),          (KeyFlag_L),             E_LDown_From___To__L, kVK_ANSI_L,         "▆▆▆",    "▆▆▃",   0b000,    0b001,   8,           },
 };
-
-EventKey eventKeyForEventTransition(KeysArrayType transitionType,
-									KeyFlag transitionKey,
-									KeyFlag beforeKeyFlags);
