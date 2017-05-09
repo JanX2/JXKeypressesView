@@ -20,27 +20,7 @@ typedef enum {
 	KeyFlag_J	 = 0b100,
 } KeyFlag;
 
-#define KeyFlags_BIT_COUNT	3
-
-typedef struct __attribute__ ((__packed__)) {
-	bool padding:1;
-	bool transitionType:1;
-	KeyFlag transitionKey:KeyFlags_BIT_COUNT;
-	KeyFlag keyStateBefore:KeyFlags_BIT_COUNT;
-} EventHash;
-
-#define EventID_USED_BIT_COUNT	(1 + KeyFlags_BIT_COUNT * 2)
-#define EventID_COUNT			(1 << EventID_USED_BIT_COUNT)
-
 typedef uint8_t EventKey;
-
-_Static_assert((sizeof(EventHash) <= sizeof(EventKey)), "EventHash needs to fit within EventKey");
-_Static_assert((E_Count <= EventID_COUNT), "E_Count needs to fit within EventID_COUNT");
-
-typedef union {
-	EventHash hash;
-	EventKey key;
-} EventID;
 
 typedef struct {
 	KeysArrayType	transitionType;
