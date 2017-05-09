@@ -104,17 +104,26 @@ KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 	return keyFlags;
 }
 
-void processEventUsingStateMachine(KeyCodeType keyCode,
+bool processEventUsingStateMachine(KeyCodeType keyCode,
 								   KeysArrayType *keysDown,
 								   KeysArrayType transitionType,
 								   JXJKLStateMachine *stateMachine) {
 	KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
 	KeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
 	
+	bool allThreeKeysDown =
+	((beforeKeyFlags | transitionKey) == (KeyFlag_L | KeyFlag_K | KeyFlag_J));
+	
+	if (allThreeKeysDown) {
+		return false;
+	}
+	
 	event_t event = eventNameForEventTransition(transitionType,
 												transitionKey,
 												beforeKeyFlags);
 	[stateMachine processEvent:event];
+	
+	return true;
 }
 
 - (void)keyDown:(NSEvent *)theEvent
@@ -141,7 +150,11 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
+					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
+						// We currently do this too early, as we change `_keysDown[keyCode]` afterwards
+						// so that change below is not taken into account.
+						[self resetKeys];
+					}
 					break;
 					
 				case kVK_Space:
@@ -205,7 +218,9 @@ void processEventUsingStateMachine(KeyCodeType keyCode,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
+					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
+						[self resetKeys];
+					}
 					break;
 					
 				case kVK_Space:
