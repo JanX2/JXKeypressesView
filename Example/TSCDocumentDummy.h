@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class AVPlayerDummy;
+
+
 @interface TSCDocumentDummy : NSObject
 
-@property (nonatomic, readonly, assign) float rate;
+
+@property (nonatomic, readonly, strong) AVPlayerDummy *player;
 
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;

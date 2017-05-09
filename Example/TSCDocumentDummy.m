@@ -8,13 +8,14 @@
 
 #import "TSCDocumentDummy.h"
 
+#import "AVPlayerDummy.h"
 #import "JXJKLStateMachine.h"
 #import "TSCAVPlayerRateConstants.h"
 
 
 @interface TSCDocumentDummy ()
 
-@property (nonatomic, readwrite, assign) float rate;
+@property (nonatomic, readwrite, strong) AVPlayerDummy *player;
 
 @end
 
@@ -26,7 +27,7 @@
 	self = [super init];
 	
 	if (self) {
-		_rate = TSCAVPlayerRatePaused;
+		_player = [AVPlayerDummy new];
 	}
 	
 	return self;
@@ -35,18 +36,18 @@
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;
 {
-	self.rate = TSCAVPlayerRateNaturalForward;
+	self.player.rate = TSCAVPlayerRateNaturalForward;
 }
 
 - (IBAction)playBackwardsAtNaturalRate:(id)sender;
 {
-	self.rate = TSCAVPlayerRateNaturalBackward;
+	self.player.rate = TSCAVPlayerRateNaturalBackward;
 }
 
 
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 {
-	self.rate = TSCAVPlayerRateHalfNaturalForward;
+	self.player.rate = TSCAVPlayerRateHalfNaturalForward;
 	
 	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
 		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
@@ -56,7 +57,7 @@
 
 - (IBAction)playBackwardsAtHalfNaturalRate:(id)sender;
 {
-	self.rate = TSCAVPlayerRateHalfNaturalBackward;
+	self.player.rate = TSCAVPlayerRateHalfNaturalBackward;
 	
 	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
 		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
@@ -134,8 +135,8 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 
 - (IBAction)pausePlayback:(id)sender;
 {
-	if (self.rate != TSCAVPlayerRatePaused) {
-		self.rate = TSCAVPlayerRatePaused;
+	if (self.player.rate != TSCAVPlayerRatePaused) {
+		self.player.rate = TSCAVPlayerRatePaused;
 	}
 }
 
@@ -182,18 +183,18 @@ float previousPlaybackRateForInitialRate(const float initialRate) {
 
 - (IBAction)playAtNextRateForCurrentRate:(id)sender;
 {
-	const float initialRate = self.rate;
+	const float initialRate = self.player.rate;
 	const float newRate = (initialRate < 2.0f) ? 2.0f : nextPlaybackRateForInitialRate(initialRate);
 	
-	self.rate = newRate;
+	self.player.rate = newRate;
 }
 
 - (IBAction)playAtPreviousRateForCurrentRate:(id)sender;
 {
-	const float initialRate = self.rate;
+	const float initialRate = self.player.rate;
 	const float newRate = (-2.0f < initialRate) ? -2.0f : previousPlaybackRateForInitialRate(initialRate);
 	
-	self.rate = newRate;
+	self.player.rate = newRate;
 }
 
 @end

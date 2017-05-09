@@ -827,7 +827,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.rate" id="MTL-cx-qdi">
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.player.rate" id="1ye-Jw-gOp">
                                 <dictionary key="options">
                                     <string key="NSNullPlaceholder">?x</string>
                                 </dictionary>
