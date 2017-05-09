@@ -13,24 +13,13 @@
 
 #define KeyFlags_BIT_COUNT	3
 
-
-typedef struct __attribute__ ((__packed__)) {
-	bool padding:1;
-	bool transitionType:1;
-	KeyFlag transitionKey:KeyFlags_BIT_COUNT;
-	KeyFlag keyStateBefore:KeyFlags_BIT_COUNT;
-} EventHash;
+#define bool_MASK		0b00000001
+#define KeyFlags_MASK	0b00000111
 
 #define EventID_USED_BIT_COUNT	(1 + KeyFlags_BIT_COUNT * 2)
 #define EventID_COUNT			(1 << EventID_USED_BIT_COUNT)
 
-_Static_assert((sizeof(EventHash) <= sizeof(EventKey)), "EventHash needs to fit within EventKey");
 _Static_assert((E_Count <= EventID_COUNT), "E_Count needs to fit within EventID_COUNT");
-
-typedef union {
-	EventHash hash;
-	EventKey key;
-} EventID;
 
 
 static event_t EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
@@ -39,18 +28,13 @@ static event_t EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT -
 EventKey eventKeyForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
-	EventHash hash = {
-		0,
-		transitionType,
-		transitionKey,
-		beforeKeyFlags,
-	};
+	EventKey key = 0;
+	key |= (transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
+	key |= (transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
+	key |= (beforeKeyFlags & KeyFlags_MASK);
 	
-	EventID eventID;
-	eventID.hash = hash;
-	
-	EventKey key = eventID.key;
-	
+	assert(key < EventID_COUNT);
+
 	return key;
 }
 
