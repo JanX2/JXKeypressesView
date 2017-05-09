@@ -25,7 +25,7 @@ typedef enum  __attribute__ ((__packed__)) {
 	KeyNotHandled	= false,
 } KeysArrayType;
 
-_Static_assert(sizeof(KeysArrayType) == 1, "");
+_Static_assert(sizeof(KeysArrayType) == 1, "We want the key state array to be compact. So its elements need to be small.");
 
 #elif 0
 
