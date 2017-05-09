@@ -34,7 +34,7 @@ typedef struct {
 	self = [super init];
 	
 	if (self) {
-		// TODO: add state source connection/sync.
+		// TODO: add state source connection/sync. !!
 		_currentState = S_Pause;
 		_target = target;
 		
