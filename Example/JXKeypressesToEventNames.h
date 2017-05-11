@@ -18,6 +18,13 @@ typedef enum {
 	KeyFlag_L	 = 0b001,
 	KeyFlag_K	 = 0b010,
 	KeyFlag_J	 = 0b100,
+	// For debugging:
+	KeyFlag_KL	 = 0b011,
+	KeyFlag_JL	 = 0b101,
+	KeyFlag_JK	 = 0b110,
+	
+	KeyFlag_JKL	 = 0b111,
+
 } KeyFlag;
 
 typedef uint8_t EventKey;
