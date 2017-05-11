@@ -8,7 +8,6 @@
 
 #import "TSCDocumentDummy.h"
 
-#import "AVPlayerDummy.h"
 #import "JXJKLStateMachine.h"
 #import "TSCAVPlayerRateConstants.h"
 
@@ -48,21 +47,11 @@
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 {
 	self.player.rate = TSCAVPlayerRateHalfNaturalForward;
-	
-	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
-		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
-		[stateMachine playForwardsAtHalfNaturalRateTimeFired];
-	}
 }
 
 - (IBAction)playBackwardsAtHalfNaturalRate:(id)sender;
 {
 	self.player.rate = TSCAVPlayerRateHalfNaturalBackward;
-	
-	if ([sender isKindOfClass:[JXJKLStateMachine class]]) {
-		JXJKLStateMachine *stateMachine = (JXJKLStateMachine *)sender;
-		[stateMachine playBackwardsAtHalfNaturalRateTimeFired];
-	}
 }
 
 

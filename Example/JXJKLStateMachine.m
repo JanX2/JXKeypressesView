@@ -8,6 +8,8 @@
 
 #import "JXJKLStateMachine.h"
 
+#import "JXStateForRate.h"
+#import "TSCDocumentDummy.h"
 
 typedef void (*action_t)(id, SEL, id);
 static const action_t nil_action = NULL;
@@ -20,7 +22,6 @@ typedef struct {
 
 
 @implementation JXJKLStateMachine {
-	state_t _currentState;
 	__weak id _target;
 	
 	state_element_t *_stateMatrix;
@@ -34,8 +35,6 @@ typedef struct {
 	self = [super init];
 	
 	if (self) {
-		// TODO: add state source connection/sync. !!
-		_currentState = S_Pause;
 		_target = target;
 		
 		_stateMatrix = buildStateMatrix(_target);
@@ -253,33 +252,28 @@ bool isValidEvent(event_t event) {
 {
 	if (event == E_Invalid)  return;
 	
-	assert(isValidState(_currentState));
+	TSCDocumentDummy *document = _target;
+	float rate = document.player.rate;
+	state_t state = stateForRate(rate);
+	
+	assert(isValidState(state));
 	assert(isValidEvent(event));
 	
 	// Determine the state matrix element depending on the current state and the triggered event.
-	size_t elementIndex = ((size_t)_currentState * E_Count) + (size_t)event;
+	size_t elementIndex = ((size_t)state * E_Count) + (size_t)event;
 	state_element_t stateTransition = _stateMatrix[elementIndex];
 	
 	if (stateTransition.nextState == S_NoChange)  return;
 	
 	// Transition to the next state (set current state to the next state obtained from the matrix)…
 	assert(isValidState(stateTransition.nextState));
-	_currentState = stateTransition.nextState;
 	
 	// … and trigger the appropriate action.
 	if (stateTransition.actionToTrigger != nil_action) {
 		stateTransition.actionToTrigger(_target, stateTransition.actionSelector, self);
 	}
-}
-
-- (void)playBackwardsAtHalfNaturalRateTimeFired;
-{
-	_currentState = S_HalfBackwards;
-}
-
-- (void)playForwardsAtHalfNaturalRateTimeFired;
-{
-	_currentState = S_HalfForward;
+	
+	//assert(stateForRate(document.player.rate) == stateTransition.nextState); // This will fail for time-limited or delayed states.
 }
 
 @end

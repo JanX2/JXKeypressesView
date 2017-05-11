@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AVPlayerDummy;
+#import "AVPlayerDummy.h"
 
 
 @interface TSCDocumentDummy : NSObject
