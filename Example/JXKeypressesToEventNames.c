@@ -34,7 +34,7 @@ EventKey eventKeyForEventTransition(KeysArrayType transitionType,
 	key |= (beforeKeyFlags & KeyFlags_MASK);
 	
 	assert(key < EventID_COUNT);
-
+	
 	return key;
 }
 
