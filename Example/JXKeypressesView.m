@@ -112,7 +112,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 	KeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
 	
 	bool allThreeKeysDown =
-	((beforeKeyFlags | transitionKey) == (KeyFlag_L | KeyFlag_K | KeyFlag_J));
+	((beforeKeyFlags | transitionKey) == KeyFlag_JKL);
 	
 	if (allThreeKeysDown) {
 		return false;
