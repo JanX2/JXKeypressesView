@@ -132,3 +132,15 @@ event_t eventNameForEventTransition(KeysArrayType transitionType,
 	const event_t eventName = EventKeyToEventNameMap[key];
 	return eventName;
 }
+
+
+#if 0
+void test() __attribute__ ((constructor));
+void test() {
+    EventKey key = eventKeyForEventTransition(KeyIsUp,
+                                              KeyFlag_K,
+                                              KeyFlag_JK);
+    
+    assert(key == 0b00010110);
+}
+#endif
