@@ -53,8 +53,8 @@ extern const KeysArrayType KeyNotHandled;
 typedef enum {
 	E_JDown_From___ToJ__  = 0,    /* ⬇kVK_ANSI_J ▆▆▆ → ▃▆▆, */
 	E_KUp_FromJK_ToJ__    = 1,    /* ⬆kVK_ANSI_K ▃▃▆ → ▃▆▆, */
-	E_JUp_FromJK_To_K_    = 2,    /* ⬆kVK_ANSI_J ▃▃▆ → ▆▃▆, */
-	E_JDown_From_K_ToJK_  = 3,    /* ⬇kVK_ANSI_J ▆▃▆ → ▃▃▆, */
+	E_JDown_From_K_ToJK_  = 2,    /* ⬇kVK_ANSI_J ▆▃▆ → ▃▃▆, */
+	E_JUp_FromJK_To_K_    = 3,    /* ⬆kVK_ANSI_J ▃▃▆ → ▆▃▆, */
 	E_KDown               = 4,    /* ⬇kVK_ANSI_K ?▆? → ?▃?, */
   //E_KDown_From___To_K_  = 4,    /* ⬇kVK_ANSI_K ▆▆▆ → ▆▃▆, */
 	E_LUp_From_KLTo_K_    = 5,    /* ⬆kVK_ANSI_L ▆▃▃ → ▆▃▆, */
