@@ -77,19 +77,19 @@ state_element_t * buildStateMatrix(id target) {
 	{
 		/*{ Index,               0,                         1,                     2,                    },*/
 		/*{ State/Event Name,    E_JDown_From___ToJ__,      E_KUp_FromJK_ToJ__,    E_JDown_From_K_ToJK_, },*/
-		{/* S_FastBackwards,  */ {S_FastBackwards, backNx}, {S_Invalid, nil},      {S_Invalid, nil},     },
-		{/* S_Backwards,      */ {S_FastBackwards, backNx}, {S_Invalid, nil},      {S_Invalid, nil},     },
-		{/* S_HalfBackwards,  */ {S_Invalid, nil},          {S_Backwards, back1x}, {S_Invalid, nil},     },
-		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Invalid, nil},      {S_Pause, back1f},    },
-		{/* S_HalfForward,    */ {S_Invalid, nil},          {S_Invalid, nil},      {S_Invalid, nil},     },
-		{/* S_Forward,        */ {S_Backwards, back1x},     {S_Invalid, nil},      {S_Invalid, nil},     },
-		{/* S_FastForward,    */ {S_Backwards, back1x},     {S_Invalid, nil},      {S_Invalid, nil},     },
+		{/* S_FastBackwards,  */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
+		{/* S_Backwards,      */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
+		{/* S_HalfBackwards,  */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
+		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Pause, pauseCTB},   {S_Pause, back1f},    },
+		{/* S_HalfForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
+		{/* S_Forward,        */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
+		{/* S_FastForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
 	};
 	
 	state_selector_pair_t stateMatrixPauseSection[S_Count][stateMatrixPauseSectionColumnCount] =
 	{
 		/*{ Index,               3,                   4,                    5,                   },*/
-		/*{ State/Event Name,    E_JUp_FromJK_To_K_,  E_KDown_From___To_K_, E_LUp_From_KLTo_K_,  },*/
+		/*{ State/Event Name,    E_JUp_FromJK_To_K_,  E_KDown,              E_LUp_From_KLTo_K_,  },*/
 		{/* S_FastBackwards,  */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
 		{/* S_Backwards,      */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
 		{/* S_HalfBackwards,  */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
@@ -103,13 +103,13 @@ state_element_t * buildStateMatrix(id target) {
 	{
 		/*{ Index,               6,                     7,                   8,                       },*/
 		/*{ State/Event Name,    E_LDown_From_K_To_KL,  E_KUp_From_KLTo__L,  E_LDown_From___To__L,    },*/
-		{/* S_FastBackwards,  */ {S_Invalid, nil},      {S_Invalid, nil},    {S_Forward, play1x},     },
-		{/* S_Backwards,      */ {S_Invalid, nil},      {S_Invalid, nil},    {S_Forward, play1x},     },
-		{/* S_HalfBackwards,  */ {S_Invalid, nil},      {S_Invalid, nil},    {S_Invalid, nil},        },
-		{/* S_Pause,          */ {S_Pause, play1f},     {S_Invalid, nil},    {S_Forward, play1x},     },
-		{/* S_HalfForward,    */ {S_Invalid, nil},      {S_Forward, play1x}, {S_Invalid, nil},        },
-		{/* S_Forward,        */ {S_Invalid, nil},      {S_Invalid, nil},    {S_FastForward, playNx}, },
-		{/* S_FastForward,    */ {S_Invalid, nil},      {S_Invalid, nil},    {S_FastForward, playNx}, },
+		{/* S_FastBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
+		{/* S_Backwards,      */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
+		{/* S_HalfBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
+		{/* S_Pause,          */ {S_Pause, play1f},     {S_Pause, pauseCTF}, {S_Forward, play1x},     },
+		{/* S_HalfForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
+		{/* S_Forward,        */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
+		{/* S_FastForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
 	};
 	
 	typedef struct {

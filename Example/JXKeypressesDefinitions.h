@@ -55,11 +55,14 @@ typedef enum {
 	E_KUp_FromJK_ToJ__    = 1,    /* ⬆kVK_ANSI_K ▃▃▆ → ▃▆▆, */
 	E_JUp_FromJK_To_K_    = 2,    /* ⬆kVK_ANSI_J ▃▃▆ → ▆▃▆, */
 	E_JDown_From_K_ToJK_  = 3,    /* ⬇kVK_ANSI_J ▆▃▆ → ▃▃▆, */
-	E_KDown_From___To_K_  = 4,    /* ⬇kVK_ANSI_K ▆▆▆ → ▆▃▆, */
+	E_KDown               = 4,    /* ⬇kVK_ANSI_K ?▆? → ?▃?, */
+  //E_KDown_From___To_K_  = 4,    /* ⬇kVK_ANSI_K ▆▆▆ → ▆▃▆, */
 	E_LUp_From_KLTo_K_    = 5,    /* ⬆kVK_ANSI_L ▆▃▃ → ▆▃▆, */
 	E_LDown_From_K_To_KL  = 6,    /* ⬇kVK_ANSI_L ▆▃▆ → ▆▃▃, */
 	E_KUp_From_KLTo__L    = 7,    /* ⬆kVK_ANSI_K ▆▃▃ → ▆▆▃, */
 	E_LDown_From___To__L  = 8,    /* ⬇kVK_ANSI_L ▆▆▆ → ▆▆▃, */
+  //E_KDown_FromJ__ToJK_  = 9,
+  //E_KDown_From__LTo_KL  = 10,
 	E_Count               = 9,
 	E_Invalid             = 10,
 } event_t;

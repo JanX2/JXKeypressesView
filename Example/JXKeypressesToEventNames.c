@@ -29,9 +29,9 @@ EventKey eventKeyForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
 	EventKey key = 0;
-	key |= (transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
-	key |= (transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
-	key |= (beforeKeyFlags & KeyFlags_MASK);
+	key |= (EventKey)(transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
+	key |= (EventKey)(transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
+	key |= (EventKey)(beforeKeyFlags & KeyFlags_MASK);
 	
 	assert(key < EventID_COUNT);
 	
@@ -118,12 +118,18 @@ void generateEventKeyToEventNameMap() {
 		EventKey key = eventKeyForEvent(event);
 
 		EventKeyToEventNameMap[key] = event.eventName;
+		assert(EventKeyToEventNameMap[key] == event.eventName);
 	}
 }
 
 event_t eventNameForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
+	
+	if ((transitionType == KeyIsDown) &&
+		(transitionKey == KeyFlag_K)) {
+		return E_KDown;
+	}
 	
 	EventKey key = eventKeyForEventTransition(transitionType,
 											  transitionKey,
@@ -135,12 +141,47 @@ event_t eventNameForEventTransition(KeysArrayType transitionType,
 
 
 #if 0
-void test() __attribute__ ((constructor));
-void test() {
-    EventKey key = eventKeyForEventTransition(KeyIsUp,
-                                              KeyFlag_K,
-                                              KeyFlag_JK);
-    
-    assert(key == 0b00010110);
+void testEventKeyForEventTransition() __attribute__ ((constructor));
+void testEventKeyForEventTransition() {
+	EventKey key;
+	key = eventKeyForEventTransition(KeyIsUp,
+									 KeyFlag_K,
+									 KeyFlag_JK);
+	
+	assert(key == 0b00010110);
+	
+	key = eventKeyForEventTransition(KeyIsDown,
+									 KeyFlag_K,
+									 KeyFlag_L);
+	
+	assert(key == 0b01010001);
+	
+	key = eventKeyForEventTransition(KeyIsDown,
+									 KeyFlag_L,
+									 KeyFlag_K);
+	
+	assert(key == 0b01001010);
 }
+
+void testEventKeyToEventNameMap() __attribute__ ((constructor));
+void testEventKeyToEventNameMap() {
+	EventKey key;
+	event_t eventName;
+	
+	key = 0b00010110;
+	eventName = EventKeyToEventNameMap[key];
+	assert(eventName == E_KUp_FromJK_ToJ__);
+
+	/*
+	// Handled by generic treatment of KDown in `eventNameForEventTransition()`.
+	key = 0b01010001;
+	eventName = EventKeyToEventNameMap[key];
+	assert(eventName == E_KDown);
+	*/
+	
+	key = 0b01001010;
+	eventName = EventKeyToEventNameMap[key];
+	assert(eventName == E_LDown_From_K_To_KL);
+}
+
 #endif
