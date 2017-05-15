@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AVPlayerDummy.h"
+#import "AVPlayer.h"
 
 
 @interface TSCDocumentDummy : NSObject
 
 
-@property (nonatomic, readonly, strong) AVPlayerDummy *player;
+@property (nonatomic, readonly, strong) AVPlayer *player;
 
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;

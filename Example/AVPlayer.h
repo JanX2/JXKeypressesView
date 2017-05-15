@@ -1,5 +1,5 @@
 //
-//  AVPlayerDummy.h
+//  AVPlayer.h
 //  Keyboard Keypresses Aggregation
 //
 //  Created by Jan on 09.05.17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AVPlayerDummy : NSObject
+@interface AVPlayer : NSObject
 
 @property (nonatomic, readwrite, assign) float rate;
 

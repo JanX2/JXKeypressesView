@@ -1,17 +1,17 @@
 //
-//  AVPlayerDummy.m
+//  AVPlayer.m
 //  Keyboard Keypresses Aggregation
 //
 //  Created by Jan on 09.05.17.
 //  Copyright © 2017 Jan. All rights reserved.
 //
 
-#import "AVPlayerDummy.h"
+#import "AVPlayer.h"
 
 #import "TSCAVPlayerRateConstants.h"
 
 
-@implementation AVPlayerDummy
+@implementation AVPlayer
 
 - (instancetype)init
 {

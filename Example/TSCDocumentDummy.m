@@ -14,7 +14,7 @@
 
 @interface TSCDocumentDummy ()
 
-@property (nonatomic, readwrite, strong) AVPlayerDummy *player;
+@property (nonatomic, readwrite, strong) AVPlayer *player;
 
 @end
 
@@ -26,7 +26,7 @@
 	self = [super init];
 	
 	if (self) {
-		_player = [AVPlayerDummy new];
+		_player = [AVPlayer new];
 	}
 	
 	return self;
