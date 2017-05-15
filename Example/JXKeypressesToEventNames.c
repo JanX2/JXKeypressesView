@@ -25,20 +25,20 @@ _Static_assert((E_Count <= EventID_COUNT), "E_Count needs to fit within EventID_
 static JXEvent EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
 
 
-EventKey eventKeyForEventTransition(KeysArrayType transitionType,
+JXEventKey eventKeyForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
-	EventKey key = 0;
-	key |= (EventKey)(transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
-	key |= (EventKey)(transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
-	key |= (EventKey)(beforeKeyFlags & KeyFlags_MASK);
+	JXEventKey key = 0;
+	key |= (JXEventKey)(transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
+	key |= (JXEventKey)(transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
+	key |= (JXEventKey)(beforeKeyFlags & KeyFlags_MASK);
 	
 	assert(key < EventID_COUNT);
 	
 	return key;
 }
 
-EventKey eventKeyForEvent(EventComponents event) {
+JXEventKey eventKeyForEvent(EventComponents event) {
 	return eventKeyForEventTransition(event.transitionType,
 									  event.transitionKey,
 									  event.beforeKeyFlags);
@@ -115,7 +115,7 @@ void generateEventKeyToEventNameMap() {
 		assert(event.eventName == event.eventIndex);
 		
 		// Add Map entry.
-		EventKey key = eventKeyForEvent(event);
+		JXEventKey key = eventKeyForEvent(event);
 
 		EventKeyToEventNameMap[key] = event.eventName;
 		assert(EventKeyToEventNameMap[key] == event.eventName);
@@ -131,7 +131,7 @@ JXEvent eventNameForEventTransition(KeysArrayType transitionType,
 		return E_KDown;
 	}
 	
-	EventKey key = eventKeyForEventTransition(transitionType,
+	JXEventKey key = eventKeyForEventTransition(transitionType,
 											  transitionKey,
 											  beforeKeyFlags);
 	
@@ -143,7 +143,7 @@ JXEvent eventNameForEventTransition(KeysArrayType transitionType,
 #if 0
 void testEventKeyForEventTransition() __attribute__ ((constructor));
 void testEventKeyForEventTransition() {
-	EventKey key;
+	JXEventKey key;
 	key = eventKeyForEventTransition(KeyIsUp,
 									 KeyFlag_K,
 									 KeyFlag_JK);
@@ -165,7 +165,7 @@ void testEventKeyForEventTransition() {
 
 void testEventKeyToEventNameMap() __attribute__ ((constructor));
 void testEventKeyToEventNameMap() {
-	EventKey key;
+	JXEventKey key;
 	JXEvent eventName;
 	
 	key = 0b00010110;

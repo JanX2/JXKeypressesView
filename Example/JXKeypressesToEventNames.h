@@ -27,7 +27,7 @@ typedef enum {
 
 } KeyFlag;
 
-typedef uint8_t EventKey;
+typedef uint8_t JXEventKey;
 
 typedef struct {
 	KeysArrayType	transitionType;
@@ -38,8 +38,8 @@ typedef struct {
 	KeyCodeType		transitionKeyCode;
 	const char		*beforeVisual;
 	const char		*afterVisual;
-	EventKey		beforeBinary;
-	EventKey		afterBinary;
+	JXEventKey		beforeBinary;
+	JXEventKey		afterBinary;
 	JXEvent			eventIndex;
 } EventComponents;
 
