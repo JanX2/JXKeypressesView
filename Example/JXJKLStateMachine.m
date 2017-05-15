@@ -22,7 +22,7 @@ typedef enum {
 	S_Count              = 7,
 	S_Invalid            = 8,
 	S_NoChange           = 9,
-} state_t;
+} JXState;
 
 #import "JXStateForRate.h"
 
@@ -31,7 +31,7 @@ typedef void (*action_t)(id, SEL, id);
 static const action_t nil_action = NULL;
 
 typedef struct {
-	state_t nextState;
+	JXState nextState;
 	action_t actionToTrigger;
 	SEL actionSelector;
 } state_element_t;
@@ -80,7 +80,7 @@ state_element_t * buildStateMatrix(id target) {
 #pragma clang diagnostic pop
 
 	typedef struct {
-		state_t nextState;
+		JXState nextState;
 		SEL actionToTrigger;
 	} state_selector_pair_t;
 	
@@ -253,7 +253,7 @@ void destroyStateMatrix(state_element_t *stateMatrix) {
 }
 
 
-bool isValidState(state_t state) {
+bool isValidState(JXState state) {
 	_Static_assert(S_FastBackwards == 0, "");
 	return ((S_FastBackwards <= state) && (state < S_Count));
 }
@@ -270,7 +270,7 @@ bool isValidEvent(JXEvent event) {
 	
 	TSCDocument *document = _target;
 	float rate = document.player.rate;
-	state_t state = stateForRate(rate);
+	JXState state = stateForRate(rate);
 	
 	assert(isValidState(state));
 	assert(isValidEvent(event));

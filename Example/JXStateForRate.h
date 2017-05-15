@@ -11,8 +11,8 @@
 #include "JXPowersOfTwoHelpers.h"
 #include "TSCAVPlayerRateConstants.h"
 
-static inline state_t stateForQuantizedRate(float rate) {
-	state_t state;
+static inline JXState stateForQuantizedRate(float rate) {
+	JXState state;
 	
 	if (rate <= -2.0) {
 		state = S_FastBackwards;
@@ -42,7 +42,7 @@ static inline state_t stateForQuantizedRate(float rate) {
 	return state;
 }
 
-static inline state_t stateForRate(float rate) {
+static inline JXState stateForRate(float rate) {
 	PowerOfTwoParameters parameters = (PowerOfTwoParameters){
 		.specialCases = true,
 		.keepPowersOfTwo = true,
@@ -51,7 +51,7 @@ static inline state_t stateForRate(float rate) {
 	
 	const float quantizedRate = closestPowerOfTwo(rate, parameters);
 	
-	state_t state = stateForQuantizedRate(quantizedRate);
+	JXState state = stateForQuantizedRate(quantizedRate);
 	
 	return state;
 }
