@@ -20,8 +20,8 @@
 // in the same place on every keyboard regardless of layout.
 
 
-const KeyCodeType KeyCodeMax = 0x7E;
-const KeyCodeType KeyCodeCount = KeyCodeMax + 1;
+const JXKeyCode KeyCodeMax = 0x7E;
+const JXKeyCode KeyCodeCount = KeyCodeMax + 1;
 
 
 KeysArrayType * handledKeys() {
@@ -104,7 +104,7 @@ JXKeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 	return keyFlags;
 }
 
-bool processEventUsingStateMachine(KeyCodeType keyCode,
+bool processEventUsingStateMachine(JXKeyCode keyCode,
 								   KeysArrayType *keysDown,
 								   KeysArrayType transitionType,
 								   JXJKLStateMachine *stateMachine) {
@@ -138,7 +138,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 	if ((isARepeat == NO) &&
 		(flags == 0)) { // We currently only want events without modifiers.
 		
-		KeyCodeType keyCode = theEvent.keyCode;
+		JXKeyCode keyCode = theEvent.keyCode;
 		KeysArrayType transitionType = KeyIsDown;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
@@ -183,7 +183,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 		}
 	}
 	else if (isARepeat) {
-		KeyCodeType keyCode = theEvent.keyCode;
+		JXKeyCode keyCode = theEvent.keyCode;
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 	}
 	
@@ -206,7 +206,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 	if ((isARepeat == NO) &&
 		(flags == 0)) {
 		
-		KeyCodeType keyCode = theEvent.keyCode;
+		JXKeyCode keyCode = theEvent.keyCode;
 		KeysArrayType transitionType = KeyIsUp;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
@@ -251,7 +251,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 		}
 	}
 	else if (isARepeat) {
-		KeyCodeType keyCode = theEvent.keyCode;
+		JXKeyCode keyCode = theEvent.keyCode;
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 	}
 		
@@ -261,13 +261,13 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 }
 
 #if ENABLE_BINDINGS
-typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, KeyCodeType);
+typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, JXKeyCode);
 
 void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL selectorForKeyCode) {
     IMPForKeyCode methodForKeyCode = (IMPForKeyCode)[keypressesView methodForSelector:selectorForKeyCode];
     
     KeysArrayType *keys = handledKeys();
-    for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+    for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
         KeysArrayType handledKey = keys[keyCode];
         if (handledKey == KeyIsHandled) {
             methodForKeyCode(keypressesView, selectorForKeyCode, keyCode);
@@ -294,7 +294,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	// Simulate every key that is marked as down being released.
 	KeysArrayType transitionType = KeyIsUp;
 	
-	for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+	for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 		switch (keyCode) {
 			case kVK_ANSI_J:
 			case kVK_ANSI_K:
@@ -327,7 +327,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 						 (__bridge const void *)key);
 	
 	if (value) {
-		KeyCodeType keyCode = (KeyCodeType)(value - 1);
+		JXKeyCode keyCode = (JXKeyCode)(value - 1);
 		
 		BOOL isDown = _keysDown[keyCode];
 		return @(isDown);
@@ -488,7 +488,7 @@ NSArray * buttonDownPropertyNamesForKeyCodesArray() {
 		NSArray *namesForKeyCodes = namesForKeyCodesArray();
 		NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:KeyCodeCount];
 		
-		for (KeyCodeType keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+		for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 			NSString *keyName = namesForKeyCodes[keyCode];
 			
 			if (![keyName isEqualToString:JXKUndefinedKeyCode]) {
@@ -542,14 +542,14 @@ CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
 	return dict;
 }
 
-- (void)willChangeValueForKeyCode:(KeyCodeType)keyCode
+- (void)willChangeValueForKeyCode:(JXKeyCode)keyCode
 {
 	NSArray *buttonDownPropertyNames = buttonDownPropertyNamesForKeyCodesArray();
 	NSString *key = buttonDownPropertyNames[keyCode];
 	[self willChangeValueForKey:key];
 }
 
-- (void)didChangeValueForKeyCode:(KeyCodeType)keyCode
+- (void)didChangeValueForKeyCode:(JXKeyCode)keyCode
 {
 	NSArray *buttonDownPropertyNames = buttonDownPropertyNamesForKeyCodesArray();
 	NSString *key = buttonDownPropertyNames[keyCode];

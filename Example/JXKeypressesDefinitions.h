@@ -11,9 +11,9 @@
 #import <Carbon/Carbon.h> // for kVK_* names
 
 
-typedef unsigned short KeyCodeType;
+typedef unsigned short JXKeyCode;
 
-extern const KeyCodeType KeyCodeUndefined;
+extern const JXKeyCode JXKeyCodeUndefined;
 
 
 #if 1

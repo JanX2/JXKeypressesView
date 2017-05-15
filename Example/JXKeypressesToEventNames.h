@@ -35,7 +35,7 @@ typedef struct {
 	JXKeyFlag		beforeKeyFlags;
 	JXKeyFlag		afterKeyFlags;
 	JXEvent			eventName;
-	KeyCodeType		transitionKeyCode;
+	JXKeyCode		transitionKeyCode;
 	const char		*beforeVisual;
 	const char		*afterVisual;
 	JXEventKey		beforeBinary;
@@ -60,8 +60,8 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
   //{KeyIsDown,       KeyFlag_K,      (KeyFlag_L),             (KeyFlag_K | KeyFlag_L), E_KDown_From__LTo_KL, kVK_ANSI_K,         "▆▆▃",    "▆▃▃",   0b001,    0b011,   10,          },
 };
 
-KeyCodeType keyCodeForSingleKeyFlag(JXKeyFlag transitionKey);
-JXKeyFlag keyFlagForKeyCode(KeyCodeType keyCode);
+JXKeyCode keyCodeForSingleKeyFlag(JXKeyFlag transitionKey);
+JXKeyFlag keyFlagForKeyCode(JXKeyCode keyCode);
 
 JXEvent eventNameForEventTransition(KeysArrayType transitionType,
 									JXKeyFlag transitionKey,

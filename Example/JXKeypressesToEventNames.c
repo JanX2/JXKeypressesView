@@ -44,8 +44,8 @@ JXEventKey eventKeyForEvent(EventComponents event) {
 									  event.beforeKeyFlags);
 }
 
-KeyCodeType keyCodeForSingleKeyFlag(JXKeyFlag transitionKey) {
-	KeyCodeType transitionKeyCode = KeyCodeUndefined;
+JXKeyCode keyCodeForSingleKeyFlag(JXKeyFlag transitionKey) {
+	JXKeyCode transitionKeyCode = JXKeyCodeUndefined;
 	
 	switch (transitionKey) {
 		case KeyFlag_L:
@@ -69,7 +69,7 @@ KeyCodeType keyCodeForSingleKeyFlag(JXKeyFlag transitionKey) {
 	return transitionKeyCode;
 }
 
-JXKeyFlag keyFlagForKeyCode(KeyCodeType keyCode) {
+JXKeyFlag keyFlagForKeyCode(JXKeyCode keyCode) {
 	JXKeyFlag transitionKey = KeyFlag_None;
 	
 	switch (keyCode) {

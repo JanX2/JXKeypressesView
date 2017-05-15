@@ -8,7 +8,7 @@
 
 #include "JXKeypressesDefinitions.h"
 
-const KeyCodeType KeyCodeUndefined = 0x7F;
+const JXKeyCode JXKeyCodeUndefined = 0x7F;
 
 #if 0
 
