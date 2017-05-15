@@ -95,8 +95,8 @@ KeysArrayType * handledKeys() {
 
 # pragma mark Event Handling
 
-KeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
-	KeyFlag keyFlags = KeyFlag_None |
+JXKeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
+	JXKeyFlag keyFlags = KeyFlag_None |
 	((keysArray[kVK_ANSI_J] == KeyIsDown) ? KeyFlag_J : KeyFlag_None) |
 	((keysArray[kVK_ANSI_K] == KeyIsDown) ? KeyFlag_K : KeyFlag_None) |
 	((keysArray[kVK_ANSI_L] == KeyIsDown) ? KeyFlag_L : KeyFlag_None);
@@ -108,8 +108,8 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 								   KeysArrayType *keysDown,
 								   KeysArrayType transitionType,
 								   JXJKLStateMachine *stateMachine) {
-	KeyFlag transitionKey = keyFlagForKeyCode(keyCode);
-	KeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
+	JXKeyFlag transitionKey = keyFlagForKeyCode(keyCode);
+	JXKeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
 	
 	bool allThreeKeysDown =
 	((beforeKeyFlags | transitionKey) == KeyFlag_JKL);

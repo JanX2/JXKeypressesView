@@ -26,8 +26,8 @@ static JXEvent EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT -
 
 
 JXEventKey eventKeyForEventTransition(KeysArrayType transitionType,
-									KeyFlag transitionKey,
-									KeyFlag beforeKeyFlags) {
+									  JXKeyFlag transitionKey,
+									  JXKeyFlag beforeKeyFlags) {
 	JXEventKey key = 0;
 	key |= (JXEventKey)(transitionType & bool_MASK) << KeyFlags_BIT_COUNT * 2;
 	key |= (JXEventKey)(transitionKey & KeyFlags_MASK) << KeyFlags_BIT_COUNT;
@@ -44,7 +44,7 @@ JXEventKey eventKeyForEvent(EventComponents event) {
 									  event.beforeKeyFlags);
 }
 
-KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey) {
+KeyCodeType keyCodeForSingleKeyFlag(JXKeyFlag transitionKey) {
 	KeyCodeType transitionKeyCode = KeyCodeUndefined;
 	
 	switch (transitionKey) {
@@ -69,8 +69,8 @@ KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey) {
 	return transitionKeyCode;
 }
 
-KeyFlag keyFlagForKeyCode(KeyCodeType keyCode) {
-	KeyFlag transitionKey = KeyFlag_None;
+JXKeyFlag keyFlagForKeyCode(KeyCodeType keyCode) {
+	JXKeyFlag transitionKey = KeyFlag_None;
 	
 	switch (keyCode) {
 		case kVK_ANSI_L:
@@ -104,7 +104,7 @@ void generateEventKeyToEventNameMap() {
 		KeysArrayType expectedTransitionType = (bool)(event.afterKeyFlags & event.transitionKey);
 		assert(expectedTransitionType == event.transitionType);
 		
-		KeyFlag expectedKeyFlags = event.beforeKeyFlags ^ event.transitionKey;
+		JXKeyFlag expectedKeyFlags = event.beforeKeyFlags ^ event.transitionKey;
 		assert(event.afterKeyFlags == expectedKeyFlags);
 		
 		assert(keyCodeForSingleKeyFlag(event.transitionKey) == event.transitionKeyCode);
@@ -123,8 +123,8 @@ void generateEventKeyToEventNameMap() {
 }
 
 JXEvent eventNameForEventTransition(KeysArrayType transitionType,
-									KeyFlag transitionKey,
-									KeyFlag beforeKeyFlags) {
+									JXKeyFlag transitionKey,
+									JXKeyFlag beforeKeyFlags) {
 	
 	if ((transitionType == KeyIsDown) &&
 		(transitionKey == KeyFlag_K)) {

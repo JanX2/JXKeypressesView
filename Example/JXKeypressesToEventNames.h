@@ -25,15 +25,15 @@ typedef enum {
 	
 	KeyFlag_JKL	 = 0b111,
 
-} KeyFlag;
+} JXKeyFlag;
 
 typedef uint8_t JXEventKey;
 
 typedef struct {
 	KeysArrayType	transitionType;
-	KeyFlag			transitionKey;
-	KeyFlag			beforeKeyFlags;
-	KeyFlag			afterKeyFlags;
+	JXKeyFlag		transitionKey;
+	JXKeyFlag		beforeKeyFlags;
+	JXKeyFlag		afterKeyFlags;
 	JXEvent			eventName;
 	KeyCodeType		transitionKeyCode;
 	const char		*beforeVisual;
@@ -60,9 +60,9 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
   //{KeyIsDown,       KeyFlag_K,      (KeyFlag_L),             (KeyFlag_K | KeyFlag_L), E_KDown_From__LTo_KL, kVK_ANSI_K,         "▆▆▃",    "▆▃▃",   0b001,    0b011,   10,          },
 };
 
-KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey);
-KeyFlag keyFlagForKeyCode(KeyCodeType keyCode);
+KeyCodeType keyCodeForSingleKeyFlag(JXKeyFlag transitionKey);
+JXKeyFlag keyFlagForKeyCode(KeyCodeType keyCode);
 
 JXEvent eventNameForEventTransition(KeysArrayType transitionType,
-									KeyFlag transitionKey,
-									KeyFlag beforeKeyFlags);
+									JXKeyFlag transitionKey,
+									JXKeyFlag beforeKeyFlags);
