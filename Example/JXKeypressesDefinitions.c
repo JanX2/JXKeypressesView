@@ -10,12 +10,3 @@
 
 const JXKeyCode JXKeyCodeUndefined = 0x7F;
 
-#if 0
-
-const KeysArrayType KeyIsDown		= true;
-const KeysArrayType KeyIsUp			= false;
-
-const KeysArrayType KeyIsHandled	= true;
-const KeysArrayType KeyNotHandled	= false;
-
-#endif

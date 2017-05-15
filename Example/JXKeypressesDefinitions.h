@@ -16,8 +16,6 @@ typedef unsigned short JXKeyCode;
 extern const JXKeyCode JXKeyCodeUndefined;
 
 
-#if 1
-
 typedef enum  __attribute__ ((__packed__)) {
 	KeyIsDown		= true,
 	KeyIsUp			= false,
@@ -26,28 +24,6 @@ typedef enum  __attribute__ ((__packed__)) {
 } KeysArrayType;
 
 _Static_assert(sizeof(KeysArrayType) == 1, "We want the key state array to be compact. So its elements need to be small.");
-
-#elif 0
-
-typedef bool KeysArrayType;
-
-#define KeyIsDown	true
-#define KeyIsUp		false
-
-#define KeyIsHandled	true
-#define KeyNotHandled	false
-
-#elif 0
-
-typedef bool KeysArrayType;
-
-extern const KeysArrayType KeyIsDown;
-extern const KeysArrayType KeyIsUp;
-
-extern const KeysArrayType KeyIsHandled;
-extern const KeysArrayType KeyNotHandled;
-
-#endif
 
 
 typedef enum {
