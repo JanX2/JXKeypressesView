@@ -30,7 +30,7 @@ typedef enum {
 typedef uint8_t JXEventKey;
 
 typedef struct {
-	KeysArrayType	transitionType;
+	JXKeyState		transitionType;
 	JXKeyFlag		transitionKey;
 	JXKeyFlag		beforeKeyFlags;
 	JXKeyFlag		afterKeyFlags;
@@ -63,6 +63,6 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
 JXKeyCode keyCodeForSingleKeyFlag(JXKeyFlag transitionKey);
 JXKeyFlag keyFlagForKeyCode(JXKeyCode keyCode);
 
-JXEvent eventNameForEventTransition(KeysArrayType transitionType,
+JXEvent eventNameForEventTransition(JXKeyState transitionType,
 									JXKeyFlag transitionKey,
 									JXKeyFlag beforeKeyFlags);

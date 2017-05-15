@@ -24,9 +24,9 @@ const JXKeyCode KeyCodeMax = 0x7E;
 const JXKeyCode KeyCodeCount = KeyCodeMax + 1;
 
 
-KeysArrayType * handledKeys() {
+JXKeyState * handledKeys() {
 	static dispatch_once_t OnceToken;
-	static KeysArrayType handledKeys[KeyCodeCount];
+	static JXKeyState handledKeys[KeyCodeCount];
 	
 	dispatch_once(&OnceToken, ^{
 		handledKeys[kVK_ANSI_J]		= KeyIsHandled;
@@ -48,7 +48,7 @@ KeysArrayType * handledKeys() {
 
 
 @interface JXKeypressesView () {
-	KeysArrayType _keysDown[KeyCodeCount];
+	JXKeyState _keysDown[KeyCodeCount];
 }
 
 @property (nonatomic, readwrite, assign) BOOL fastReverseActivated;
@@ -95,7 +95,7 @@ KeysArrayType * handledKeys() {
 
 # pragma mark Event Handling
 
-JXKeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
+JXKeyFlag keyFlagsForKeysArray(JXKeyState *keysArray) {
 	JXKeyFlag keyFlags = KeyFlag_None |
 	((keysArray[kVK_ANSI_J] == KeyIsDown) ? KeyFlag_J : KeyFlag_None) |
 	((keysArray[kVK_ANSI_K] == KeyIsDown) ? KeyFlag_K : KeyFlag_None) |
@@ -105,8 +105,8 @@ JXKeyFlag keyFlagsForKeysArray(KeysArrayType *keysArray) {
 }
 
 bool processEventUsingStateMachine(JXKeyCode keyCode,
-								   KeysArrayType *keysDown,
-								   KeysArrayType transitionType,
+								   JXKeyState *keysDown,
+								   JXKeyState transitionType,
 								   JXJKLStateMachine *stateMachine) {
 	JXKeyFlag transitionKey = keyFlagForKeyCode(keyCode);
 	JXKeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
@@ -139,7 +139,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 		(flags == 0)) { // We currently only want events without modifiers.
 		
 		JXKeyCode keyCode = theEvent.keyCode;
-		KeysArrayType transitionType = KeyIsDown;
+		JXKeyState transitionType = KeyIsDown;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -207,7 +207,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 		(flags == 0)) {
 		
 		JXKeyCode keyCode = theEvent.keyCode;
-		KeysArrayType transitionType = KeyIsUp;
+		JXKeyState transitionType = KeyIsUp;
 		
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 		
@@ -266,9 +266,9 @@ typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, JXKeyCode);
 void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL selectorForKeyCode) {
     IMPForKeyCode methodForKeyCode = (IMPForKeyCode)[keypressesView methodForSelector:selectorForKeyCode];
     
-    KeysArrayType *keys = handledKeys();
+    JXKeyState *keys = handledKeys();
     for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-        KeysArrayType handledKey = keys[keyCode];
+        JXKeyState handledKey = keys[keyCode];
         if (handledKey == KeyIsHandled) {
             methodForKeyCode(keypressesView, selectorForKeyCode, keyCode);
         }
@@ -292,7 +292,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 #endif
 	
 	// Simulate every key that is marked as down being released.
-	KeysArrayType transitionType = KeyIsUp;
+	JXKeyState transitionType = KeyIsUp;
 	
 	for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 		switch (keyCode) {

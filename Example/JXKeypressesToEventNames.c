@@ -25,7 +25,7 @@ _Static_assert((E_Count <= EventID_COUNT), "E_Count needs to fit within EventID_
 static JXEvent EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
 
 
-JXEventKey eventKeyForEventTransition(KeysArrayType transitionType,
+JXEventKey eventKeyForEventTransition(JXKeyState transitionType,
 									  JXKeyFlag transitionKey,
 									  JXKeyFlag beforeKeyFlags) {
 	JXEventKey key = 0;
@@ -101,7 +101,7 @@ void generateEventKeyToEventNameMap() {
 		EventComponents event = EventComponentsToEventNameTable[i];
 		
 		// Check table consistency.
-		KeysArrayType expectedTransitionType = (KeysArrayType)(event.afterKeyFlags & event.transitionKey);
+		JXKeyState expectedTransitionType = (JXKeyState)(event.afterKeyFlags & event.transitionKey);
 		assert(expectedTransitionType == event.transitionType);
 		
 		JXKeyFlag expectedKeyFlags = event.beforeKeyFlags ^ event.transitionKey;
@@ -122,7 +122,7 @@ void generateEventKeyToEventNameMap() {
 	}
 }
 
-JXEvent eventNameForEventTransition(KeysArrayType transitionType,
+JXEvent eventNameForEventTransition(JXKeyState transitionType,
 									JXKeyFlag transitionKey,
 									JXKeyFlag beforeKeyFlags) {
 	

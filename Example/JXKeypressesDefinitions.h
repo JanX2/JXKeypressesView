@@ -21,9 +21,9 @@ typedef enum  __attribute__ ((__packed__)) {
 	KeyIsUp			= false,
 	KeyIsHandled	= true,
 	KeyNotHandled	= false,
-} KeysArrayType;
+} JXKeyState;
 
-_Static_assert(sizeof(KeysArrayType) == 1, "We want the key state array to be compact. So its elements need to be small.");
+_Static_assert(sizeof(JXKeyState) == 1, "We want the key state array to be compact. So its elements need to be small.");
 
 
 typedef enum {
