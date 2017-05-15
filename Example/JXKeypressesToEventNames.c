@@ -101,7 +101,7 @@ void generateEventKeyToEventNameMap() {
 		EventComponents event = EventComponentsToEventNameTable[i];
 		
 		// Check table consistency.
-		KeysArrayType expectedTransitionType = (bool)(event.afterKeyFlags & event.transitionKey);
+		KeysArrayType expectedTransitionType = (KeysArrayType)(event.afterKeyFlags & event.transitionKey);
 		assert(expectedTransitionType == event.transitionType);
 		
 		JXKeyFlag expectedKeyFlags = event.beforeKeyFlags ^ event.transitionKey;
