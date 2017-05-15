@@ -9,7 +9,7 @@
 #import "JXJKLStateMachine.h"
 
 #import "JXStateForRate.h"
-#import "TSCDocumentDummy.h"
+#import "TSCDocument.h"
 
 typedef void (*action_t)(id, SEL, id);
 static const action_t nil_action = NULL;
@@ -252,7 +252,7 @@ bool isValidEvent(JXEvent event) {
 {
 	if (event == E_Invalid)  return;
 	
-	TSCDocumentDummy *document = _target;
+	TSCDocument *document = _target;
 	float rate = document.player.rate;
 	state_t state = stateForRate(rate);
 	

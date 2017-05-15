@@ -11,7 +11,7 @@
 #import "AVPlayer.h"
 
 
-@interface TSCDocumentDummy : NSObject
+@interface TSCDocument : NSObject
 
 
 @property (nonatomic, readonly, strong) AVPlayer *player;

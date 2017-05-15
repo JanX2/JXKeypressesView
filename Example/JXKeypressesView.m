@@ -11,7 +11,7 @@
 #import "JXJKLStateMachine.h"
 #import "JXKeypressesDefinitions.h"
 #import "JXKeypressesToEventNames.h"
-#import "TSCDocumentDummy.h"
+#import "TSCDocument.h"
 
 
 #define ENABLE_BINDINGS	1
@@ -60,7 +60,7 @@ JXKeyState * handledKeys() {
 @implementation JXKeypressesView {
 	JXJKLStateMachine *_stateMachine;
 	
-	TSCDocumentDummy *_dummyDocument;
+	TSCDocument *_dummyDocument;
 }
 
 
@@ -87,7 +87,7 @@ JXKeyState * handledKeys() {
 - (void)initKeypressesView
 {
 	[self willChangeValueForKey:@"dummyDocument"];
-	_dummyDocument = [TSCDocumentDummy new];
+	_dummyDocument = [TSCDocument new];
 	[self didChangeValueForKey:@"dummyDocument"];
 
 	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:_dummyDocument];

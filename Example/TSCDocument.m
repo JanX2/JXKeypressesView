@@ -6,20 +6,20 @@
 //  Copyright © 2017 Jan. All rights reserved.
 //
 
-#import "TSCDocumentDummy.h"
+#import "TSCDocument.h"
 
 #import "JXJKLStateMachine.h"
 #import "TSCAVPlayerRateConstants.h"
 
 
-@interface TSCDocumentDummy ()
+@interface TSCDocument ()
 
 @property (nonatomic, readwrite, strong) AVPlayer *player;
 
 @end
 
 
-@implementation TSCDocumentDummy
+@implementation TSCDocument
 
 - (instancetype)init
 {
