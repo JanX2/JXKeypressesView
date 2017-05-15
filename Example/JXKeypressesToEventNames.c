@@ -22,7 +22,7 @@
 _Static_assert((E_Count <= EventID_COUNT), "E_Count needs to fit within EventID_COUNT");
 
 
-static event_t EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
+static JXEvent EventKeyToEventNameMap[EventID_COUNT] = { [0 ... (EventID_COUNT - 1)] = E_Invalid};
 
 
 EventKey eventKeyForEventTransition(KeysArrayType transitionType,
@@ -122,7 +122,7 @@ void generateEventKeyToEventNameMap() {
 	}
 }
 
-event_t eventNameForEventTransition(KeysArrayType transitionType,
+JXEvent eventNameForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags) {
 	
@@ -135,7 +135,7 @@ event_t eventNameForEventTransition(KeysArrayType transitionType,
 											  transitionKey,
 											  beforeKeyFlags);
 	
-	const event_t eventName = EventKeyToEventNameMap[key];
+	const JXEvent eventName = EventKeyToEventNameMap[key];
 	return eventName;
 }
 
@@ -166,7 +166,7 @@ void testEventKeyForEventTransition() {
 void testEventKeyToEventNameMap() __attribute__ ((constructor));
 void testEventKeyToEventNameMap() {
 	EventKey key;
-	event_t eventName;
+	JXEvent eventName;
 	
 	key = 0b00010110;
 	eventName = EventKeyToEventNameMap[key];

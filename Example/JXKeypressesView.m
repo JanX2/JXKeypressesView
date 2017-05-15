@@ -118,7 +118,7 @@ bool processEventUsingStateMachine(KeyCodeType keyCode,
 		return false;
 	}
 	
-	event_t event = eventNameForEventTransition(transitionType,
+	JXEvent event = eventNameForEventTransition(transitionType,
 												transitionKey,
 												beforeKeyFlags);
 	[stateMachine processEvent:event];

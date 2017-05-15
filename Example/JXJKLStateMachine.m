@@ -242,13 +242,13 @@ bool isValidState(state_t state) {
 	return ((S_FastBackwards <= state) && (state < S_Count));
 }
 
-bool isValidEvent(event_t event) {
+bool isValidEvent(JXEvent event) {
 	_Static_assert(E_JDown_From___ToJ__ == 0, "");
 	return ((E_JDown_From___ToJ__ <= event) && (event < E_Count));
 }
 
 
-- (void)processEvent:(event_t)event;
+- (void)processEvent:(JXEvent)event;
 {
 	if (event == E_Invalid)  return;
 	

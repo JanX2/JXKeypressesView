@@ -28,6 +28,6 @@ typedef enum {
 
 - (instancetype)initWithTarget:(id)target;
 
-- (void)processEvent:(event_t)event;
+- (void)processEvent:(JXEvent)event;
 
 @end

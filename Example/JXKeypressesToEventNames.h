@@ -34,13 +34,13 @@ typedef struct {
 	KeyFlag			transitionKey;
 	KeyFlag			beforeKeyFlags;
 	KeyFlag			afterKeyFlags;
-	event_t			eventName;
+	JXEvent			eventName;
 	KeyCodeType		transitionKeyCode;
 	const char		*beforeVisual;
 	const char		*afterVisual;
 	EventKey		beforeBinary;
 	EventKey		afterBinary;
-	event_t			eventIndex;
+	JXEvent			eventIndex;
 } EventComponents;
 
 static const EventComponents EventComponentsToEventNameTable[E_Count] =
@@ -63,6 +63,6 @@ static const EventComponents EventComponentsToEventNameTable[E_Count] =
 KeyCodeType keyCodeForSingleKeyFlag(KeyFlag transitionKey);
 KeyFlag keyFlagForKeyCode(KeyCodeType keyCode);
 
-event_t eventNameForEventTransition(KeysArrayType transitionType,
+JXEvent eventNameForEventTransition(KeysArrayType transitionType,
 									KeyFlag transitionKey,
 									KeyFlag beforeKeyFlags);
