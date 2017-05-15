@@ -14,12 +14,12 @@
 #import "JXStateForRate.h"
 
 
-typedef void (*action_t)(id, SEL, id);
-static const action_t nil_action = NULL;
+typedef void (*JXAction)(id, SEL, id);
+static const JXAction nil_action = NULL;
 
 typedef struct {
 	JXState nextState;
-	action_t actionToTrigger;
+	JXAction actionToTrigger;
 	SEL actionSelector;
 } state_element_t;
 
@@ -189,10 +189,10 @@ state_element_t * buildStateMatrix(id target) {
 			element->nextState = tableElement->nextState;
 			element->actionSelector = actionSelector;
 			
-			action_t action = nil_action;
+			JXAction action = nil_action;
 			if (actionSelector != nil) {
 				if ([[target class] instancesRespondToSelector:actionSelector]) {
-					action = (action_t)[target methodForSelector:actionSelector];
+					action = (JXAction)[target methodForSelector:actionSelector];
 				}
 				else {
 					@throw [NSException exceptionWithName:NSInternalInconsistencyException
