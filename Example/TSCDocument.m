@@ -16,6 +16,8 @@
 
 @property (nonatomic, readwrite, strong) AVPlayer *player;
 
+@property (nonatomic, readwrite, strong) NSTimer *halfNaturalRateDelayTimer;
+
 @end
 
 
@@ -84,41 +86,84 @@ NSTimeInterval dummyFrameLength = 0.1;
 
 NSTimeInterval halfNaturalRateDelay = 0.5;
 
+- (void)halfNaturalRateDelayTimerFired:(NSTimer *)timer
+{
+	NSDictionary *userInfo = timer.userInfo;
+	
+	self.halfNaturalRateDelayTimer = nil;
+
+	id sender = [userInfo objectForKey:@"Sender"];
+
+	NSNumber *wantForwardNum = [userInfo objectForKey:@"WantForward"];
+	BOOL wantForward = [wantForwardNum boolValue];
+	
+	if (wantForward) {
+		[self playForwardsAtHalfNaturalRate:sender];
+	}
+	else {
+		[self playBackwardsAtHalfNaturalRate:sender];
+	}
+}
+
+- (void)startHalfNaturalRateTimerWithSender:(id)sender
+						   directionForward:(BOOL)wantForward
+{
+	[self stopHalfNaturalRateTimer];
+	
+	NSDictionary *userInfo = @{
+							   @"Sender": sender,
+							   @"WantForward": @(wantForward),
+							   };
+	
+	self.halfNaturalRateDelayTimer =
+	[NSTimer timerWithTimeInterval:halfNaturalRateDelay
+							target:self
+						  selector:@selector(halfNaturalRateDelayTimerFired:)
+						  userInfo:userInfo
+						   repeats:NO];
+	
+	[[NSRunLoop currentRunLoop] addTimer:self.halfNaturalRateDelayTimer
+								 forMode:NSRunLoopCommonModes];
+}
+
+- (void)stopHalfNaturalRateTimer
+{
+	if (self.halfNaturalRateDelayTimer != nil) {
+		[self.halfNaturalRateDelayTimer invalidate];
+		self.halfNaturalRateDelayTimer = nil;
+	}
+}
+
+
 - (IBAction)playForwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
 {
 	[self playForwardsOneFrame:self];
 	
-	[self performSelector:@selector(playForwardsAtHalfNaturalRate:)
-			   withObject:sender
-			   afterDelay:halfNaturalRateDelay];
+	[self startHalfNaturalRateTimerWithSender:sender
+							 directionForward:YES];
 }
 
 - (IBAction)playBackwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
 {
 	[self playBackwardsOneFrame:self];
 	
-	[self performSelector:@selector(playBackwardsAtHalfNaturalRate:)
-			   withObject:sender
-			   afterDelay:halfNaturalRateDelay];
+	[self startHalfNaturalRateTimerWithSender:sender
+							 directionForward:NO];
 }
 
 
 - (IBAction)pausePlaybackAndCancelPlayForwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
 {
-	[self pausePlayback:self];
+	[self stopHalfNaturalRateTimer];
 	
-	[NSRunLoop cancelPreviousPerformRequestsWithTarget:self
-											  selector:@selector(playForwardsAtHalfNaturalRate:)
-												object:sender];
+	[self pausePlayback:self];
 }
 
 - (IBAction)pausePlaybackAndCancelPlayBackwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
 {
-	[self pausePlayback:self];
+	[self stopHalfNaturalRateTimer];
 	
-	[NSRunLoop cancelPreviousPerformRequestsWithTarget:self
-											  selector:@selector(playBackwardsAtHalfNaturalRate:)
-												object:sender];
+	[self pausePlayback:self];
 }
 
 
