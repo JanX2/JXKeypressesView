@@ -115,7 +115,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 	((beforeKeyFlags | transitionKey) == KeyFlag_JKL);
 	
 	if (allThreeKeysDown) {
-		return false;
+		beforeKeyFlags = KeyFlag_K;
 	}
 	
 	JXEvent event = eventNameForEventTransition(transitionType,
