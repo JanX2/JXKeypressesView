@@ -761,6 +761,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingBackwardsAtNaturalRate" id="dGl-Lx-gfM"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-yi-hEi" userLabel="Forwards Play Button">
                         <rect key="frame" x="244" y="87" width="64" height="32"/>
@@ -768,6 +771,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingForwardsAtNaturalRate" id="kh3-Fm-Uwf"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZRH-Hj-hLJ" userLabel="Fast Backwards Play Button">
                         <rect key="frame" x="15" y="54" width="65" height="32"/>
@@ -775,6 +781,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingFastBackwards" id="2Vz-1O-P7w"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="75e-MX-sr7" userLabel="Fast Forwards Play Button">
                         <rect key="frame" x="244" y="54" width="64" height="32"/>
@@ -782,6 +791,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingFastForwards" id="mX3-xO-yAo"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rVq-hr-ErS" userLabel="½ Forwards Play Button">
                         <rect key="frame" x="244" y="120" width="64" height="32"/>
@@ -789,6 +801,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingForwardsAtHalfNaturalRate" id="Ktp-gd-f1p"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-ib-yIm" userLabel="½ Backwards Play Button">
                         <rect key="frame" x="15" y="120" width="65" height="32"/>
@@ -796,6 +811,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingBackwardsAtHalfNaturalRate" id="PGo-yQ-V74"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Axq-hH-7Hh" userLabel="Step Forwards Button">
                         <rect key="frame" x="244" y="153" width="64" height="32"/>

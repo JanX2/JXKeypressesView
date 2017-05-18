@@ -186,4 +186,47 @@ float previousPlaybackRateForInitialRate(const float initialRate) {
 	self.player.rate = newRate;
 }
 
+
+# pragma mark Properties & KVO support
+
++ (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key
+{
+	if ([key hasPrefix:@"playing"]) {
+		return [NSSet setWithObject:@"self.player.rate"];
+	}
+	else {
+		return [super keyPathsForValuesAffectingValueForKey:key];
+	}
+}
+
+- (BOOL)playingForwardsAtNaturalRate
+{
+	return (self.player.rate == TSCAVPlayerRateNaturalForward);
+}
+
+- (BOOL)playingBackwardsAtNaturalRate
+{
+	return (self.player.rate == TSCAVPlayerRateNaturalBackward);
+}
+
+- (BOOL)playingForwardsAtHalfNaturalRate
+{
+	return (self.player.rate == TSCAVPlayerRateHalfNaturalForward);
+}
+
+- (BOOL)playingBackwardsAtHalfNaturalRate
+{
+	return (self.player.rate == TSCAVPlayerRateHalfNaturalBackward);
+}
+
+- (BOOL)playingFastForwards
+{
+	return (self.player.rate > TSCAVPlayerRateNaturalForward);
+}
+
+- (BOOL)playingFastBackwards
+{
+	return (self.player.rate < TSCAVPlayerRateNaturalBackward);
+}
+
 @end

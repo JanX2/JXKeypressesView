@@ -17,6 +17,16 @@
 @property (nonatomic, readonly, strong) AVPlayer *player;
 
 
+@property (nonatomic, readonly, assign) BOOL playingForwardsAtNaturalRate;
+@property (nonatomic, readonly, assign) BOOL playingBackwardsAtNaturalRate;
+
+@property (nonatomic, readonly, assign) BOOL playingForwardsAtHalfNaturalRate;
+@property (nonatomic, readonly, assign) BOOL playingBackwardsAtHalfNaturalRate;
+
+@property (nonatomic, readonly, assign) BOOL playingFastForwards;
+@property (nonatomic, readonly, assign) BOOL playingFastBackwards;
+
+
 - (IBAction)playForwardsAtNaturalRate:(id)sender;
 - (IBAction)playBackwardsAtNaturalRate:(id)sender;
 
