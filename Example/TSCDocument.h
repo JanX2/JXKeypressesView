@@ -38,8 +38,7 @@
 
 - (IBAction)playForwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
 - (IBAction)playBackwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
-- (IBAction)pausePlaybackAndCancelPlayForwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
-- (IBAction)pausePlaybackAndCancelPlayBackwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
+- (IBAction)pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
 
 - (IBAction)pausePlayback:(id)sender;
 

@@ -152,20 +152,12 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 }
 
 
-- (IBAction)pausePlaybackAndCancelPlayForwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
+- (IBAction)pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
 {
 	[self stopHalfNaturalRateTimer];
 	
 	[self pausePlayback:self];
 }
-
-- (IBAction)pausePlaybackAndCancelPlayBackwardsAtHalfNaturalRateTimerIfRunning:(id)sender;
-{
-	[self stopHalfNaturalRateTimer];
-	
-	[self pausePlayback:self];
-}
-
 
 - (IBAction)pausePlayback:(id)sender;
 {

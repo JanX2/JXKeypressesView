@@ -60,8 +60,7 @@ state_element_t * buildStateMatrix(id target) {
 	SEL playNx       = @selector(playAtNextRateForCurrentRate:);
 	SEL play1x       = @selector(playForwardsAtNaturalRate:);
 	SEL pauseP       = @selector(pausePlayback:);
-	SEL pauseCTB	 = @selector(pausePlaybackAndCancelPlayBackwardsAtHalfNaturalRateTimerIfRunning:);
-	SEL pauseCTF	 = @selector(pausePlaybackAndCancelPlayForwardsAtHalfNaturalRateTimerIfRunning:);
+	SEL pauseCT      = @selector(pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:);
 	SEL back1f       = @selector(playBackwardsOneFrameAndStartHalfNaturalRateTimer:);
 	SEL play1f       = @selector(playForwardsOneFrameAndStartHalfNaturalRateTimer:);
 #pragma clang diagnostic pop
@@ -83,7 +82,7 @@ state_element_t * buildStateMatrix(id target) {
 		{/* S_FastBackwards,  */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
 		{/* S_Backwards,      */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
 		{/* S_HalfBackwards,  */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Pause, pauseCTB},   {S_Pause, back1f},    },
+		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Pause, pauseCT},    {S_Pause, back1f},    },
 		{/* S_HalfForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
 		{/* S_Forward,        */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
 		{/* S_FastForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
@@ -93,13 +92,13 @@ state_element_t * buildStateMatrix(id target) {
 	{
 		/*{ Index,               3,                   4,                    5,                   },*/
 		/*{ State/Event Name,    E_JUp_FromJK_To_K_,  E_KDown,              E_LUp_From_KLTo_K_,  },*/
-		{/* S_FastBackwards,  */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
-		{/* S_Backwards,      */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
-		{/* S_HalfBackwards,  */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
-		{/* S_Pause,          */ {S_Pause, pauseCTB}, {S_NoChange, nil},    {S_Pause, pauseCTF}, },
-		{/* S_HalfForward,    */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
-		{/* S_Forward,        */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
-		{/* S_FastForward,    */ {S_Pause, pauseP},   {S_Pause, pauseP},    {S_Pause, pauseP},   },
+		{/* S_FastBackwards,  */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
+		{/* S_Backwards,      */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
+		{/* S_HalfBackwards,  */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
+		{/* S_Pause,          */ {S_Pause, pauseCT}, {S_NoChange, nil},    {S_Pause, pauseCT}, },
+		{/* S_HalfForward,    */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
+		{/* S_Forward,        */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
+		{/* S_FastForward,    */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
 	};
 	
 	state_selector_pair_t stateMatrixForwardsSection[S_Count][stateMatrixForwardsSectionColumnCount] =
@@ -109,7 +108,7 @@ state_element_t * buildStateMatrix(id target) {
 		{/* S_FastBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
 		{/* S_Backwards,      */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
 		{/* S_HalfBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
-		{/* S_Pause,          */ {S_Pause, play1f},     {S_Pause, pauseCTF}, {S_Forward, play1x},     },
+		{/* S_Pause,          */ {S_Pause, play1f},     {S_Pause, pauseCT},  {S_Forward, play1x},     },
 		{/* S_HalfForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
 		{/* S_Forward,        */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
 		{/* S_FastForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
