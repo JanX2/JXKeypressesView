@@ -153,7 +153,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
 						// We currently do this too early, as we change `_keysDown[keyCode]` afterwards
 						// so that change below is not taken into account.
-						[self resetKeys];
+						[self resetStateMachine];
 					}
 					break;
 					
@@ -219,7 +219,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
 					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
-						[self resetKeys];
+						[self resetStateMachine];
 					}
 					break;
 					
@@ -281,10 +281,17 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	NSUInteger flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
 	
 	if (flags != 0) {
-		[self resetKeys];
+		[self resetStateMachine];
 	}
 }
 
+- (void)resetStateMachine
+{
+	[self->_dummyDocument pausePlayback:self];
+}
+
+
+#if 0
 - (void)resetKeys
 {
 #if ENABLE_BINDINGS
@@ -314,6 +321,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
 #endif
 }
+#endif
 
 
 #if ENABLE_BINDINGS
