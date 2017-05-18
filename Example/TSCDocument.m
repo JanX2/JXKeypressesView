@@ -236,6 +236,11 @@ float previousPlaybackRateForInitialRate(const float initialRate) {
 	}
 }
 
+- (BOOL)playingIsPaused
+{
+	return (self.player.rate == TSCAVPlayerRatePaused);
+}
+
 - (BOOL)playingForwardsAtNaturalRate
 {
 	return (self.player.rate == TSCAVPlayerRateNaturalForward);

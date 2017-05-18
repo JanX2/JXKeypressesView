@@ -26,6 +26,8 @@
 @property (nonatomic, readonly, assign) BOOL playingFastForwards;
 @property (nonatomic, readonly, assign) BOOL playingFastBackwards;
 
+@property (nonatomic, readonly, assign) BOOL playingIsPaused;
+
 
 - (IBAction)playForwardsAtNaturalRate:(id)sender;
 - (IBAction)playBackwardsAtNaturalRate:(id)sender;
