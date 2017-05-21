@@ -90,8 +90,8 @@ state_element_t * buildStateMatrix(id target) {
 	
 	state_selector_pair_t stateMatrixPauseSection[S_Count][stateMatrixPauseSectionColumnCount] =
 	{
-		/*{ Index,               3,                   4,                    5,                   },*/
-		/*{ State/Event Name,    E_JUp_FromJK_To_K_,  E_KDown,              E_LUp_From_KLTo_K_,  },*/
+		/*{ Index,               3,                  4,                    5,                   },*/
+		/*{ State/Event Name,    E_JUp_FromJK_To_K_, E_KDown,              E_LUp_From_KLTo_K_,  },*/
 		{/* S_FastBackwards,  */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
 		{/* S_Backwards,      */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
 		{/* S_HalfBackwards,  */ {S_Pause, pauseCT}, {S_Pause, pauseP},    {S_Pause, pauseCT}, },
