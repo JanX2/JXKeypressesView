@@ -51,9 +51,6 @@ JXKeyState * handledKeys() {
 	JXKeyState _keysDown[KeyCodeCount];
 }
 
-@property (nonatomic, readwrite, assign) BOOL fastReverseActivated;
-@property (nonatomic, readwrite, assign) BOOL fastForwardActivated;
-
 @end
 
 
