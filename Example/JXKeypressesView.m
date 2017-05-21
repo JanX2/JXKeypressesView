@@ -89,7 +89,7 @@ JXKeyState * handledKeys() {
 	[self willChangeValueForKey:@"dummyDocument"];
 	_dummyDocument = [TSCDocument new];
 	[self didChangeValueForKey:@"dummyDocument"];
-
+	
 	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:_dummyDocument];
 }
 
