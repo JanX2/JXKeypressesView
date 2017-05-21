@@ -99,10 +99,15 @@ JXKeyFlag keyFlagsForKeysArray(JXKeyState *keysArray) {
 	return keyFlags;
 }
 
-bool processEventUsingStateMachine(JXKeyCode keyCode,
+bool processEventUsingStateMachine(NSEventModifierFlags flags,
+								   JXKeyCode keyCode,
 								   JXKeyState *keysDown,
 								   JXKeyState transitionType,
 								   JXJKLStateMachine *stateMachine) {
+	if (flags != 0) { // We currently only want events without modifiers.
+		return false;
+	}
+	
 	JXKeyFlag transitionKey = keyFlagForKeyCode(keyCode);
 	JXKeyFlag beforeKeyFlags = keyFlagsForKeysArray(keysDown);
 	
@@ -145,7 +150,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
+					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
 						// We currently do this too early, as we change `_keysDown[keyCode]` afterwards
 						// so that change below is not taken into account.
 						[self resetStateMachine];
@@ -213,7 +218,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					if (processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine) == false) {
+					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
 						[self resetStateMachine];
 					}
 					break;
@@ -295,13 +300,14 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	
 	// Simulate every key that is marked as down being released.
 	JXKeyState transitionType = KeyIsUp;
+	NSEventModifierFlags flags = 0;
 	
 	for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
 		switch (keyCode) {
 			case kVK_ANSI_J:
 			case kVK_ANSI_K:
 			case kVK_ANSI_L: {
-				processEventUsingStateMachine(keyCode, _keysDown, transitionType, _stateMachine);
+				processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine);
 				break;
 			}
 				
