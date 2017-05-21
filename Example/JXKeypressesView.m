@@ -254,7 +254,7 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 		JXKeyCode keyCode = theEvent.keyCode;
 		handledKey = (handledKeys()[keyCode] == KeyIsHandled);
 	}
-		
+	
 	if (handledKey == NO) {
 		[super keyUp:theEvent];
 	}
