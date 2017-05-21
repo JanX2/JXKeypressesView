@@ -762,7 +762,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingBackwardsAtNaturalRate" id="dGl-Lx-gfM"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingBackwardsAtNaturalRate" id="dGl-Lx-gfM"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vRb-yi-hEi" userLabel="Forwards Play Button">
@@ -772,7 +772,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingForwardsAtNaturalRate" id="kh3-Fm-Uwf"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingForwardsAtNaturalRate" id="kh3-Fm-Uwf"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZRH-Hj-hLJ" userLabel="Fast Backwards Play Button">
@@ -782,7 +782,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingFastBackwards" id="2Vz-1O-P7w"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingFastBackwards" id="2Vz-1O-P7w"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="75e-MX-sr7" userLabel="Fast Forwards Play Button">
@@ -792,7 +792,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingFastForwards" id="mX3-xO-yAo"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingFastForwards" id="mX3-xO-yAo"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rVq-hr-ErS" userLabel="½ Forwards Play Button">
@@ -802,7 +802,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingForwardsAtHalfNaturalRate" id="Ktp-gd-f1p"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingForwardsAtHalfNaturalRate" id="Ktp-gd-f1p"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xbk-ib-yIm" userLabel="½ Backwards Play Button">
@@ -812,7 +812,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingBackwardsAtHalfNaturalRate" id="PGo-yQ-V74"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingBackwardsAtHalfNaturalRate" id="PGo-yQ-V74"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Axq-hH-7Hh" userLabel="Step Forwards Button">
@@ -836,7 +836,7 @@
                             <font key="font" size="13" name="ZapfDingbatsITC"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.playingIsPaused" id="CrO-lA-LOm"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.playingIsPaused" id="CrO-lA-LOm"/>
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sel-uf-hjx">
@@ -848,7 +848,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.dummyDocument.player.rate" id="1ye-Jw-gOp">
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.document.player.rate" id="1ye-Jw-gOp">
                                 <dictionary key="options">
                                     <string key="NSNullPlaceholder">?x</string>
                                 </dictionary>

@@ -56,8 +56,6 @@ JXKeyState * handledKeys() {
 
 @implementation JXKeypressesView {
 	JXJKLStateMachine *_stateMachine;
-	
-	TSCDocument *_dummyDocument;
 }
 
 
@@ -83,11 +81,11 @@ JXKeyState * handledKeys() {
 
 - (void)initKeypressesView
 {
-	[self willChangeValueForKey:@"dummyDocument"];
-	_dummyDocument = [TSCDocument new];
-	[self didChangeValueForKey:@"dummyDocument"];
+	[self willChangeValueForKey:@"document"];
+	self->_document = [TSCDocument new];
+	[self didChangeValueForKey:@"document"];
 	
-	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:_dummyDocument];
+	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:self->_document];
 }
 
 # pragma mark Event Handling
@@ -284,7 +282,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 
 - (void)resetStateMachine
 {
-	[self->_dummyDocument pausePlayback:self];
+	[self->_document pausePlayback:self];
 }
 
 

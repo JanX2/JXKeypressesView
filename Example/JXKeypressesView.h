@@ -13,6 +13,6 @@
 
 @interface JXKeypressesView : NSView
 
-@property (nonatomic, readonly) TSCDocument *dummyDocument;
+@property (nonatomic, readonly) TSCDocument *document;
 
 @end
