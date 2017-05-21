@@ -264,15 +264,15 @@ bool processEventUsingStateMachine(JXKeyCode keyCode,
 typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, JXKeyCode);
 
 void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL selectorForKeyCode) {
-    IMPForKeyCode methodForKeyCode = (IMPForKeyCode)[keypressesView methodForSelector:selectorForKeyCode];
-    
-    JXKeyState *keys = handledKeys();
-    for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-        JXKeyState handledKey = keys[keyCode];
-        if (handledKey == KeyIsHandled) {
-            methodForKeyCode(keypressesView, selectorForKeyCode, keyCode);
-        }
-    }
+	IMPForKeyCode methodForKeyCode = (IMPForKeyCode)[keypressesView methodForSelector:selectorForKeyCode];
+	
+	JXKeyState *keys = handledKeys();
+	for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
+		JXKeyState handledKey = keys[keyCode];
+		if (handledKey == KeyIsHandled) {
+			methodForKeyCode(keypressesView, selectorForKeyCode, keyCode);
+		}
+	}
 }
 #endif
 
