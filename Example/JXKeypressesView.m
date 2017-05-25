@@ -135,8 +135,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	
 	// We ignore repeat events, because they are
 	// already covered by the state of `_keysDown[]`.
-	if ((isARepeat == NO) &&
-		(flags == 0)) { // We currently only want events without modifiers.
+	if (isARepeat == NO) { // We currently only want events without modifiers.
 		
 		JXKeyCode keyCode = theEvent.keyCode;
 		JXKeyState transitionType = KeyIsDown;
@@ -158,13 +157,21 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 					break;
 					
 				case kVK_Space:
-					// Pause/play normally.
+					if (flags != 0) {
+						// Pause/play normally.
+					}
 					break;
 					
 				case kVK_ANSI_I:
+					if (flags != 0) {
+						// Set in-point.
+					}
 					break;
 					
 				case kVK_ANSI_O:
+					if (flags != 0) {
+						// Set out-point.
+					}
 					break;
 					
 				default:
@@ -203,8 +210,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	// Otherwise, this would break symmetry.
 	// We ignore repeat events, because they are
 	// already covered by the state of `_keysDown[]`.
-	if ((isARepeat == NO) &&
-		(flags == 0)) {
+	if (isARepeat == NO) {
 		
 		JXKeyCode keyCode = theEvent.keyCode;
 		JXKeyState transitionType = KeyIsUp;
