@@ -331,8 +331,6 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 #endif
 
 
-#if ENABLE_BINDINGS
-
 # pragma mark Bindings Support
 
 - (id)valueForKey:(NSString *)key
@@ -570,6 +568,5 @@ CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
 	NSString *key = buttonDownPropertyNames[keyCode];
 	[self didChangeValueForKey:key];
 }
-#endif
 
 @end
