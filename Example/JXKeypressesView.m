@@ -81,7 +81,7 @@ JXKeyState * handledKeys() {
 
 - (void)initKeypressesView
 {
-	_enableBindings = YES;
+	self->_enableBindings = YES;
 	
 	if (self->_enableBindings)  [self willChangeValueForKey:@"document"];
 	self->_document = [TSCDocument new];
