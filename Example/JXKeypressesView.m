@@ -155,9 +155,9 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_L:
 					if (processEventUsingStateMachine(flags,
 													  keyCode,
-													  _keysDown,
+													  self->_keysDown,
 													  transitionType,
-													  _stateMachine)
+													  self->_stateMachine)
 						== false) {
 						isUnprocessedEvent = YES;
 					}
@@ -241,9 +241,9 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_L:
 					if (processEventUsingStateMachine(flags,
 													  keyCode,
-													  _keysDown,
+													  self->_keysDown,
 													  transitionType,
-													  _stateMachine)
+													  self->_stateMachine)
 						== false) {
 						isUnprocessedEvent = YES;
 					}
@@ -333,7 +333,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 	if (value) {
 		JXKeyCode keyCode = (JXKeyCode)(value - 1);
 		
-		BOOL isDown = _keysDown[keyCode];
+		BOOL isDown = self->_keysDown[keyCode];
 		return @(isDown);
 	}
 	else {
