@@ -297,40 +297,6 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 }
 
 
-#if 0
-- (void)resetKeys
-{
-#if ENABLE_BINDINGS
-	messageSelectorForEveryHandledKeyCode(self, @selector(willChangeValueForKeyCode:));
-#endif
-	
-	// Simulate every key that is marked as down being released.
-	JXKeyState transitionType = KeyIsUp;
-	NSEventModifierFlags flags = 0;
-	
-	for (JXKeyCode keyCode = 0; keyCode < KeyCodeCount; keyCode++) {
-		switch (keyCode) {
-			case kVK_ANSI_J:
-			case kVK_ANSI_K:
-			case kVK_ANSI_L: {
-				processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine);
-				break;
-			}
-				
-			default:
-				break;
-		}
-		
-		_keysDown[keyCode] = KeyIsUp;
-	}
-	
-#if ENABLE_BINDINGS
-	messageSelectorForEveryHandledKeyCode(self, @selector(didChangeValueForKeyCode:));
-#endif
-}
-#endif
-
-
 # pragma mark Bindings Support
 
 - (id)valueForKey:(NSString *)key
