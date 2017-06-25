@@ -87,7 +87,7 @@ JXKeyState * handledKeys() {
 	self->_document = [TSCDocument new];
 	if (self->_enableBindings)  [self didChangeValueForKey:@"document"];
 	
-	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:self->_document];
+	self->_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:self->_document];
 }
 
 # pragma mark Event Handling
