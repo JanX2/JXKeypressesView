@@ -139,6 +139,8 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	// already covered by the state of `_keysDown[]`.
 	if (isARepeat == NO) { // We currently only want events without modifiers.
 		
+		BOOL isUnprocessedEvent = NO;
+		
 		JXKeyCode keyCode = theEvent.keyCode;
 		JXKeyState transitionType = KeyIsDown;
 		
@@ -152,9 +154,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
 					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
-						// We currently do this too early, as we change `_keysDown[keyCode]` afterwards
-						// so that change below is not taken into account.
-						[self resetStateMachine];
+						isUnprocessedEvent = YES;
 					}
 					break;
 					
@@ -191,6 +191,10 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				[self didChangeValueForKeyCode:keyCode];
 			}
 			
+			if (isUnprocessedEvent) {
+				[self resetStateMachine];
+			}
+			
 		}
 	}
 	else if (isARepeat) {
@@ -216,6 +220,8 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	// already covered by the state of `_keysDown[]`.
 	if (isARepeat == NO) {
 		
+		BOOL isUnprocessedEvent = NO;
+		
 		JXKeyCode keyCode = theEvent.keyCode;
 		JXKeyState transitionType = KeyIsUp;
 		
@@ -229,7 +235,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
 					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
-						[self resetStateMachine];
+						isUnprocessedEvent = YES;
 					}
 					break;
 					
@@ -258,6 +264,10 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 			
 			if (self->_enableBindings) {
 				[self didChangeValueForKeyCode:keyCode];
+			}
+			
+			if (isUnprocessedEvent) {
+				[self resetStateMachine];
 			}
 			
 		}
