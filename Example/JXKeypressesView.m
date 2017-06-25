@@ -81,6 +81,8 @@ JXKeyState * handledKeys() {
 
 - (void)initKeypressesView
 {
+	_enableBindings = YES;
+	
 	[self willChangeValueForKey:@"document"];
 	self->_document = [TSCDocument new];
 	[self didChangeValueForKey:@"document"];
@@ -179,13 +181,15 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 					break;
 			}
 			
-#if ENABLE_BINDINGS
-			[self willChangeValueForKeyCode:keyCode];
-#endif
+			if (self->_enableBindings) {
+				[self willChangeValueForKeyCode:keyCode];
+			}
+			
 			_keysDown[keyCode] = transitionType;
-#if ENABLE_BINDINGS
-			[self didChangeValueForKeyCode:keyCode];
-#endif
+			
+			if (self->_enableBindings) {
+				[self didChangeValueForKeyCode:keyCode];
+			}
 			
 		}
 	}
@@ -246,13 +250,15 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 					break;
 			}
 			
-#if ENABLE_BINDINGS
-			[self willChangeValueForKeyCode:keyCode];
-#endif
+			if (self->_enableBindings) {
+				[self willChangeValueForKeyCode:keyCode];
+			}
+			
 			_keysDown[keyCode] = transitionType;
-#if ENABLE_BINDINGS
-			[self didChangeValueForKeyCode:keyCode];
-#endif
+			
+			if (self->_enableBindings) {
+				[self didChangeValueForKeyCode:keyCode];
+			}
 			
 		}
 	}
@@ -266,7 +272,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	}
 }
 
-#if ENABLE_BINDINGS
+
 typedef void (*IMPForKeyCode)(JXKeypressesView *, SEL, JXKeyCode);
 
 void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL selectorForKeyCode) {
@@ -280,7 +286,6 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 		}
 	}
 }
-#endif
 
 - (void)flagsChanged:(NSEvent *)theEvent
 {
