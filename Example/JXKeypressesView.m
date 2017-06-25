@@ -83,9 +83,9 @@ JXKeyState * handledKeys() {
 {
 	_enableBindings = YES;
 	
-	[self willChangeValueForKey:@"document"];
+	if (self->_enableBindings)  [self willChangeValueForKey:@"document"];
 	self->_document = [TSCDocument new];
-	[self didChangeValueForKey:@"document"];
+	if (self->_enableBindings)  [self didChangeValueForKey:@"document"];
 	
 	_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:self->_document];
 }
