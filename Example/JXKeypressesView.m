@@ -153,7 +153,12 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
+					if (processEventUsingStateMachine(flags,
+													  keyCode,
+													  _keysDown,
+													  transitionType,
+													  _stateMachine)
+						== false) {
 						isUnprocessedEvent = YES;
 					}
 					break;
@@ -234,7 +239,12 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_ANSI_J:
 				case kVK_ANSI_K:
 				case kVK_ANSI_L:
-					if (processEventUsingStateMachine(flags, keyCode, _keysDown, transitionType, _stateMachine) == false) {
+					if (processEventUsingStateMachine(flags,
+													  keyCode,
+													  _keysDown,
+													  transitionType,
+													  _stateMachine)
+						== false) {
 						isUnprocessedEvent = YES;
 					}
 					break;
