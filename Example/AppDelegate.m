@@ -27,7 +27,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	[_window makeFirstResponder: _keypressesView];
+	[_window makeFirstResponder:_keypressesView];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
