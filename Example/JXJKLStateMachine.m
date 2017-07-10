@@ -63,6 +63,8 @@ state_element_t * buildStateMatrix(id target) {
 	SEL pauseCT      = @selector(pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:);
 	SEL back1f       = @selector(playBackwardsOneFrameAndStartHalfNaturalRateTimer:);
 	SEL play1f       = @selector(playForwardsOneFrameAndStartHalfNaturalRateTimer:);
+	SEL back1xCT       = @selector(playBackwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:);
+	SEL play1xCT       = @selector(playForwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:);
 #pragma clang diagnostic pop
 
 	typedef struct {
@@ -78,14 +80,14 @@ state_element_t * buildStateMatrix(id target) {
 	state_selector_pair_t stateMatrixBackwardsSection[S_Count][stateMatrixBackwardsSectionColumnCount] =
 	{
 		/*{ Index,               0,                         1,                     2,                    },*/
-		/*{ State/Event Name,    E_JDown_From___ToJ__,      E_KUp_FromJK_ToJ__,    E_JDown_From_K_ToJK_, },*/
-		{/* S_FastBackwards,  */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_Backwards,      */ {S_FastBackwards, backNx}, {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_HalfBackwards,  */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Pause, pauseCT},    {S_Pause, back1f},    },
-		{/* S_HalfForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_Forward,        */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
-		{/* S_FastForward,    */ {S_Backwards, back1x},     {S_Backwards, back1x}, {S_Pause, back1f},    },
+		/*{ State/Event Name,    E_JDown_From___ToJ__,      E_KUp_FromJK_ToJ__,      E_JDown_From_K_ToJK_, },*/
+		{/* S_FastBackwards,  */ {S_FastBackwards, backNx}, {S_Backwards, back1xCT}, {S_Pause, back1f},    },
+		{/* S_Backwards,      */ {S_FastBackwards, backNx}, {S_Backwards, back1xCT}, {S_Pause, back1f},    },
+		{/* S_HalfBackwards,  */ {S_Backwards, back1x},     {S_Backwards, back1xCT}, {S_Pause, back1f},    },
+		{/* S_Pause,          */ {S_Backwards, back1x},     {S_Pause, pauseCT},      {S_Pause, back1f},    },
+		{/* S_HalfForward,    */ {S_Backwards, back1x},     {S_Backwards, back1xCT}, {S_Pause, back1f},    },
+		{/* S_Forward,        */ {S_Backwards, back1x},     {S_Backwards, back1xCT}, {S_Pause, back1f},    },
+		{/* S_FastForward,    */ {S_Backwards, back1x},     {S_Backwards, back1xCT}, {S_Pause, back1f},    },
 	};
 	
 	state_selector_pair_t stateMatrixPauseSection[S_Count][stateMatrixPauseSectionColumnCount] =
@@ -104,14 +106,14 @@ state_element_t * buildStateMatrix(id target) {
 	state_selector_pair_t stateMatrixForwardsSection[S_Count][stateMatrixForwardsSectionColumnCount] =
 	{
 		/*{ Index,               6,                     7,                   8,                       },*/
-		/*{ State/Event Name,    E_LDown_From_K_To_KL,  E_KUp_From_KLTo__L,  E_LDown_From___To__L,    },*/
-		{/* S_FastBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
-		{/* S_Backwards,      */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
-		{/* S_HalfBackwards,  */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
-		{/* S_Pause,          */ {S_Pause, play1f},     {S_Pause, pauseCT},  {S_Forward, play1x},     },
-		{/* S_HalfForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_Forward, play1x},     },
-		{/* S_Forward,        */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
-		{/* S_FastForward,    */ {S_Pause, play1f},     {S_Forward, play1x}, {S_FastForward, playNx}, },
+		/*{ State/Event Name,    E_LDown_From_K_To_KL,  E_KUp_From_KLTo__L,    E_LDown_From___To__L,    },*/
+		{/* S_FastBackwards,  */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_Forward, play1x},     },
+		{/* S_Backwards,      */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_Forward, play1x},     },
+		{/* S_HalfBackwards,  */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_Forward, play1x},     },
+		{/* S_Pause,          */ {S_Pause, play1f},     {S_Pause, pauseCT},    {S_Forward, play1x},     },
+		{/* S_HalfForward,    */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_Forward, play1x},     },
+		{/* S_Forward,        */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_FastForward, playNx}, },
+		{/* S_FastForward,    */ {S_Pause, play1f},     {S_Forward, play1xCT}, {S_FastForward, playNx}, },
 	};
 	
 	typedef struct {

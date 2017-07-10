@@ -45,6 +45,20 @@
 	self.player.rate = TSCAVPlayerRateNaturalBackward;
 }
 
+- (IBAction)playForwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
+{
+	[self stopHalfNaturalRateTimer];
+	
+	[self playForwardsAtNaturalRate:sender];
+}
+
+- (IBAction)playBackwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
+{
+	[self stopHalfNaturalRateTimer];
+	
+	[self playBackwardsAtNaturalRate:sender];
+}
+
 
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 {
