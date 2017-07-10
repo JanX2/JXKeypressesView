@@ -56,6 +56,8 @@ JXKeyState * handledKeys() {
 
 @implementation JXKeypressesView {
 	JXJKLStateMachine *_stateMachine;
+	
+	IBOutlet TSCDocument *_document;
 }
 
 
@@ -83,11 +85,24 @@ JXKeyState * handledKeys() {
 {
 	self->_enableBindings = YES;
 	
-	if (self->_enableBindings)  [self willChangeValueForKey:@"document"];
-	self->_document = [TSCDocument new];
-	if (self->_enableBindings)  [self didChangeValueForKey:@"document"];
-	
-	self->_stateMachine = [[JXJKLStateMachine alloc] initWithTarget:self->_document];
+	[self initStateMachine];
+}
+
+- (void)initStateMachine
+{
+	if (self->_document != nil) {
+		self->_stateMachine =
+		[[JXJKLStateMachine alloc] initWithTarget:self->_document];
+	}
+}
+
+- (void)setDocument:(TSCDocument *)document
+{
+	if (self->_document != document) {
+		self->_document = document;
+		
+		[self initStateMachine];
+	}
 }
 
 # pragma mark Event Handling
