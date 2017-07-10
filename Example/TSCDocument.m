@@ -1,5 +1,5 @@
 //
-//  TSCDocumentDummy.m
+//  TSCDocument.m
 //  Keyboard Keypresses Aggregation
 //
 //  Created by Jan on 02.05.17.
