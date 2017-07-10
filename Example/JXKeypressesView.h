@@ -13,8 +13,6 @@
 
 @interface JXKeypressesView : NSView
 
-@property (nonatomic, readonly) TSCDocument *document;
-
 @property (nonatomic, readwrite, assign) BOOL enableBindings;
 
 @end

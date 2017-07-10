@@ -15,11 +15,13 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="_document" destination="jo6-No-Jw6" id="1sc-vi-GJ7"/>
                 <outlet property="_keypressesView" destination="EiT-Mj-1SZ" id="kqX-2q-jDl"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="jo6-No-Jw6" userLabel="Dummy Document" customClass="TSCDocument" customModule="Keyboard_Keypresses_Aggregation" customModuleProvider="target"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Keyboard Keypresses Aggregation" id="1Xt-HY-uBw">

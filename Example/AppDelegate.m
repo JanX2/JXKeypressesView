@@ -8,15 +8,18 @@
 
 #import "AppDelegate.h"
 
+#import "TSCDocument.h"
 #import "JXKeypressesView.h"
 
 
 @interface AppDelegate () {
+	IBOutlet TSCDocument *_document;
 	IBOutlet JXKeypressesView *_keypressesView;
 }
 
 @property (weak) IBOutlet NSWindow *window;
 
+@property (nonatomic, readonly) TSCDocument *document;
 @property (nonatomic, readonly) JXKeypressesView *keypressesView;
 
 @end
