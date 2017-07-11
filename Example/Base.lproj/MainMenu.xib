@@ -15,13 +15,13 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="_document" destination="jo6-No-Jw6" id="1sc-vi-GJ7"/>
+                <outlet property="_document" destination="jo6-No-Jw6" id="rUC-fC-2bC"/>
                 <outlet property="_keypressesView" destination="EiT-Mj-1SZ" id="kqX-2q-jDl"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-        <customObject id="jo6-No-Jw6" userLabel="Dummy Document" customClass="TSCDocument" customModule="Keyboard_Keypresses_Aggregation" customModuleProvider="target"/>
+        <customObject id="jo6-No-Jw6" userLabel="Dummy Document" customClass="TSCDocument"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Keyboard Keypresses Aggregation" id="1Xt-HY-uBw">
@@ -898,6 +898,9 @@
                     <constraint firstItem="h3t-PO-Yl7" firstAttribute="centerX" secondItem="2L8-6p-COm" secondAttribute="centerX" id="xVJ-Ga-ddt"/>
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="trailing" secondItem="Axq-hH-7Hh" secondAttribute="trailing" id="yjd-Na-PjD"/>
                 </constraints>
+                <connections>
+                    <outlet property="_document" destination="jo6-No-Jw6" id="dPb-62-JJG"/>
+                </connections>
             </view>
             <point key="canvasLocation" x="418" y="601"/>
         </window>
