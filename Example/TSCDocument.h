@@ -34,15 +34,10 @@
 
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 - (IBAction)playBackwardsAtHalfNaturalRate:(id)sender;
-- (IBAction)playForwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
-- (IBAction)playBackwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
+- (IBAction)cancelHalfNaturalRateTimerIfRunning:(id)sender;
 
 - (IBAction)playForwardsOneFrame:(id)sender;
 - (IBAction)playBackwardsOneFrame:(id)sender;
-
-- (IBAction)playForwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
-- (IBAction)playBackwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
-- (IBAction)pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
 
 - (IBAction)pausePlayback:(id)sender;
 

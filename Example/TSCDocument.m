@@ -45,20 +45,6 @@
 	self.player.rate = TSCAVPlayerRateNaturalBackward;
 }
 
-- (IBAction)playForwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
-{
-	[self stopHalfNaturalRateTimer];
-	
-	[self playForwardsAtNaturalRate:sender];
-}
-
-- (IBAction)playBackwardsAtNaturalRateAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
-{
-	[self stopHalfNaturalRateTimer];
-	
-	[self playBackwardsAtNaturalRate:sender];
-}
-
 
 - (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
 {
@@ -148,6 +134,11 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 	}
 }
 
+- (IBAction)cancelHalfNaturalRateTimerIfRunning:(id)sender;
+{
+	[self stopHalfNaturalRateTimer];
+}
+
 
 - (IBAction)playForwardsOneFrameAndStartHalfNaturalRateTimer:(id)sender;
 {
@@ -165,13 +156,6 @@ NSTimeInterval halfNaturalRateDelay = 0.5;
 							 directionForward:NO];
 }
 
-
-- (IBAction)pausePlaybackAndCancelHalfNaturalRateTimerIfRunning:(id)sender;
-{
-	[self stopHalfNaturalRateTimer];
-	
-	[self pausePlayback:self];
-}
 
 - (IBAction)pausePlayback:(id)sender;
 {
