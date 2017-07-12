@@ -12,6 +12,7 @@
 #import "JXKeypressesDefinitions.h"
 #import "JXKeypressesToEventNames.h"
 #import "TSCDocument+AdvancedPlayback.h"
+#import "TSCDocument+BasicPlayback.h"
 
 
 #define ENABLE_BINDINGS	1
@@ -30,7 +31,7 @@ JXKeyState * handledKeys() {
 	
 	dispatch_once(&OnceToken, ^{
 		handledKeys[kVK_ANSI_J]		= KeyIsHandled;
-		handledKeys[kVK_Space]		= KeyNotHandled;
+		handledKeys[kVK_Space]		= KeyIsHandled;
 		handledKeys[kVK_ANSI_K]		= KeyIsHandled;
 		handledKeys[kVK_ANSI_L]		= KeyIsHandled;
 #if 0
@@ -181,6 +182,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 				case kVK_Space:
 					if (flags == 0) {
 						// Pause/play normally.
+						[self->_document playPauseToggle:self];
 					}
 					break;
 					
