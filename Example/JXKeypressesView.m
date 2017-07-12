@@ -152,7 +152,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 	
 	// We ignore repeat events, because they are
 	// already covered by the state of `_keysDown[]`.
-	if (isARepeat == NO) { // We currently only want events without modifiers.
+	if (isARepeat == NO) {
 		
 		BOOL isUnprocessedEvent = NO;
 		
