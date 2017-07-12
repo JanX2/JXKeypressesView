@@ -11,7 +11,7 @@
 #import "JXJKLStateMachine.h"
 #import "JXKeypressesDefinitions.h"
 #import "JXKeypressesToEventNames.h"
-#import "TSCDocument.h"
+#import "TSCDocument+AdvancedPlayback.h"
 
 
 #define ENABLE_BINDINGS	1

@@ -17,6 +17,7 @@
 		3D52C5461EB91281003ECADB /* JXKeypressesToEventNames.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D52C5441EB91281003ECADB /* JXKeypressesToEventNames.c */; };
 		3D52C54A1EB9199F003ECADB /* JXKeypressesDefinitions.c in Sources */ = {isa = PBXBuildFile; fileRef = 3D52C5491EB9199F003ECADB /* JXKeypressesDefinitions.c */; };
 		3D7FC89B1EB6639C006B220A /* JXJKLStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */; };
+		3DA958A51F161C6700F1314F /* TSCDocument+AdvancedPlayback.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA958A41F161C6700F1314F /* TSCDocument+AdvancedPlayback.m */; };
 		3DD3AC231EC1D53C00679479 /* AVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3AC221EC1D53C00679479 /* AVPlayer.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		3D705EF91ECA524C00351A6C /* JXState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXState.h; sourceTree = "<group>"; };
 		3D7FC8981EB66051006B220A /* JXJKLStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXJKLStateMachine.h; sourceTree = "<group>"; };
 		3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXJKLStateMachine.m; sourceTree = "<group>"; };
+		3DA958A31F161C6700F1314F /* TSCDocument+AdvancedPlayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSCDocument+AdvancedPlayback.h"; sourceTree = "<group>"; };
+		3DA958A41F161C6700F1314F /* TSCDocument+AdvancedPlayback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSCDocument+AdvancedPlayback.m"; sourceTree = "<group>"; };
 		3DD3AC211EC1D53C00679479 /* AVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayer.h; sourceTree = "<group>"; };
 		3DD3AC221EC1D53C00679479 /* AVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayer.m; sourceTree = "<group>"; };
 		3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXPowersOfTwoHelpers.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
 				3D52C53E1EB8D3B2003ECADB /* TSCDocument.h */,
 				3D52C53F1EB8D3B2003ECADB /* TSCDocument.m */,
+				3DA958A31F161C6700F1314F /* TSCDocument+AdvancedPlayback.h */,
+				3DA958A41F161C6700F1314F /* TSCDocument+AdvancedPlayback.m */,
 			);
 			path = "Keyboard Keypresses Aggregation";
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				3D4C7B2C1E698C9B0013CF8C /* AppDelegate.m in Sources */,
 				3D52C5421EB8D41E003ECADB /* TSCAVPlayerRateConstants.c in Sources */,
 				3D4C7B3D1E698CE00013CF8C /* JXKeypressesView.m in Sources */,
+				3DA958A51F161C6700F1314F /* TSCDocument+AdvancedPlayback.m in Sources */,
 				3DD3AC231EC1D53C00679479 /* AVPlayer.m in Sources */,
 				3D7FC89B1EB6639C006B220A /* JXJKLStateMachine.m in Sources */,
 				3D52C54A1EB9199F003ECADB /* JXKeypressesDefinitions.c in Sources */,

@@ -10,11 +10,14 @@
 
 #import "AVPlayer.h"
 
+#import "TSCAVPlayerRateConstants.h"
+
 
 @interface TSCDocument : NSObject
 
 
 @property (nonatomic, readonly, strong) AVPlayer *player;
+@property (nonatomic, readonly, strong) NSTimer *halfNaturalRateDelayTimer;
 
 
 @property (nonatomic, readonly, assign) BOOL playingForwardsAtNaturalRate;
@@ -28,20 +31,5 @@
 
 @property (nonatomic, readonly, assign) BOOL playingIsPaused;
 
-
-- (IBAction)playForwardsAtNaturalRate:(id)sender;
-- (IBAction)playBackwardsAtNaturalRate:(id)sender;
-
-- (IBAction)playForwardsAtHalfNaturalRate:(id)sender;
-- (IBAction)playBackwardsAtHalfNaturalRate:(id)sender;
-- (IBAction)cancelHalfNaturalRateTimerIfRunning:(id)sender;
-
-- (IBAction)playForwardsOneFrame:(id)sender;
-- (IBAction)playBackwardsOneFrame:(id)sender;
-
-- (IBAction)pausePlayback:(id)sender;
-
-- (IBAction)playAtNextRateForCurrentRate:(id)sender;
-- (IBAction)playAtPreviousRateForCurrentRate:(id)sender;
 
 @end
