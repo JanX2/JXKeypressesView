@@ -179,19 +179,19 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 					break;
 					
 				case kVK_Space:
-					if (flags != 0) {
+					if (flags == 0) {
 						// Pause/play normally.
 					}
 					break;
 					
 				case kVK_ANSI_I:
-					if (flags != 0) {
+					if (flags == 0) {
 						// Set in-point.
 					}
 					break;
 					
 				case kVK_ANSI_O:
-					if (flags != 0) {
+					if (flags == 0) {
 						// Set out-point.
 					}
 					break;
