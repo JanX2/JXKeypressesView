@@ -67,7 +67,7 @@
 		3D4C7B1E1E698C9B0013CF8C = {
 			isa = PBXGroup;
 			children = (
-				3D4C7B291E698C9B0013CF8C /* Keyboard Keypresses Aggregation */,
+				3D4C7B291E698C9B0013CF8C /* Example */,
 				3D4C7B281E698C9B0013CF8C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,15 +80,49 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D4C7B291E698C9B0013CF8C /* Keyboard Keypresses Aggregation */ = {
+		3D4C7B291E698C9B0013CF8C /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				3D4C7B2A1E698C9B0013CF8C /* AppDelegate.h */,
 				3D4C7B2B1E698C9B0013CF8C /* AppDelegate.m */,
+				3D4C7B301E698C9B0013CF8C /* Assets.xcassets */,
+				3D842E5C1F2A31EB0047EB86 /* Dummies */,
+				3D842E5D1F2A32560047EB86 /* JXKeypressesView */,
+				3D842E5E1F2A32BD0047EB86 /* Resources */,
+				3D4C7B2D1E698C9B0013CF8C /* Supporting Files */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		3D4C7B2D1E698C9B0013CF8C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3D4C7B2E1E698C9B0013CF8C /* main.m */,
+				3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */,
+				3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */,
+				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D842E5C1F2A31EB0047EB86 /* Dummies */ = {
+			isa = PBXGroup;
+			children = (
 				3DD3AC211EC1D53C00679479 /* AVPlayer.h */,
 				3DD3AC221EC1D53C00679479 /* AVPlayer.m */,
-				3D4C7B301E698C9B0013CF8C /* Assets.xcassets */,
-				3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */,
+				3D52C53E1EB8D3B2003ECADB /* TSCDocument.h */,
+				3D52C53F1EB8D3B2003ECADB /* TSCDocument.m */,
+				3DA958A31F161C6700F1314F /* TSCDocument+AdvancedPlayback.h */,
+				3DA958A41F161C6700F1314F /* TSCDocument+AdvancedPlayback.m */,
+				3DA958A61F16213900F1314F /* TSCDocument+BasicPlayback.h */,
+				3DA958A71F16213900F1314F /* TSCDocument+BasicPlayback.m */,
+			);
+			name = Dummies;
+			sourceTree = "<group>";
+		};
+		3D842E5D1F2A32560047EB86 /* JXKeypressesView */ = {
+			isa = PBXGroup;
+			children = (
 				3D7FC8981EB66051006B220A /* JXJKLStateMachine.h */,
 				3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */,
 				3D52C5471EB9158F003ECADB /* JXKeypressesDefinitions.h */,
@@ -99,27 +133,17 @@
 				3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.m */,
 				3D705EF91ECA524C00351A6C /* JXState.h */,
 				3DD3AC251EC491A800679479 /* JXStateForRate.h */,
-				3D4C7B321E698C9B0013CF8C /* MainMenu.xib */,
-				3D4C7B351E698C9B0013CF8C /* Info.plist */,
-				3D4C7B2D1E698C9B0013CF8C /* Supporting Files */,
-				3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */,
-				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
-				3D52C53E1EB8D3B2003ECADB /* TSCDocument.h */,
-				3D52C53F1EB8D3B2003ECADB /* TSCDocument.m */,
-				3DA958A31F161C6700F1314F /* TSCDocument+AdvancedPlayback.h */,
-				3DA958A41F161C6700F1314F /* TSCDocument+AdvancedPlayback.m */,
-				3DA958A61F16213900F1314F /* TSCDocument+BasicPlayback.h */,
-				3DA958A71F16213900F1314F /* TSCDocument+BasicPlayback.m */,
 			);
-			path = "Keyboard Keypresses Aggregation";
+			name = JXKeypressesView;
 			sourceTree = "<group>";
 		};
-		3D4C7B2D1E698C9B0013CF8C /* Supporting Files */ = {
+		3D842E5E1F2A32BD0047EB86 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D4C7B2E1E698C9B0013CF8C /* main.m */,
+				3D4C7B321E698C9B0013CF8C /* MainMenu.xib */,
+				3D4C7B351E698C9B0013CF8C /* Info.plist */,
 			);
-			name = "Supporting Files";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
