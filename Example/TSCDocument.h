@@ -31,6 +31,9 @@
 
 @property (nonatomic, readonly, assign) BOOL playingIsPaused;
 
+@property (nonatomic, readwrite, assign) BOOL loopInPointToggle;
+@property (nonatomic, readwrite, assign) BOOL loopOutPointToggle;
+
 
 @end
 

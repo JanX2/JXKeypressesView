@@ -12,10 +12,12 @@
 
 - (IBAction)setLoopInPointTimeToCurrentTime:(id)sender;
 {
+	self.loopInPointToggle = !self.loopInPointToggle;
 }
 
 - (IBAction)setLoopOutPointTimeToCurrentTime:(id)sender;
 {
+	self.loopOutPointToggle = !self.loopOutPointToggle;
 }
 
 @end
