@@ -13,6 +13,7 @@
 #import "JXKeypressesToEventNames.h"
 #import "TSCDocument+AdvancedPlayback.h"
 #import "TSCDocument+BasicPlayback.h"
+#import "TSCDocument+LoopSupport.h"
 
 
 #define ENABLE_BINDINGS	1
@@ -188,13 +189,13 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 					
 				case kVK_ANSI_I:
 					if (flags == 0) {
-						// Set in-point.
+						[self->_document setLoopInPointTimeToCurrentTime:self];
 					}
 					break;
 					
 				case kVK_ANSI_O:
 					if (flags == 0) {
-						// Set out-point.
+						[self->_document setLoopOutPointTimeToCurrentTime:self];
 					}
 					break;
 					
