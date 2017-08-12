@@ -16,8 +16,6 @@
 #import "TSCDocument+LoopSupport.h"
 
 
-#define ENABLE_BINDINGS	1
-
 // NOTE: We are using key codes here, because we want to use keys located
 // in the same place on every keyboard regardless of layout.
 
