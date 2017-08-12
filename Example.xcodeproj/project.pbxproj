@@ -122,7 +122,7 @@
 				3D842E631F2A33350047EB86 /* TSCDocument+LoopSupport.h */,
 				3D842E641F2A33350047EB86 /* TSCDocument+LoopSupport.m */,
 			);
-			name = Dummies;
+			path = Dummies;
 			sourceTree = "<group>";
 		};
 		3D842E5D1F2A32560047EB86 /* JXKeypressesView */ = {
@@ -139,7 +139,7 @@
 				3D705EF91ECA524C00351A6C /* JXState.h */,
 				3DD3AC251EC491A800679479 /* JXStateForRate.h */,
 			);
-			name = JXKeypressesView;
+			path = JXKeypressesView;
 			sourceTree = "<group>";
 		};
 		3D842E5E1F2A32BD0047EB86 /* Resources */ = {
