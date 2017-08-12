@@ -67,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D45D8EF1F3F2E2700064F55 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */,
+				3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */,
+				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
 		3D4C7B1E1E698C9B0013CF8C = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 				3D4C7B301E698C9B0013CF8C /* Assets.xcassets */,
 				3D842E5C1F2A31EB0047EB86 /* Dummies */,
 				3D842E5D1F2A32560047EB86 /* JXKeypressesView */,
+				3D45D8EF1F3F2E2700064F55 /* misc */,
 				3D842E5E1F2A32BD0047EB86 /* Resources */,
 				3D4C7B2D1E698C9B0013CF8C /* Supporting Files */,
 			);
@@ -101,9 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				3D4C7B2E1E698C9B0013CF8C /* main.m */,
-				3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */,
-				3D52C5431EB8D452003ECADB /* TSCAVPlayerRateConstants.h */,
-				3D52C5411EB8D41E003ECADB /* TSCAVPlayerRateConstants.c */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
