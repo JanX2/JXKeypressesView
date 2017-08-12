@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -686,28 +688,45 @@
                             <rect key="frame" x="1" y="1" width="164" height="100"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-lD-B1a">
-                                    <rect key="frame" x="38" y="52" width="45" height="32"/>
-                                    <buttonCell key="cell" type="push" title="I" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S9y-Fa-4si">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.iButtonDown" id="4QU-cq-79I"/>
-                                    </connections>
-                                </button>
-                                <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="N41-WW-7OM">
-                                    <rect key="frame" x="83" y="52" width="45" height="32"/>
-                                    <buttonCell key="cell" type="push" title="O" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IFz-Nw-GGG">
-                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                        <font key="font" metaFont="system"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.oButtonDown" id="l8p-nC-FjH"/>
-                                    </connections>
-                                </button>
+                                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11e-h3-1uG" userLabel="IO">
+                                    <rect key="frame" x="40" y="59" width="84" height="21"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRe-lD-B1a">
+                                            <rect key="frame" x="-6" y="-7" width="50" height="32"/>
+                                            <buttonCell key="cell" type="push" title="I" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S9y-Fa-4si">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.iButtonDown" id="4QU-cq-79I"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="N41-WW-7OM">
+                                            <rect key="frame" x="40" y="-7" width="50" height="32"/>
+                                            <buttonCell key="cell" type="push" title="O" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IFz-Nw-GGG">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="Voe-Tx-rLC" name="value" keyPath="keypressesView.oButtonDown" id="l8p-nC-FjH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="N41-WW-7OM" firstAttribute="width" secondItem="TRe-lD-B1a" secondAttribute="width" id="2cj-Q7-Czu"/>
+                                        <constraint firstItem="N41-WW-7OM" firstAttribute="leading" secondItem="TRe-lD-B1a" secondAttribute="trailing" constant="8" id="FN9-Lu-s4p"/>
+                                    </constraints>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKk-Lm-F0W">
-                                    <rect key="frame" x="14" y="19" width="45" height="32"/>
+                                    <rect key="frame" x="14" y="19" width="47" height="32"/>
                                     <buttonCell key="cell" type="push" title="J" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aF8-eu-xk0">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -717,7 +736,10 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-Yf-41B">
-                                    <rect key="frame" x="55" y="19" width="45" height="32"/>
+                                    <rect key="frame" x="57" y="19" width="50" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="d9y-pU-FEC"/>
+                                    </constraints>
                                     <buttonCell key="cell" type="push" title="K" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qEH-1H-7IE">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -727,7 +749,7 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" translatesAutoresizingMaskIntoConstraints="NO" id="KN0-XA-zc3">
-                                    <rect key="frame" x="105" y="19" width="45" height="32"/>
+                                    <rect key="frame" x="103" y="19" width="48" height="32"/>
                                     <buttonCell key="cell" type="push" title="L" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3FW-qc-Dpy">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -738,27 +760,25 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="KN0-XA-zc3" firstAttribute="top" secondItem="N41-WW-7OM" secondAttribute="bottom" constant="12" id="5yE-CA-IDe"/>
-                                <constraint firstItem="1ch-Yf-41B" firstAttribute="leading" secondItem="YKk-Lm-F0W" secondAttribute="trailing" constant="8" id="77q-mk-2Eq"/>
-                                <constraint firstItem="KN0-XA-zc3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1ch-Yf-41B" secondAttribute="trailing" constant="12" symbolic="YES" id="7jQ-jh-aOP"/>
-                                <constraint firstItem="N41-WW-7OM" firstAttribute="top" secondItem="B2E-Rs-mha" secondAttribute="top" constant="20" id="Cyb-CD-bMA"/>
-                                <constraint firstItem="1ch-Yf-41B" firstAttribute="width" secondItem="TRe-lD-B1a" secondAttribute="width" id="Gjn-x0-0jI"/>
-                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="leading" secondItem="B2E-Rs-mha" secondAttribute="leading" constant="20" id="JFU-Wt-gwh"/>
-                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="width" secondItem="TRe-lD-B1a" secondAttribute="width" id="KvA-YT-zzN"/>
-                                <constraint firstItem="TRe-lD-B1a" firstAttribute="leading" secondItem="B2E-Rs-mha" secondAttribute="leading" constant="44" id="YRd-AO-Y6H"/>
-                                <constraint firstItem="N41-WW-7OM" firstAttribute="width" secondItem="TRe-lD-B1a" secondAttribute="width" id="ab4-X8-0ym"/>
-                                <constraint firstItem="TRe-lD-B1a" firstAttribute="top" secondItem="B2E-Rs-mha" secondAttribute="top" constant="20" id="blS-yx-Xq2"/>
-                                <constraint firstAttribute="trailing" secondItem="N41-WW-7OM" secondAttribute="trailing" constant="42" id="emc-eX-Hj6"/>
-                                <constraint firstItem="N41-WW-7OM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TRe-lD-B1a" secondAttribute="trailing" constant="12" symbolic="YES" id="i6G-4m-Td7"/>
-                                <constraint firstAttribute="trailing" secondItem="KN0-XA-zc3" secondAttribute="trailing" constant="20" id="lrr-zJ-8BE"/>
-                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="top" secondItem="TRe-lD-B1a" secondAttribute="bottom" constant="12" id="n5N-kZ-cAw"/>
-                                <constraint firstItem="KN0-XA-zc3" firstAttribute="width" secondItem="TRe-lD-B1a" secondAttribute="width" id="qcQ-J8-n3u"/>
-                                <constraint firstItem="1ch-Yf-41B" firstAttribute="top" secondItem="N41-WW-7OM" secondAttribute="bottom" constant="12" id="rX7-bX-R0w"/>
+                                <constraint firstItem="KN0-XA-zc3" firstAttribute="leading" secondItem="1ch-Yf-41B" secondAttribute="trailing" constant="8" id="0hh-AE-Do5"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="leading" secondItem="YKk-Lm-F0W" secondAttribute="trailing" constant="8" id="1yD-0h-rXp"/>
+                                <constraint firstItem="11e-h3-1uG" firstAttribute="top" secondItem="B2E-Rs-mha" secondAttribute="top" constant="20" id="4cX-n6-bg9"/>
+                                <constraint firstItem="11e-h3-1uG" firstAttribute="centerX" secondItem="B2E-Rs-mha" secondAttribute="centerX" id="6W5-AG-nYX"/>
+                                <constraint firstItem="KN0-XA-zc3" firstAttribute="height" secondItem="11e-h3-1uG" secondAttribute="height" id="FQ2-MB-jzL"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="height" secondItem="11e-h3-1uG" secondAttribute="height" id="NLu-gw-VjS"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="baseline" secondItem="1ch-Yf-41B" secondAttribute="baseline" id="d8Z-DS-HzS"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="baseline" secondItem="KN0-XA-zc3" secondAttribute="baseline" id="fA3-tA-mxg"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B2E-Rs-mha" secondAttribute="leading" constant="17" id="gkk-xl-KPc"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KN0-XA-zc3" secondAttribute="trailing" constant="17" id="hj0-Zm-qUA"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="width" secondItem="11e-h3-1uG" secondAttribute="width" multiplier="1:2" constant="-4" id="k5A-Dx-Tmb"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="height" secondItem="11e-h3-1uG" secondAttribute="height" id="m6k-l8-GwZ"/>
+                                <constraint firstItem="1ch-Yf-41B" firstAttribute="centerX" secondItem="B2E-Rs-mha" secondAttribute="centerX" id="rTc-JI-7qu"/>
+                                <constraint firstItem="YKk-Lm-F0W" firstAttribute="top" secondItem="11e-h3-1uG" secondAttribute="bottom" constant="12" id="vp7-QB-wgf"/>
                             </constraints>
                         </view>
                         <constraints>
                             <constraint firstAttribute="height" constant="112" id="hr0-ou-LEE"/>
-                            <constraint firstAttribute="width" constant="160" id="zNy-Dz-3zs"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="zNy-Dz-3zs"/>
                         </constraints>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -876,7 +896,7 @@
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h3t-PO-Yl7" userLabel="Pause Button">
                         <rect key="frame" x="140" y="13" width="64" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="52" id="m7O-F2-j9M"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="160" constant="52" id="m7O-F2-j9M"/>
                         </constraints>
                         <buttonCell key="cell" type="push" title="❙❙" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bSO-PK-Utp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -902,8 +922,10 @@
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="9v7-pf-Ree"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="leading" secondItem="8dm-cK-pbG" secondAttribute="leading" id="BZz-Pj-hsc"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="D6j-QG-EU6"/>
+                    <constraint firstItem="h3t-PO-Yl7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wV1-jP-s7T" secondAttribute="trailing" constant="74" id="Enl-SJ-nUT"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="trailing" secondItem="YK6-nu-mCE" secondAttribute="trailing" id="F6p-H6-hzv"/>
                     <constraint firstItem="ZRH-Hj-hLJ" firstAttribute="trailing" secondItem="YK6-nu-mCE" secondAttribute="trailing" id="FMM-Qu-cTq"/>
+                    <constraint firstItem="olX-1J-KuC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h3t-PO-Yl7" secondAttribute="trailing" constant="74" id="FQh-Td-jBc"/>
                     <constraint firstItem="ZRH-Hj-hLJ" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="GxN-Xe-kUe"/>
                     <constraint firstItem="75e-MX-sr7" firstAttribute="leading" secondItem="Axq-hH-7Hh" secondAttribute="leading" id="Hkx-Nt-11P"/>
                     <constraint firstItem="xbk-ib-yIm" firstAttribute="top" secondItem="YK6-nu-mCE" secondAttribute="bottom" constant="12" id="I16-QM-6KU"/>
@@ -911,7 +933,7 @@
                     <constraint firstItem="Sel-uf-hjx" firstAttribute="leading" secondItem="2L8-6p-COm" secondAttribute="leading" id="LRo-ni-UHI"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="MSi-AY-Svg"/>
                     <constraint firstItem="h3t-PO-Yl7" firstAttribute="width" secondItem="YK6-nu-mCE" secondAttribute="width" id="OLI-4j-gJ7"/>
-                    <constraint firstItem="2L8-6p-COm" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="trailing" constant="20" id="OM5-w9-qfm"/>
+                    <constraint firstItem="2L8-6p-COm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YK6-nu-mCE" secondAttribute="trailing" constant="20" id="OM5-w9-qfm"/>
                     <constraint firstItem="vRb-yi-hEi" firstAttribute="top" secondItem="rVq-hr-ErS" secondAttribute="bottom" constant="12" id="OMu-W5-QaE"/>
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="leading" secondItem="Axq-hH-7Hh" secondAttribute="leading" id="QPN-Qj-HBp"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="leading" secondItem="YK6-nu-mCE" secondAttribute="leading" id="RJg-aD-qk8"/>
@@ -946,7 +968,7 @@
                     <constraint firstItem="rVq-hr-ErS" firstAttribute="trailing" secondItem="vRb-yi-hEi" secondAttribute="trailing" id="mxg-qI-CCi"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="trailing" secondItem="xbk-ib-yIm" secondAttribute="trailing" id="oC9-ti-KgV"/>
                     <constraint firstItem="ZRH-Hj-hLJ" firstAttribute="trailing" secondItem="YK6-nu-mCE" secondAttribute="trailing" id="pHw-a3-67q"/>
-                    <constraint firstItem="Axq-hH-7Hh" firstAttribute="leading" secondItem="2L8-6p-COm" secondAttribute="trailing" constant="20" id="rJR-Ya-anK"/>
+                    <constraint firstItem="Axq-hH-7Hh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2L8-6p-COm" secondAttribute="trailing" constant="20" id="rJR-Ya-anK"/>
                     <constraint firstItem="8dm-cK-pbG" firstAttribute="top" secondItem="xbk-ib-yIm" secondAttribute="bottom" constant="12" id="rL2-rR-dvF"/>
                     <constraint firstItem="h3t-PO-Yl7" firstAttribute="baseline" secondItem="wV1-jP-s7T" secondAttribute="baseline" id="rP4-X1-iKO"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vRb-yi-hEi" secondAttribute="trailing" constant="20" id="vIA-Mz-BM4"/>
