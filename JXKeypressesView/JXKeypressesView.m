@@ -137,9 +137,9 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 		beforeKeyFlags = KeyFlag_K;
 	}
 	
-	JXEvent event = eventNameForEventTransition(transitionType,
-												transitionKey,
-												beforeKeyFlags);
+	JXJKLEvent event = eventNameForEventTransition(transitionType,
+												   transitionKey,
+												   beforeKeyFlags);
 	[stateMachine processEvent:event];
 	
 	return true;

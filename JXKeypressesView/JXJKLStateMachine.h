@@ -15,7 +15,7 @@
 
 - (instancetype)initWithTarget:(id)target;
 
-- (void)processEvent:(JXEvent)event;
+- (void)processEvent:(JXJKLEvent)event;
 
 @end
 

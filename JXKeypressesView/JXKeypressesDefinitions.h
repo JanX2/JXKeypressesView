@@ -41,7 +41,7 @@ typedef enum {
   //E_KDown_From__LTo_KL  = 10,
 	E_Count               = 9,
 	E_Invalid             = 10,
-} JXEvent;
+} JXJKLEvent;
 
 
 /*
