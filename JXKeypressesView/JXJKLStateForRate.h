@@ -1,5 +1,5 @@
 //
-//  JXStateForRate.h
+//  JXJKLStateForRate.h
 //  Keyboard Keypresses Aggregation
 //
 //  Created by Jan on 11.05.17.
@@ -11,8 +11,8 @@
 #include "JXPowersOfTwoHelpers.h"
 #include "TSCAVPlayerRateConstants.h"
 
-static inline JXState stateForQuantizedRate(float rate) {
-	JXState state;
+static inline JXJKLState stateForQuantizedRate(float rate) {
+	JXJKLState state;
 	
 	if (rate <= -2.0) {
 		state = S_FastBackwards;
@@ -42,7 +42,7 @@ static inline JXState stateForQuantizedRate(float rate) {
 	return state;
 }
 
-static inline JXState stateForRate(float rate) {
+static inline JXJKLState stateForRate(float rate) {
 	PowerOfTwoParameters parameters = (PowerOfTwoParameters){
 		.specialCases = true,
 		.keepPowersOfTwo = true,
@@ -51,7 +51,7 @@ static inline JXState stateForRate(float rate) {
 	
 	const float quantizedRate = closestPowerOfTwo(rate, parameters);
 	
-	JXState state = stateForQuantizedRate(quantizedRate);
+	JXJKLState state = stateForQuantizedRate(quantizedRate);
 	
 	return state;
 }

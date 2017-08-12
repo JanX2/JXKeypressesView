@@ -1,5 +1,5 @@
 //
-//  JXState.h
+//  JXJKLState.h
 //  Keyboard Keypresses Aggregation
 //
 //  Created by Jan on 15.05.17.
@@ -19,7 +19,7 @@ typedef enum {
 	S_Count              = 7,
 	S_Invalid            = 8,
 	S_NoChange           = 9,
-} JXState;
+} JXJKLState;
 
 /*
  Copyright 2017 Jan Weiß

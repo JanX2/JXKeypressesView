@@ -41,7 +41,7 @@
 		3D52C5451EB91281003ECADB /* JXKeypressesToEventNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXKeypressesToEventNames.h; sourceTree = "<group>"; };
 		3D52C5471EB9158F003ECADB /* JXKeypressesDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXKeypressesDefinitions.h; sourceTree = "<group>"; };
 		3D52C5491EB9199F003ECADB /* JXKeypressesDefinitions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JXKeypressesDefinitions.c; sourceTree = "<group>"; };
-		3D705EF91ECA524C00351A6C /* JXState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXState.h; sourceTree = "<group>"; };
+		3D705EF91ECA524C00351A6C /* JXJKLState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXJKLState.h; sourceTree = "<group>"; };
 		3D7FC8981EB66051006B220A /* JXJKLStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXJKLStateMachine.h; sourceTree = "<group>"; };
 		3D7FC8991EB66051006B220A /* JXJKLStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXJKLStateMachine.m; sourceTree = "<group>"; };
 		3D842E631F2A33350047EB86 /* TSCDocument+LoopSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSCDocument+LoopSupport.h"; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		3DD3AC211EC1D53C00679479 /* AVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayer.h; sourceTree = "<group>"; };
 		3DD3AC221EC1D53C00679479 /* AVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayer.m; sourceTree = "<group>"; };
 		3DD3AC241EC48B3000679479 /* JXPowersOfTwoHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXPowersOfTwoHelpers.h; sourceTree = "<group>"; };
-		3DD3AC251EC491A800679479 /* JXStateForRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXStateForRate.h; sourceTree = "<group>"; };
+		3DD3AC251EC491A800679479 /* JXJKLStateForRate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXJKLStateForRate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +144,8 @@
 				3D52C5441EB91281003ECADB /* JXKeypressesToEventNames.c */,
 				3D4C7B3B1E698CE00013CF8C /* JXKeypressesView.h */,
 				3D4C7B3C1E698CE00013CF8C /* JXKeypressesView.m */,
-				3D705EF91ECA524C00351A6C /* JXState.h */,
-				3DD3AC251EC491A800679479 /* JXStateForRate.h */,
+				3D705EF91ECA524C00351A6C /* JXJKLState.h */,
+				3DD3AC251EC491A800679479 /* JXJKLStateForRate.h */,
 			);
 			path = JXKeypressesView;
 			sourceTree = "<group>";

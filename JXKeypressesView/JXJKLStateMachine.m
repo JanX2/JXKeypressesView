@@ -10,15 +10,15 @@
 
 #import "TSCDocument.h"
 
-#import "JXState.h"
-#import "JXStateForRate.h"
+#import "JXJKLState.h"
+#import "JXJKLStateForRate.h"
 
 
 typedef void (*JXAction)(id, SEL, id);
 static const JXAction nil_action = NULL;
 
 typedef struct {
-	JXState nextState;
+	JXJKLState nextState;
 	JXAction actionToTrigger;
 	SEL actionSelector;
 	JXAction preAction;
@@ -68,7 +68,7 @@ state_element_t * buildStateMatrix(id target) {
 #pragma clang diagnostic pop
 
 	typedef struct {
-		JXState nextState;
+		JXJKLState nextState;
 		SEL actionToTrigger;
 		SEL preAction;
 	} state_selector_pair_t;
@@ -263,7 +263,7 @@ void destroyStateMatrix(state_element_t *stateMatrix) {
 }
 
 
-bool isValidState(JXState state) {
+bool isValidState(JXJKLState state) {
 	_Static_assert(S_FastBackwards == 0, "");
 	return ((S_FastBackwards <= state) && (state < S_Count));
 }
@@ -280,7 +280,7 @@ bool isValidEvent(JXEvent event) {
 	
 	TSCDocument *document = _target;
 	float rate = document.player.rate;
-	JXState state = stateForRate(rate);
+	JXJKLState state = stateForRate(rate);
 	
 	assert(isValidState(state));
 	assert(isValidEvent(event));
