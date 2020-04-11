@@ -15,7 +15,7 @@
 
 @property (nonatomic, readwrite, assign) BOOL enableBindings;
 
-@property (nonatomic, readonly, strong) TSCDocument *document;
+@property (nonatomic, readonly, weak) TSCDocument *document;
 
 @end
 

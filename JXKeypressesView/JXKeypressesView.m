@@ -57,7 +57,7 @@ JXKeyState * handledKeys() {
 @implementation JXKeypressesView {
 	JXJKLStateMachine *_stateMachine;
 	
-	IBOutlet TSCDocument *_document;
+	IBOutlet __weak TSCDocument *_document;
 }
 
 
