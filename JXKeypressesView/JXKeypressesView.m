@@ -24,7 +24,7 @@ const JXKeyCode KeyCodeMax = 0x7E;
 const JXKeyCode KeyCodeCount = KeyCodeMax + 1;
 
 
-JXKeyState * handledKeys() {
+JXKeyState * handledKeys(void) {
 	static dispatch_once_t OnceToken;
 	static JXKeyState handledKeys[KeyCodeCount];
 	
@@ -347,7 +347,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 						 (__bridge const void *)key);
 	
 	if (value) {
-		JXKeyCode keyCode = (JXKeyCode)(value - 1);
+		JXKeyCode keyCode = (JXKeyCode)(ptrdiff_t)(value - 1);
 		
 		BOOL isDown = self->_keysDown[keyCode];
 		return @(isDown);
@@ -359,7 +359,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 
 NSString * const JXKUndefinedKeyCode = @"*undefined*";
 
-NSArray * namesForKeyCodesArray() {
+NSArray * namesForKeyCodesArray(void) {
 	static dispatch_once_t OnceToken;
 	static NSArray *array = nil;
 	
@@ -500,7 +500,7 @@ NSArray * namesForKeyCodesArray() {
 	return array;
 }
 
-NSArray * buttonDownPropertyNamesForKeyCodesArray() {
+NSArray * buttonDownPropertyNamesForKeyCodesArray(void) {
 	static dispatch_once_t OnceToken;
 	static NSArray *array = nil;
 	
@@ -529,7 +529,7 @@ NSArray * buttonDownPropertyNamesForKeyCodesArray() {
 	return array;
 }
 
-CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict() {
+CFDictionaryRef propertyNames2KeyCodesOffsetBy1Dict(void) {
 	static dispatch_once_t OnceToken;
 	static CFDictionaryRef dict = nil;
 	
