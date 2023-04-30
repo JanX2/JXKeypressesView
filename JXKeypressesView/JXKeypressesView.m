@@ -146,7 +146,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 - (void)keyDown:(NSEvent *)theEvent
 {
 	BOOL isARepeat = theEvent.isARepeat;
-	NSEventModifierFlags flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
+	NSEventModifierFlags flags = theEvent.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask;
 	
 	BOOL handledKey = NO;
 	
@@ -231,7 +231,7 @@ bool processEventUsingStateMachine(NSEventModifierFlags flags,
 - (void)keyUp:(NSEvent *)theEvent
 {
 	BOOL isARepeat = theEvent.isARepeat;
-	NSEventModifierFlags flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
+	NSEventModifierFlags flags = theEvent.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask;
 	
 	BOOL handledKey = NO;
 	
@@ -325,7 +325,7 @@ void messageSelectorForEveryHandledKeyCode(JXKeypressesView *keypressesView, SEL
 
 - (void)flagsChanged:(NSEvent *)theEvent
 {
-	NSEventModifierFlags flags = theEvent.modifierFlags & NSDeviceIndependentModifierFlagsMask;
+	NSEventModifierFlags flags = theEvent.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask;
 	
 	if (flags != 0) {
 		[self resetStateMachine];
